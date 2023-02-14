@@ -16,12 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
         user::create([
             'name' => 'futsal',
@@ -165,7 +159,8 @@ kelas::insert($createMultipleUsers); // Eloquent
 $createMultipleUsers1 = [
     ['nama_ekskul'=>'Dance'],
     ['nama_ekskul'=>'PMR'],
-    ['nama_ekskul'=>'Basket']
+    ['nama_ekskul'=>'Basket'],
+    ['nama_ekskul'=>'Futsal']
 ];
 ekstrakulikuler::insert($createMultipleUsers1); // Eloquent
     }

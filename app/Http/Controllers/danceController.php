@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\update;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class danceController extends Controller
 {
@@ -13,7 +16,10 @@ class danceController extends Controller
      */
     public function index()
     {
-        return view('dance');
+        $dance = DB::table('update')
+            ->where('ekskul_id', '1')->get();
+        $data = update::where('ekskul_id', '1')->get();
+        return view('ekstra.dance.dashboard' , compact('dance', 'data'));
     }
 
     /**
@@ -23,7 +29,7 @@ class danceController extends Controller
      */
     public function create()
     {
-        //
+        return view('ekstra.dance.tambah');
     }
 
     /**
@@ -34,7 +40,37 @@ class danceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //ambil parameter
+        $file1 = $request->file('foto1');
+        $file2 = $request->file('foto2');
+        $file3 = $request->file('foto3');
+        
+        //rename
+        $nama_file1 = time() . '_' . $file1->getClientOriginalName();
+        $nama_file2 = time() . '_' . $file2->getClientOriginalName();
+        $nama_file3 = time() . '_' . $file3->getClientOriginalName();
+        
+        //proses upload
+        $tujuan_upload = './images';
+        $file1->move($tujuan_upload, $nama_file1);
+        $file2->move($tujuan_upload, $nama_file2);
+        $file3->move($tujuan_upload, $nama_file3);
+        
+        // $ekskul = ekstrakulikuler::
+
+        update::create([
+        'ekskul_id' => '1',
+        'deskripsi'=> $request-> deskripsi,
+        'hari'=> $request-> hari,
+        'jam'=> $request-> jam,
+        'foto1'=> $nama_file1,
+        'foto2'=> $nama_file2,
+        'foto3'=> $nama_file3,
+
+    ]); 
+
+        Session::flash('success', 'data berhasil disimpan !!!');
+        return redirect('/dance');
     }
 
     /**
@@ -56,7 +92,8 @@ class danceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = update::find($id);
+        return view('ekstra.dance.edit', compact('edit'));
     }
 
     /**
@@ -80,5 +117,12 @@ class danceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus($id)
+    {
+        $dance = update::find($id);
+        $dance->delete();
+        return redirect('/dance');
     }
 }

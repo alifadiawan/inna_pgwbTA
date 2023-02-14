@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class update extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'judul',
-        'deskripsi',
-        'hari',
-        'jam',
-        'foto'
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'judul',
+    //     'deskripsi',
+    //     'hari',
+    //     'jam',
+    //     'foto'
+    // ];
 
     public function ekskul(){
         return $this->BelongsTo(ekstrakulikuler::class);

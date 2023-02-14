@@ -31,6 +31,34 @@
 
                                         </div>
                                     </div>
+        <div class="row">
+            <div class="card border-0 shadow-lg p-3 mb-5 bg-body rounded-3">
+                <div class="col">
+                    <h4 class="fw-bold">Edit Hero</h4>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide">
+
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" style="height: 300px">
+                                        <img src="images/futsal1.jpg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 300px">
+                                        <img src="images/pmr2.jpg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 300px">
+                                        <img src="images/pmr1.jpg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+
+                                        </div>
+                                    </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
                                     data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

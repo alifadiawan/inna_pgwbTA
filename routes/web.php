@@ -35,6 +35,9 @@ route::middleware('auth')->group(function ()  {
     route::resource('tabelmaster', tabelmasterController::class);
     Route::get('preview', [adminController::class, 'preview'])->name('admin.preview');
     Route::get('/admin/{id}/detail', [adminController::class, 'tambah_deskripsi'])->name('admin.tambahdeskripsi');
+
+    Route::get('/futsal/{id}/hapus', [futsalController::class, 'hapus'])->name('futsal.hapus');
+    Route::get('/dance/{id}/hapus', [danceController::class, 'hapus'])->name('dance.hapus');
 });
 
 Route::get('/editview', function(){

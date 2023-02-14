@@ -15,7 +15,7 @@ class adminController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
 
     public function index()
     {
@@ -38,14 +38,6 @@ class adminController extends Controller
         return view('welcomeadmin', compact('data_update'));
     }
 
-    // public function futsal()
-    // {
-    //     $daftar_siswa = tabelmaster::select()->where('ekstrakulikuler_id', '2')->get();
-    //     $daftar_ekskul = ekstrakulikuler::all();
-    //     $daftar_kelas = kelas::all();
-    //     // $dance = tabelmaster::where('ekstrakulikuler_id','1');
-    //     return view('adminfutsal', compact('daftar_ekskul', 'daftar_kelas', 'daftar_siswa'));
-    // }
     /**
      * Show the form for creating a new resource.
      *
@@ -53,13 +45,13 @@ class adminController extends Controller
      */
     public function create()
     {
-        $update = update::find($id);
+        $update = update::all();
         return view('tambahkonten', compact('update'));
     }
 
     public function tambah_deskripsi()
     {
-        $update = update::find($id);
+        $update = update::all();
         return view('tambahkonten', compact('update'));
     }
 
@@ -170,30 +162,30 @@ class adminController extends Controller
         //     'foto_up'=> 'mimes:jpg,bmp,png,jpeg',
         // ], $message);
 
-        if ($request->foto != '') {
-            // $update = update::find($id);
-            // file::delete('./images/' . $update->foto);
+        // if ($request->foto != '') {
+        //     // $update = update::find($id);
+        //     // file::delete('./images/' . $update->foto);
 
-            // //ambil informasi file yang diupload
-            $file = $request->file('foto');
+        //     // //ambil informasi file yang diupload
+        //     $file = $request->file('foto');
 
-            //rename
-            $nama_file = time() . "_" . $file->getClientOriginalName();
-            // proses upload
-            $tujuan_upload = './images';
-            $file->move($tujuan_upload, $nama_file);
+        //     //rename
+        //     $nama_file = time() . "_" . $file->getClientOriginalName();
+        //     // proses upload
+        //     $tujuan_upload = './images';
+        //     $file->move($tujuan_upload, $nama_file);
 
-            $update->judul = $request->judul_up;
-            $update->deskripsi = $request->deskripsi_up;
-            $update->hari = $request->hari_up;
-            $update->jam = $request->jam_up;
-            $update->foto = $nama_file;
-            $update->save();
-            // dd($update);
-            return redirect('admin');
+        //     $nama_file->judul = $request->judul_up;
+        //     $nama_file->deskripsi = $request->deskripsi_up;
+        //     $nama_file->hari = $request->hari_up;
+        //     $nama_file->jam = $request->jam_up;
+        //     $nama_file->foto = $nama_file;
+        //     $nama_file->save();
+        //     // dd($update);
+        //     return redirect('admin');
             
 
-        };
+        }
         // } else {
         //     $update=update::find($id);
         //     $update->judul = $request->judul_up;
@@ -212,16 +204,13 @@ class adminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
 
-    public function destroy($id)
-    {
-    }
+     public function destroy($id)
+     {
+         // $daftar_siswa = tabelmaster::find($id)->delete();
+         // // Session::flash('success', 'data berhasil dihapus !!!');
+         // return redirect('/adminalip');
+     }
 
-    public function hapus($id)
-    {
-        $daftar_siswa = tabelmaster::find($id)->delete();
-        // Session::flash('success', 'data berhasil dihapus !!!');
-        return redirect('/adminalip');
-    }
+    
 }

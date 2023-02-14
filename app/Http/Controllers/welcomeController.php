@@ -18,9 +18,9 @@ class welcomeController extends Controller
      */
     public function index()
     {
-       
-        $update= update::all();
-        return view('welcome' , compact('update'));
+        $futsal= update::where('ekskul_id', '4')->get();
+        $dance = update::where('ekskul_id', '1')->get();
+        return view('welcome' , compact('futsal', 'dance'));
     }
 
 

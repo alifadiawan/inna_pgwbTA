@@ -24,11 +24,11 @@ class loginController extends Controller
             $request->session()->regenerate();
  
             if(Auth::User()->role == 'futsal'){
-                return redirect()->intended('admin');
+                return redirect()->intended('futsal');
             }elseif(Auth::User()->role == 'dance'){
-                return redirect()->intended('admin');
+                return redirect()->intended('dance');
             }elseif(Auth::User()->role == 'pmr'){
-                return redirect()->intended('admin');
+                return redirect()->intended('pmr');
             }elseif(Auth::User()->role == 'siswa'){
                 return redirect()->intended('siswa');
             }else{
