@@ -15,21 +15,21 @@ class adminController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */ 
+     */
 
     public function index()
     {
-        $daftar_siswa = tabelmaster::with('kelas')->get();  
-        $pmr = tabelmaster::where('ekstrakulikuler_id',1)->get();
+        $daftar_siswa = tabelmaster::with('kelas')->get();
+        // $pmr = tabelmaster::where('ekstrakulikuler_id',1)->get();
         $daftar_kelas = kelas::all();
         $data = tabelmaster::all();
     //     $daftar_kelas = kelas::with('daftar')->get();
     //    return $pmr;
         $daftar_ekskul = ekstrakulikuler::all();
-        $update = update::with('ekskul')->get(); 
+        $update = update::with('ekskul')->get();
         // return $daftar_ekskul;
         // $update = update::all();
-        return view('admin', compact('daftar_siswa','daftar_kelas','daftar_ekskul','data','pmr','update'));
+        return view('admin', compact('daftar_siswa','daftar_kelas','daftar_ekskul','data','update'));
     }
 
     public function preview()
@@ -64,7 +64,7 @@ class adminController extends Controller
 
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -106,19 +106,19 @@ class adminController extends Controller
             'jam'=> 'required',
             'hari'=> 'required',
             'foto'=> 'required|mimes:jpg,bmp,png,jpeg',
-            
+
         ], $message );
 
 
         //
-        
+
 
         //ambil parameter
         $file = $request->file('foto');
-        
+
         //rename
         $nama_file = time() . '_' . $file->getClientOriginalName();
-        
+
         //proses upload
         $tujuan_upload = './images';
         $file->move($tujuan_upload, $nama_file);
@@ -129,8 +129,8 @@ class adminController extends Controller
             'hari'=> $request-> alamat,
             'jam'=> $request-> jk,
             'foto'=> $nama_file,
-           
-        ]); 
+
+        ]);
 
         Session::flash('success', 'data berhasil diUpdate !!!');
         return redirect('/admin');
@@ -142,10 +142,10 @@ class adminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
     public function update(Request $request, $id)
     {
-        
+
         // $message = [
         //     'required' => ':attribute harus diisi ',
         //     'min' => ':attribute minimal :min karakter',
@@ -183,7 +183,7 @@ class adminController extends Controller
         //     $nama_file->save();
         //     // dd($update);
         //     return redirect('admin');
-            
+
 
         }
         // } else {
@@ -196,7 +196,7 @@ class adminController extends Controller
         //     return redirect('admin');
 
         // };
-    }
+
 
     /**
      * Display the specified resource.
@@ -212,5 +212,5 @@ class adminController extends Controller
          // return redirect('/adminalip');
      }
 
-    
-}
+    }
+

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\ekstrakulikuler;
 use App\Models\kelas;
 use App\Models\update;
+use App\Models\tabelmaster;
 
 class futsalController extends Controller
 {
@@ -22,10 +23,11 @@ class futsalController extends Controller
      */
     public function index()
     {
+        $daftar_siswa = tabelmaster::with('kelas')->get();
         $futsal = DB::table('update')
             ->where('ekskul_id', '4')->get();
         $data = update::where('ekskul_id', '4')->get();
-        return view('ekstra.futsal.dashboard', compact('futsal', 'data'));
+        return view('ekstra.futsal.dashboard', compact('futsal', 'data','daftar_siswa'));
     }
 
     /**
@@ -60,24 +62,24 @@ class futsalController extends Controller
         //     'hari' => 'required',
         //     'foto' => 'required|mimes:jpg,bmp,png,jpeg',
 
-        // ], $message); 
-        
+        // ], $message);
+
         //ambil parameter
         $file1 = $request->file('foto1');
         $file2 = $request->file('foto2');
         $file3 = $request->file('foto3');
-        
+
         //rename
         $nama_file1 = time() . '_' . $file1->getClientOriginalName();
         $nama_file2 = time() . '_' . $file2->getClientOriginalName();
         $nama_file3 = time() . '_' . $file3->getClientOriginalName();
-        
+
         //proses upload
         $tujuan_upload = './images';
         $file1->move($tujuan_upload, $nama_file1);
         $file2->move($tujuan_upload, $nama_file2);
         $file3->move($tujuan_upload, $nama_file3);
-        
+
         // $ekskul = ekstrakulikuler::
 
         update::create([
@@ -89,7 +91,7 @@ class futsalController extends Controller
         'foto2'=> $nama_file2,
         'foto3'=> $nama_file3,
 
-    ]); 
+    ]);
 
         Session::flash('success', 'data berhasil disimpan !!!');
         return redirect('/futsal');
@@ -116,8 +118,8 @@ class futsalController extends Controller
     {
         $edit = update::find($id);
         return view('ekstra.futsal.edit' , compact('edit'));
-    }   
-
+    }
+ 
     /**
      * Update the specified resource in storage.
      *
@@ -137,24 +139,24 @@ class futsalController extends Controller
             file::delete('./images/' . $edit->foto1);
             file::delete('./images/' . $edit->foto2);
             file::delete('./images/' . $edit->foto3);
-            
+
             //ambil parameter
             $file1 = $request->file('foto1');
             $file2 = $request->file('foto2');
             $file3 = $request->file('foto3');
-            
+
             //rename
             $nama_file1 = time() . '_' . $file1->getClientOriginalName();
             $nama_file2 = time() . '_' . $file2->getClientOriginalName();
             $nama_file3 = time() . '_' . $file3->getClientOriginalName();
-            
+
             //proses upload
             $tujuan_upload = './images';
             $file1->move($tujuan_upload, $nama_file1);
             $file2->move($tujuan_upload, $nama_file2);
             $file3->move($tujuan_upload, $nama_file3);
-            
-    
+
+
             $edit->deskripsi = $request-> deskripsi;
             $edit->hari = $request-> hari;
             $edit->jam = $request-> jam;
@@ -170,7 +172,7 @@ class futsalController extends Controller
             $edit = update::find($id);
             $edit->deskripsi = $request-> deskripsi;
             $edit->hari = $request-> hari;
-            $edit->jam = $request-> jam; 
+            $edit->jam = $request-> jam;
             $edit->save();
             return redirect('/futsal');
         }

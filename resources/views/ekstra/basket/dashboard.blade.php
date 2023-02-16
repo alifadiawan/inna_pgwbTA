@@ -3,13 +3,13 @@
     <div class="row">
         <div class="col">
             <div class="card border-0 p-4 mb-5 text-light" style="background-color: #2f3037">
-                @if ($futsal->isEmpty())
+                @if ($basket->isEmpty())
                     <div class="row">
                         <div class="col">
                             <h4 class="fw-bold">Edit Hero {{ Auth::user()->role }}</h4>
                         </div>
                         <div class="col text-end">
-                            <a href="{{ route('futsal.create') }}" class="btn btn-success">
+                            <a href="{{ route('basket.create') }}" class="btn btn-success">
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 @else
-                    {{-- carousel futsal --}}
+                    {{-- carousel basket --}}
                     <div class="row">
                         <div class="col-6">
                             @foreach ($data as $item)
@@ -39,15 +39,15 @@
                                     <div class="carousel-inner">
                                         <div class="carousel-item active " style="height: 400px;">
                                             <img src="{{ asset('images/' . $item->foto1) }}" style="object-fit:fill;" class="d-block w-100"
-                                                alt="futsal" >
+                                                alt="basket" >
                                         </div>
                                         <div class="carousel-item" style="height: 400px">
                                             <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
-                                                alt="futsal">
+                                                alt="basket">
                                         </div>
                                         <div class="carousel-item" style="height: 400px">
                                             <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100"
-                                                alt="futsal">
+                                                alt="basket">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button"
@@ -92,9 +92,9 @@
             </div>
             <div class="row">
                 <div class="col text-end">
-                    <a href="{{ route('futsal.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route('basket.edit', $item->id) }}" class="btn btn-warning">Edit</a>
                     <a href="" class="btn text-light">Preview</a>
-                    <a href="{{ route('futsal.hapus', $item->id) }}" class="btn text-danger">
+                    <a href="{{ route('basket.hapus', $item->id) }}" class="btn text-danger">
                         <i class="fas fa-trash"></i>
                     </a>
                 </div>

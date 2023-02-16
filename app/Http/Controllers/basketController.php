@@ -14,7 +14,7 @@ use App\Models\kelas;
 use App\Models\update;
 use App\Models\tabelmaster;
 
-class pmrController extends Controller
+class basketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,10 +24,10 @@ class pmrController extends Controller
     public function index()
     {
         $daftar_siswa = tabelmaster::with('kelas')->get();
-        $pmr = DB::table('update')
+        $basket = DB::table('update')
             ->where('ekskul_id', '4')->get();
         $data = update::where('ekskul_id', '4')->get();
-        return view('ekstra.pmr.dashboard', compact('pmr', 'data','daftar_siswa'));
+        return view('ekstra.basket.dashboard', compact('basket', 'data','daftar_siswa'));
     }
 
     /**
@@ -37,7 +37,7 @@ class pmrController extends Controller
      */
     public function create()
     {
-        return view('ekstra.pmr.tambah');
+        return view('ekstra.basket.tambah');
     }
 
     /**
@@ -94,7 +94,7 @@ class pmrController extends Controller
     ]);
 
         Session::flash('success', 'data berhasil disimpan !!!');
-        return redirect('/pmr');
+        return redirect('/basket');
     }
 
     /**
@@ -117,7 +117,7 @@ class pmrController extends Controller
     public function edit($id)
     {
         $edit = update::find($id);
-        return view('ekstra.pmr.edit' , compact('edit'));
+        return view('ekstra.basket.edit' , compact('edit'));
     }
 
     /**
@@ -166,7 +166,7 @@ class pmrController extends Controller
             $edit->save();
 
             Session::flash('success', 'data berhasil diupdate !!!');
-            return redirect('/pmr');
+            return redirect('/basket');
 
         }else{
             $edit = update::find($id);
@@ -174,7 +174,7 @@ class pmrController extends Controller
             $edit->hari = $request-> hari;
             $edit->jam = $request-> jam;
             $edit->save();
-            return redirect('/pmr');
+            return redirect('/basket');
         }
     }
 
@@ -187,8 +187,8 @@ class pmrController extends Controller
 
     public function hapus($id)
     {
-        $pmr = update::find($id);
-        $pmr->delete();
+        $basket = update::find($id);
+        $basket->delete();
         return redirect()->back();
     }
 }

@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\tabelmaster;
-use App\Models\kelas;
-use App\Models\ekstrakulikuler;
-use App\Models\update;
-use App\Http\Controllers\loginController;
 
-class welcomeController extends Controller
+class serviceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +13,8 @@ class welcomeController extends Controller
      */
     public function index()
     {
-        $futsal= update::where('ekskul_id', '4')->get();
-        $dance = update::where('ekskul_id', '1')->get();
-        $pmr = update::where('ekskul_id', '2')->get();
-        $basket = update::where('ekskul_id', '3')->get();
-        return view('welcome' , compact('futsal', 'dance','pmr','basket'));
+        return view('customer_service');
     }
-
-
 
     /**
      * Show the form for creating a new resource.
