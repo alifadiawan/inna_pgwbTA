@@ -93,7 +93,7 @@
             <div class="row">
                 <div class="col text-end">
                     <a href="{{ route('futsal.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                    <a href="" class="btn text-light">Preview</a>
+                    <a href="{{ route('admin.preview') }}" class="btn text-light">Preview</a>
                     <a href="{{ route('futsal.hapus', $item->id) }}" class="btn text-danger">
                         <i class="fas fa-trash"></i>
                     </a>

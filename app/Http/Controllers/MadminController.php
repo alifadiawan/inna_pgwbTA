@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tabelmaster;
-// use Illuminate\Http\Request;
-use App\Models\ekstrakulikuler;
-use App\Models\kelas;
 use Illuminate\Http\Request;
 
-class tabelmasterController extends Controller
+class MadminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +13,7 @@ class tabelmasterController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -38,36 +34,7 @@ class tabelmasterController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $message = [
-        //     'required' => 'Harus diisi ya rek',
-        //     'required' => 'Loh, keluhannya apa ya?',
-        //     'required' => 'Loh, keluhannya apa ya?',
-        //     'required' => 'Loh, keluhannya apa ya?',
-        // ];
-
-        // $validateData = $request->validate([
-        //     'email' => 'required',
-        //     'pesan' => 'required',
-        // ], $message);
-
-        // service::create([
-        //     'email'  => $request->email,
-        //     'pesan'  => $request->pesan,
-        // ]);
-
-        // Session::flash('success','Pesan berhasil terkirim ya, rek');
-
-        // return redirect('/customer_service');
-
-        $siswa = tabelmaster::create([
-            'nama' => $request-> nama,
-            'no_hp' => $request-> no_hp,
-            'kelas_id' => $request-> kelas_id,
-            'ekstrakulikuler_id' => $request -> ekstrakulikuler_id
-        ]);
-
-        return redirect('siswa');
+        //
     }
 
     /**

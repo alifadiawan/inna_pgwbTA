@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\service;
+use Illuminate\Support\Facades\Session;
 class serviceController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class serviceController extends Controller
      */
     public function index()
     {
-        return view('customer_service');
+        $servis = service::all();
+        return view('customer_service',compact('servis'));
     }
 
     /**
@@ -34,7 +36,26 @@ class serviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $message = [
+            'required' => ':attribute Harus diisi ya rek',
+            'required' => ':attribute Loh, keluhannya apa ya?',
+        ];
+
+        $this->validate ($request,[
+            'email' => 'required',
+            'pesan' => 'required',
+        ], $message);
+
+        service::create([
+            'email'  => $request->email,
+            'pesan'  => $request->pesan,
+        ]);
+
+        Session::flash('success','Pesan berhasil terkirim ya, rek');
+        $servis=service::all();
+        return redirect('/customer_service',compact('servis'));
+
     }
 
     /**

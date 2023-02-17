@@ -77,8 +77,7 @@
                     <a class="nav-link dropdown-toggle page-scroll" href="#date" id="navbarDropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">CONTACT</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="article-details.html"><span class="item-text"><i
-                                    class='fa fa-whatsapp'></i> Custumer Service</span></a>
+                        <a class="dropdown-item" href="/customer_service"><span class="item-text">Custumer Service</span></a>
                     </div>
                 </li>
                 <!-- end of dropdown menu -->
@@ -313,11 +312,11 @@
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="post" action="{{ route('daftar.store') }}">
+                                                            <form method="post" action="{{ route('tabelmaster.store') }}">
                                                                 @csrf
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control-input" name="name"
-                                                                        id="name">
+                                                                    <input type="text" class="form-control-input" name="nama"
+                                                                        id="nama">
                                                                     <label for="">Name</label>
 
                                                                 </div>
@@ -536,12 +535,13 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="{{ route('daftar.store') }}">
+                                    <form method="post" action="{{ route('tabelmaster.store') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control-input" name="name"
-                                                id="name">
                                             <label for="">Name</label>
+                                            <input type="text" class="form-control-input" name="nama"
+                                                id="nama">
+
 
                                         </div>
                                         <div class="form-group">
@@ -552,84 +552,25 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <select class="form-select" id="kelas" name="kelas"
-                                                aria-label="Default select example">
-                                                <option selected>Pilih Kelas</option>
-                                                <option value="10 AKL 1">10 AKL 1</option>
-                                                <option value="10 AKL 2">10 AKL 2</option>
-                                                <option value="10 AKL 3">10 AKL 3</option>
-                                                <option value="10 AKL 4">10 AKL 4</option>
-                                                <option value="10 AKL 5">10 AKL 5</option>
-                                                <option value="10 BD 1">10 BD 1</option>
-                                                <option value="10 BD <">10 BD 2</option>
-                                                <option value="10 DKV 1">10 DKV 1</option>
-                                                <option value="10 DKV 2">10 DKV 2</option>
-                                                <option value="10 DKV 3">10 DKV 3</option>
-                                                <option value="10 MP 1">10 MP 1</option>
-                                                <option value="10 MP 2">10 MP 2</option>
-                                                <option value="10 MP 3<">10 MP 3</option>
-                                                <option value="10 MP 4">10 MP 4</option>
-                                                <option value="10 MP 5">10 MP 5</option>
-                                                <option value="10 PH 1">10 PH 1</option>
-                                                <option value="10 PH 2">10 PH 2</option>
-                                                <option value="10 PSPT 1">10 PSPT 1</option>
-                                                <option value="10 PSPT 2">10 PSPT 2</option>
-                                                <option value="10 PSPT 3">10 PSPT 3</option>
-                                                <option value="10 RPL 1">10 RPL 1</option>
-                                                <option value="10 RPL 2">10 RPL 2</option>
-                                                <option value="10 TKJ 1">10 TKJ 1</option>
-                                                <option value="10 TKJ 2">10 TKJ 2</option>
-                                                <option value="11 AKL 1">11 AKL 1</option>
-                                                <option value="11 AKL 2">11 AKL 2</option>
-                                                <option value="11 AKL 3">11 AKL 3</option>
-                                                <option value="11 AKL 4">11 AKL 4</option>
-                                                <option value="11 AKL 5">11 AKL 5</option>
-                                                <option value="11 BDP 1">11 BDP 1</option>
-                                                <option value="11 BDP 2">11 BDP 2</option>
-                                                <option value="11 DKV 1">11 DKV 1</option>
-                                                <option value="11 DKV 2">11 DKV 2</option>
-                                                <option value="11 MM 1<">11 MM 1</option>
-                                                <option value="11 MM 2<">11 MM 2</option>
-                                                <option value="11 OTKP 1">11 OTKP 1</option>
-                                                <option value="11 OTKP 2">11 OTKP 2</option>
-                                                <option value="11 OTKP 3">11 OTKP 3</option>
-                                                <option value="11 OTKP 4">11 OTKP 4</option>
-                                                <option value="11 OTKP 5">11 OTKP 5</option>
-                                                <option value="11 PH 1">11 PH 1</option>
-                                                <option value="11 PH 2">11 PH 2</option>
-                                                <option value="11 PSPT 1">11 PSPT 1</option>
-                                                <option value="11 PSPT 2">11 PSPT 2</option>
-                                                <option value="11 RPL 1">11 RPL 1</option>
-                                                <option value="11 RPL 2">11 RPL 2</option>
-                                                <option value="11 TKJ 1">11 TKJ 1</option>
-                                                <option value="11 TKJ 2">11 TKJ 2</option>
-                                                <option value="12 AKL 1">12 AKL 1</option>
-                                                <option value="12 AKL 2">12 AKL 2</option>
-                                                <option value="12 AKL 3">12 AKL 3</option>
-                                                <option value="12 AKL 4">12 AKL 4</option>
-                                                <option value="12 AKL 5">12 AKL 5</option>
-                                                <option value="12 BDP 1">12 BDP 1</option>
-                                                <option value="12 BDP 2">12 BDP 2</option>
-                                                <option value="12 DKV 1">12 DKV 1</option>
-                                                <option value="12 DKV 2">12 DKV 2</option>
-                                                <option value="12 MM 1">12 MM 1</option>
-                                                <option value="12 MM 2">12 MM 2</option>
-                                                <option value="12 OTKP 1">12 OTKP 1</option>
-                                                <option value="12 OTKP 2">12 OTKP 2</option>
-                                                <option value="12 OTKP 3">12 OTKP 3</option>
-                                                <option value="12 OTKP 4">12 OTKP 4</option>
-                                                <option value="12 OTKP 5">12 OTKP 5</option>
-                                                <option value="12 PH 1">12 PH 1</option>
-                                                <option value="12 PH 2">12 PH 2</option>
-                                                <option value="12 PSPT 1">12 PSPT 1</option>
-                                                <option value="12 PSPT 2">12 PSPT 2</option>
-                                                <option value="12 RPL 1">12 RPL 1</option>
-                                                <option value="12 RPL 2">12 RPL 2</option>
-                                                <option value="12 TKJ 1">12 TKJ 1</option>
-                                                <option value="12 TKJ 2">12 TKJ 2</option>
+                                            <label for="kelas">Pilih Kelas</label>
+                                            <select class="form-control" id="kelas_id" name="kelas_id">
+                                                @foreach ($daftar_kelas as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->kelas }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="ekstrakulikuler">Pilih Ekstrakulikuler</label>
+                                            <select class="form-control" id="ekstrakulikuler_id"
+                                                name="ekstrakulikuler_id">
+                                                @foreach ($daftar_ekskul as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama_ekskul }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
 
+                                        </div>
 
                                         <div class="form-group">
                                             <button type="submit"
@@ -684,11 +625,11 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="{{ route('daftar.store') }}">
+                                        <form method="post" action="{{ route('tabelmaster.store') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" class="form-control-input" name="name"
-                                                    id="name">
+                                                <input type="text" class="form-control-input" name="nama"
+                                                    id="nama">
                                                 <label for="">Name</label>
 
                                             </div>
@@ -908,11 +849,11 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="{{ route('daftar.store') }}">
+                                        <form method="post" action="{{ route('tabelmaster.store') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" class="form-control-input" name="name"
-                                                    id="name">
+                                                <input type="text" class="form-control-input" name="nama"
+                                                    id="nama">
                                                 <label for="">Name</label>
 
                                             </div>
@@ -1057,7 +998,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="{{ route('daftar.store') }}">
+                                        <form method="post" action="{{ route('tabelmaster.store') }}">
                                             @csrf
                                             <div class="form-group">
                                                 <input type="text" class="form-control-input" name="name"

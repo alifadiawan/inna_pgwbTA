@@ -45,8 +45,9 @@ class DatabaseSeeder extends Seeder
         $users = [
             ['name' => 'IBRAHIM', 'email' => 'ibrahim@gmail.com', 'password' => bcrypt('siswa123'), 'role' => 'siswa'],
             ['name' => 'IBRAHIM RIZKY FADILAH', 'email' => 'ibrahimrizkyfadilah@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
-            ['name' => 'IKSAN DINATA', 'email' => 'IKSAN@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
-            ['name' => 'ILHAM BINTANG HERLAMBANG', 'email' => 'ILHAM@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
+            ['name' => 'IKSAN ARYA DINATA', 'email' => 'iksanaryadinata@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
+            ['name' => 'ILHAM BINTANG HERLAMBANG', 'email' => 'ilhambintangherlambang@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
+            ['name' => 'INNA FILJANNATI APRILINA', 'email' => 'innafiljannatiaprilina@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
             ['name' => 'JULIAN FERNANDO EKAPANCA PUTRA', 'email' => 'julianekafernandoputra@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
             ['name' => 'KEVIN NUR PRASETYA', 'email' => 'kevinnurprasetyo@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],
             ['name' => 'KHAFIDATUL RAHMA', 'email' => 'khafidatulrahma@gmail.com', 'password' => bcrypt('siswa123'),'role' => 'siswa'],

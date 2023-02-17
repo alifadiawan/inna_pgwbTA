@@ -70,7 +70,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="register">REGISTER <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="register">LOGIN <span class="sr-only">(current)</span></a>
                 </li>
 
                 <!-- Dropdown Menu -->

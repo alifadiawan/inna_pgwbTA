@@ -102,23 +102,36 @@
             <img src="images/headercs.png" width="100%" alt="">
         </div>
     </div>
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if($message = Session::get('success'))
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    @endif
     <div class="row justify-content-center" style="padding-top: 20px">
         <div class="col-md-10">
             <div class="mb-3">
-             <form action="post" class="bg-white rounded-3">
+
+                <form action="{{route('customer_service.store')}}" class="bg-dark rounded-3" enctype="multipart/form-data" method="POST">
+                    @csrf
+
                 <div class="form-group p-5">
                     <label for="exampleFormControlInput1" class="form-label text-secondary fw-bold">Email address</label><br>
                     <label for="exampleFormControlInput1" style="color:#d3ad16 " class="form-label"> Masukkan email yang telah diberikan dari sekolah!</label>
-                    <input type="email" class="form-control " style="background-color: lightgrey" id="exampleFormControlInput1" placeholder="name@gmail.com">
+                    <input type="email" class="form-control " style="background-color: lightgrey" name="email" id="email" placeholder="name@gmail.com">
                 </div>
-                <div class="mb-3 p-5">
+                <div class="p-5 ">
                     <label for="exampleFormControlTextarea1" class="form-label text-secondary fw-bold">Example textarea</label><br>
                     <label for="exampleFormControlInput1" style="color:#d3ad16 " class="form-label">Beritahu kami keluhan anda.</label>
-                    <textarea class="form-control" style="background-color: lightgrey" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" style="background-color: lightgrey" id="pesan" name="pesan" rows="3"></textarea>
                 </div>
-                <div class="mt-4 text-end p-3">
+                <div class=" text-end p-5">
                     <input type="submit" class="btn btn-warning fw-bold" value="Upload">
-                    <a href="{{ route('pmr.index') }}" class="btn btn=secondary text-dark fw-bold">Cancel</a>
+
                 </div>
             </form>
         </div>
