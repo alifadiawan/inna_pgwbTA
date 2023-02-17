@@ -38,15 +38,15 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="{{ asset('images/' . $item->foto1) }}" class="d-block w-100"
+                                            <img src="{{ asset('images/' . $item->foto1) }}" class="d-block w-100 fixed-height"
                                                 alt="futsal">
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
+                                            <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100 fixed-height"
                                                 alt="futsal">
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100"
+                                            <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100 fixed-height"
                                                 alt="futsal">
                                         </div>
                                     </div>
