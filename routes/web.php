@@ -58,3 +58,7 @@ Route::get('/customer_service', function(){
     return view('customer_service');
 
 });
+Route::get('/masteradmin', function(){
+    return view('masteradmin');
+
+});

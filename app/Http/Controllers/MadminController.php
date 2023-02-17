@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\kelas;
+use App\Models\tabelmaster;
+use App\Models\ekstrakulikuler;
+use App\Models\update;
+use Illuminate\Support\Facades\Session;
 class MadminController extends Controller
 {
     /**
@@ -13,7 +18,14 @@ class MadminController extends Controller
      */
     public function index()
     {
-        //
+
+        $futsal= update::where('ekskul_id', '4')->get();
+        $dance = update::where('ekskul_id', '1')->get();
+        $pmr = update::where('ekskul_id', '2')->get();
+        $basket = update::where('ekskul_id', '3')->get();
+        $jml_siswa = tabelmaster::all();
+        return view('masteradmin', compact('futsal','dance','pmr','basket','jml_siswa'));
+
     }
 
     /**
