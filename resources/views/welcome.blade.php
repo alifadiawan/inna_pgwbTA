@@ -203,213 +203,23 @@
     <!-- end of visi misi -->
 
     {{-- dance ==1 --}}
+    @foreach ($dance as $item)
     <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                @foreach ($dance as $item)
-                    <div class="col-lg-6">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('images/' . $item->foto1) }}" class="d-block w-100 fixed-height "
-                                        alt="dance">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100 fixed-height"
-                                        alt="dance">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100 fixed-height"
-                                        alt="dance">
-                                </div>
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">Dance</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
                             </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 class="fw-bold">Dance</h2>
-                        <p>{{ $item->deskripsi }}</p>
-                        <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="table-primary" scope="col">Hari</th>
-                                    <th class="table-dark" scope="col">jam</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $item->hari }}</td>
-                                    <td>{{ $item->jam }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- end of dance -->
 
-    {{-- pmr ==2 --}}
-    @foreach ($pmr as $item)
-        <div class="basic-3">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-6">
-                        <h2 class="fw-bold">PMR</h2>
-                        <p>{{ $item->deskripsi }}</p>
-                        <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="table-primary" scope="col">Hari</th>
-                                    <th class="table-dark" scope="col">jam</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $item->hari }}</td>
-                                    <td>{{ $item->jam }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                    <div class="col-lg-6">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('images/' . $item->foto1) }}" class="d-block w-100"
-                                        alt="pmr">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
-                                        alt="pmr">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100"
-                                        alt="pmr">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-    @endforeach
-    </div>
-    </div>
-    </div>
-    <!-- end of pmr -->
-
-
-    {{-- BASKET ==3 --}}
-    @foreach ($basket as $item)
-        <div class="basic-3">
-            <div class="container mt-5">
-                <div class="row">
-
-                    <div class="col-lg-6">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('images/' . $item->foto1) }}" class="d-block w-100"
-                                        alt="basket">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
-                                        alt="basket">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100"
-                                        alt="basket">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 class="fw-bold">Basket</h2>
-                        <p>{{ $item->deskripsi }}</p>
-                        <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="table-primary" scope="col">Hari</th>
-                                    <th class="table-dark" scope="col">jam</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $item->hari }}</td>
-                                    <td>{{ $item->jam }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-    @endforeach
-
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- end of basket -->
-
-
-    {{-- FUTSAL ==4 --}}
-    <div class="basic-3">
-        <div
-            style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px">
-
-            <div class="container mt-5">
-                <div class="row">
-                    @foreach ($futsal as $item)
-                        <div class="col-lg-6">
-                            <h2 class="fw-bold">Futsal</h2>
-                            <p>{{ $item->deskripsi }}</p>
-                            <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="table-primary" scope="col">Hari</th>
-                                        <th class="table-dark" scope="col">jam</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $item->hari }}</td>
-                                        <td>{{ $item->jam }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
                         <div class="col-lg-6">
                             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
@@ -424,15 +234,15 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img src="{{ asset('images/' . $item->foto1) }}"
-                                            class="d-block w-100 fixed-height" alt="futsal">
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
                                     </div>
                                     <div class="carousel-item">
                                         <img src="{{ asset('images/' . $item->foto2) }}"
-                                            class="d-block w-100 fixed-height" alt="futsal">
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
                                     </div>
                                     <div class="carousel-item">
                                         <img src="{{ asset('images/' . $item->foto3) }}"
-                                            class="d-block w-100 fixed-height" alt="futsal">
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
@@ -447,7 +257,192 @@
                                 </button>
                             </div>
                         </div>
-                    @endforeach
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of dance -->
+
+    {{-- pmr ==2 --}}
+    @foreach ($pmr as $item)
+        <div class="basic-3">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 " >
+                        <div class="content">
+                            <h2 class="fw-bold">PMR</h2>
+                            <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                            <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                            <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                            <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                        </div>
+                    </div>
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/' . $item->foto1) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto2) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto3) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+    @endforeach
+                </div>
+            </div>
+        </div>
+
+    <!-- end of pmr -->
+
+
+    {{-- BASKET ==3 --}}
+    @foreach ($basket as $item)
+    <div class="basic-3">
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/' . $item->foto1) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto2) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto3) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">Basket</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                        </div>
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of basket -->
+
+
+    {{-- FUTSAL ==4 --}}
+    @foreach ($futsal as $item)
+    <div class="basic-3">
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">Futsal</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/' . $item->foto1) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto2) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto3) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+    @endforeach
                 </div>
             </div>
         </div>

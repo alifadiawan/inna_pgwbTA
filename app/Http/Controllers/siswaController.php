@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\tabelmaster;
 use App\Models\ekstrakulikuler;
 use App\Models\kelas;
+use App\Models\update;
 use Illuminate\Http\Request;
 
 class siswaController extends Controller
@@ -16,9 +17,13 @@ class siswaController extends Controller
      */
     public function index()
     {
+        $futsal= update::where('ekskul_id', '4')->get();
+        $dance = update::where('ekskul_id', '1')->get();
+        $pmr = update::where('ekskul_id', '2')->get();
+        $basket = update::where('ekskul_id', '3')->get();
         $daftar_ekskul = ekstrakulikuler::all();
         $daftar_kelas= kelas::all();
-        return view('siswa' , compact('daftar_ekskul', 'daftar_kelas'));
+        return view('siswa' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket',));
     }
 
     /**
@@ -39,7 +44,7 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**

@@ -25,8 +25,8 @@ class basketController extends Controller
     {
         $daftar_siswa = tabelmaster::with('kelas')->get();
         $basket = DB::table('update')
-            ->where('ekskul_id', '4')->get();
-        $data = update::where('ekskul_id', '4')->get();
+            ->where('ekskul_id', '3')->get();
+        $data = update::where('ekskul_id', '3')->get();
         return view('ekstra.basket.dashboard', compact('basket', 'data','daftar_siswa'));
     }
 
@@ -83,7 +83,7 @@ class basketController extends Controller
         // $ekskul = ekstrakulikuler::
 
         update::create([
-        'ekskul_id' => '4',
+        'ekskul_id' => '3',
         'deskripsi'=> $request-> deskripsi,
         'hari'=> $request-> hari,
         'jam'=> $request-> jam,

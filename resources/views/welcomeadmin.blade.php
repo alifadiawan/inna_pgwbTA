@@ -58,9 +58,34 @@
     <header id="header" class="header">
         <div class="row">
             <div class="col-4">
-                <a href="{{route('admin.index')}}" class="btn btn-secondary ">Back</a>
+                {{-- <script>
+                    import { Component } from '@angular/core';
+                    import { Location } from '@angular/common';
+Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
+export class AppComponent {
+
+  constructor( private location: Location ) {
+  }
+
+  goBack() {
+    // window.history.back();
+    this.location.back();
+
+    console.log( 'goBack()...' );
+  }
+}</script>
+
+                <!-- anchor must be a passive link -->
+<a href="javascript:void(0)" (click)="goBack()">
+    <-Back
+  </a> --}}
+                {{-- <a href=" " class="btn btn-secondary ">Back</a> --}}
             </div>
-        </div> 
+        </div>
         <div class="container mb-3">
             <div class="row">
                 <div class="col-lg-12">
@@ -171,159 +196,259 @@
     </div>
     <!-- end of visai misi -->
 
-    <!-- Students -->
-    <div class="container">
-        <div class="basic-3">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div id="carouselExampleIndicators" class="carousel slide">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
+  {{-- Dance ==1--}}
+  @foreach ($dance as $item)
+  <div class="basic-3">
+      <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
 
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/dance2.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div> <!-- end of col -->
+          <div class="container mt-5 ">
+              <div class="row align-items-center">
 
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            @foreach ($data_update as $item)
-                                <div class="card border-0">
-                                    <div class="card-body ">
-                                        <h2 class="fw-bold">{{ $item->judul }}</h2>
-                                        <p class="card-text">{{ $item->deskripsi }}</p>
-                                        <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                                        <p class="card-text">Hari : {{ $item->hari }}</p>
-                                        <p class="card-text">Jam : {{ $item->jam }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
+                      <div class="col-lg-6 " >
+                          <div class="content">
+                              <h2 class="fw-bold">DANCE</h2>
+                              <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                              <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                              <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                              <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                          </div>
 
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of basic-3 -->
-    </div>
-    <!-- end of students -->
+                      </div>
 
-    {{-- FUTSAL --}}
-    <!-- Students -->
-    <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2 class="fw-bold">Futsal</h2>
-                        <p>Mengembangkan kepribadian, bakat, dan kemampuan di bidang olahraga Futsal </p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/futsal1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="..." class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="..." class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden "> Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of students -->
+                      <div class="col-lg-6">
+                          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                  <button type="button" data-bs-target="#carouselExampleCaptions"
+                                      data-bs-slide-to="0" class="active" aria-current="true"
+                                      aria-label="Slide 1"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions"
+                                      data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions"
+                                      data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                      <img src="{{ asset('images/' . $item->foto1) }}"
+                                          class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                  </div>
+                                  <div class="carousel-item">
+                                      <img src="{{ asset('images/' . $item->foto2) }}"
+                                          class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                  </div>
+                                  <div class="carousel-item">
+                                      <img src="{{ asset('images/' . $item->foto3) }}"
+                                          class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                  </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button"
+                                  data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button"
+                                  data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                              </button>
+                          </div>
+                      </div>
+  @endforeach
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end of futsal -->
 
-    {{-- PMR --}}
-    <!-- Students -->
-    <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="carouselExampleCaptions" class="carousel slide">
+   {{-- FUTSAL ==4 --}}
+   @foreach ($pmr as $item)
+   <div class="basic-3">
+       <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
 
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/pmr1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/pmr2.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
+           <div class="container mt-5 ">
+               <div class="row align-items-center">
 
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/pmr1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
+                       <div class="col-lg-6 " >
+                           <div class="content">
+                               <h2 class="fw-bold">PMR</h2>
+                               <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                               <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                               <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                               <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                           </div>
+                       </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2 class="fw-bold">Palang Merah Indonesia</h2>
-                        <p>Melaksanakan kegiatan kemanusiaan di bidang kesehatan dan siaga bencana, mempromosikan
-                            prinsip-prinsip dasar Gerakan Palang merah Indonesia, dan mengembangkan kapasitas organisasi
-                            PMI. </p>
+                       <div class="col-lg-6">
+                           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                               <div class="carousel-indicators">
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="0" class="active" aria-current="true"
+                                       aria-label="Slide 1"></button>
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="2" aria-label="Slide 3"></button>
+                               </div>
+                               <div class="carousel-inner">
+                                   <div class="carousel-item active">
+                                       <img src="{{ asset('images/' . $item->foto1) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                                   <div class="carousel-item">
+                                       <img src="{{ asset('images/' . $item->foto2) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                                   <div class="carousel-item">
+                                       <img src="{{ asset('images/' . $item->foto3) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                               </div>
+                               <button class="carousel-control-prev" type="button"
+                                   data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                   <span class="visually-hidden">Previous</span>
+                               </button>
+                               <button class="carousel-control-next" type="button"
+                                   data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                   <span class="visually-hidden">Next</span>
+                               </button>
+                           </div>
+                       </div>
+   @endforeach
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- end of futsal -->
 
-                        <p> Jadwal Pelaksanaan <br>
-                            Hari : <br>
-                            Jam :
-                        </p>
 
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
+   {{-- FUTSAL ==4 --}}
+   @foreach ($basket as $item)
+   <div class="basic-3">
+       <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
 
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of students -->
+           <div class="container mt-5 ">
+               <div class="row align-items-center">
+
+                       <div class="col-lg-6 " >
+                           <div class="content">
+                               <h2 class="fw-bold">BASKET</h2>
+                               <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                               <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                               <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                               <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                           </div>
+
+                       </div>
+
+                       <div class="col-lg-6">
+                           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                               <div class="carousel-indicators">
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="0" class="active" aria-current="true"
+                                       aria-label="Slide 1"></button>
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="2" aria-label="Slide 3"></button>
+                               </div>
+                               <div class="carousel-inner">
+                                   <div class="carousel-item active">
+                                       <img src="{{ asset('images/' . $item->foto1) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                                   <div class="carousel-item">
+                                       <img src="{{ asset('images/' . $item->foto2) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                                   <div class="carousel-item">
+                                       <img src="{{ asset('images/' . $item->foto3) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                               </div>
+                               <button class="carousel-control-prev" type="button"
+                                   data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                   <span class="visually-hidden">Previous</span>
+                               </button>
+                               <button class="carousel-control-next" type="button"
+                                   data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                   <span class="visually-hidden">Next</span>
+                               </button>
+                           </div>
+                       </div>
+   @endforeach
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- end of futsal -->
+
+
+   {{-- FUTSAL ==4 --}}
+   @foreach ($futsal as $item)
+   <div class="basic-3">
+       <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+           <div class="container mt-5 ">
+               <div class="row align-items-center">
+
+                       <div class="col-lg-6 " >
+                           <div class="content">
+                               <h2 class="fw-bold">FUTSAL</h2>
+                               <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                               <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                               <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                               <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                           </div>
+
+                       </div>
+
+                       <div class="col-lg-6">
+                           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                               <div class="carousel-indicators">
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="0" class="active" aria-current="true"
+                                       aria-label="Slide 1"></button>
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                   <button type="button" data-bs-target="#carouselExampleCaptions"
+                                       data-bs-slide-to="2" aria-label="Slide 3"></button>
+                               </div>
+                               <div class="carousel-inner">
+                                   <div class="carousel-item active">
+                                       <img src="{{ asset('images/' . $item->foto1) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                                   <div class="carousel-item">
+                                       <img src="{{ asset('images/' . $item->foto2) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                                   <div class="carousel-item">
+                                       <img src="{{ asset('images/' . $item->foto3) }}"
+                                           class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                   </div>
+                               </div>
+                               <button class="carousel-control-prev" type="button"
+                                   data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                   <span class="visually-hidden">Previous</span>
+                               </button>
+                               <button class="carousel-control-next" type="button"
+                                   data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                   <span class="visually-hidden">Next</span>
+                               </button>
+                           </div>
+                       </div>
+   @endforeach
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- end of futsal -->
+
 
 
 

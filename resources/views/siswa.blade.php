@@ -85,7 +85,7 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link  page-scroll" href="/login" id="navbarDropdown" data-toggle="modal"
-                        role="button" data-target="#logoutModal">LOGOUT </a> 
+                        role="button" data-target="#logoutModal">LOGOUT </a>
                 </li>
             </ul>
 
@@ -219,45 +219,7 @@
     </div>
     <!-- end of visai misi -->
 
-    <!-- Students -->
-    <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="carouselExampleIndicators" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/dance2.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2 class="fw-bold">Dance</h2>
-                        <p>This course is for anyone passionate about the web and especially fit for those seeking to
-                            improve their online presence for company websites and blogs </p>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn-solid-reg popup-with-move-anim" data-bs-toggle="modal"
-                            data-bs-target="#example_Modal">DAFTAR</button>
-
-                        <!-- Modal -->
+ {{-- <!-- Modal -->
                         <div class="modal fade" id="example_Modal" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -317,26 +279,397 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> --}}
+
+
+                        @foreach ($dance as $item)
+                        <div class="basic-3">
+                            <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+                                <div class="container mt-5 ">
+                                    <div class="row align-items-center">
+
+                                            <div class="col-lg-6 " >
+                                                <div class="content">
+                                                    <h2 class="fw-bold">DANCE</h2>
+                                                    <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                                    <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                                    <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                                    <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                                                </div>
+                                                 <!-- Button trigger modal -->
+                                            <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
+                                                data-bs-target="#example_Modal">DAFTAR</button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="example_Modal" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-dark text-white ">
+                                                            <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
+                                                            <button type="button" class="btn-close mr-1"
+                                                                style="background-color: #ffc107" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="{{ route('daftar.store') }}">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control-input" name="name"
+                                                                        id="name">
+                                                                    <label for="">Name</label>
+
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control-input" name="no_hp"
+                                                                        id="no_hp" required>
+                                                                    <label class="label-control" for="no_hp">No Hp</label>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <select class="form-select" id="kelas" name="kelas"
+                                                                        aria-label="Default select example">
+                                                                        <option selected>Pilih Kelas</option>
+                                                                        <option value="10 AKL 1">10 AKL 1</option>
+                                                                        <option value="10 AKL 2">10 AKL 2</option>
+                                                                        <option value="10 AKL 3">10 AKL 3</option>
+                                                                        <option value="10 AKL 4">10 AKL 4</option>
+                                                                        <option value="10 AKL 5">10 AKL 5</option>
+                                                                        <option value="10 BD 1">10 BD 1</option>
+                                                                        <option value="10 BD <">10 BD 2</option>
+                                                                        <option value="10 DKV 1">10 DKV 1</option>
+                                                                        <option value="10 DKV 2">10 DKV 2</option>
+                                                                        <option value="10 DKV 3">10 DKV 3</option>
+                                                                        <option value="10 MP 1">10 MP 1</option>
+                                                                        <option value="10 MP 2">10 MP 2</option>
+                                                                        <option value="10 MP 3<">10 MP 3</option>
+                                                                        <option value="10 MP 4">10 MP 4</option>
+                                                                        <option value="10 MP 5">10 MP 5</option>
+                                                                        <option value="10 PH 1">10 PH 1</option>
+                                                                        <option value="10 PH 2">10 PH 2</option>
+                                                                        <option value="10 PSPT 1">10 PSPT 1</option>
+                                                                        <option value="10 PSPT 2">10 PSPT 2</option>
+                                                                        <option value="10 PSPT 3">10 PSPT 3</option>
+                                                                        <option value="10 RPL 1">10 RPL 1</option>
+                                                                        <option value="10 RPL 2">10 RPL 2</option>
+                                                                        <option value="10 TKJ 1">10 TKJ 1</option>
+                                                                        <option value="10 TKJ 2">10 TKJ 2</option>
+                                                                        <option value="11 AKL 1">11 AKL 1</option>
+                                                                        <option value="11 AKL 2">11 AKL 2</option>
+                                                                        <option value="11 AKL 3">11 AKL 3</option>
+                                                                        <option value="11 AKL 4">11 AKL 4</option>
+                                                                        <option value="11 AKL 5">11 AKL 5</option>
+                                                                        <option value="11 BDP 1">11 BDP 1</option>
+                                                                        <option value="11 BDP 2">11 BDP 2</option>
+                                                                        <option value="11 DKV 1">11 DKV 1</option>
+                                                                        <option value="11 DKV 2">11 DKV 2</option>
+                                                                        <option value="11 MM 1<">11 MM 1</option>
+                                                                        <option value="11 MM 2<">11 MM 2</option>
+                                                                        <option value="11 OTKP 1">11 OTKP 1</option>
+                                                                        <option value="11 OTKP 2">11 OTKP 2</option>
+                                                                        <option value="11 OTKP 3">11 OTKP 3</option>
+                                                                        <option value="11 OTKP 4">11 OTKP 4</option>
+                                                                        <option value="11 OTKP 5">11 OTKP 5</option>
+                                                                        <option value="11 PH 1">11 PH 1</option>
+                                                                        <option value="11 PH 2">11 PH 2</option>
+                                                                        <option value="11 PSPT 1">11 PSPT 1</option>
+                                                                        <option value="11 PSPT 2">11 PSPT 2</option>
+                                                                        <option value="11 RPL 1">11 RPL 1</option>
+                                                                        <option value="11 RPL 2">11 RPL 2</option>
+                                                                        <option value="11 TKJ 1">11 TKJ 1</option>
+                                                                        <option value="11 TKJ 2">11 TKJ 2</option>
+                                                                        <option value="12 AKL 1">12 AKL 1</option>
+                                                                        <option value="12 AKL 2">12 AKL 2</option>
+                                                                        <option value="12 AKL 3">12 AKL 3</option>
+                                                                        <option value="12 AKL 4">12 AKL 4</option>
+                                                                        <option value="12 AKL 5">12 AKL 5</option>
+                                                                        <option value="12 BDP 1">12 BDP 1</option>
+                                                                        <option value="12 BDP 2">12 BDP 2</option>
+                                                                        <option value="12 DKV 1">12 DKV 1</option>
+                                                                        <option value="12 DKV 2">12 DKV 2</option>
+                                                                        <option value="12 MM 1">12 MM 1</option>
+                                                                        <option value="12 MM 2">12 MM 2</option>
+                                                                        <option value="12 OTKP 1">12 OTKP 1</option>
+                                                                        <option value="12 OTKP 2">12 OTKP 2</option>
+                                                                        <option value="12 OTKP 3">12 OTKP 3</option>
+                                                                        <option value="12 OTKP 4">12 OTKP 4</option>
+                                                                        <option value="12 OTKP 5">12 OTKP 5</option>
+                                                                        <option value="12 PH 1">12 PH 1</option>
+                                                                        <option value="12 PH 2">12 PH 2</option>
+                                                                        <option value="12 PSPT 1">12 PSPT 1</option>
+                                                                        <option value="12 PSPT 2">12 PSPT 2</option>
+                                                                        <option value="12 RPL 1">12 RPL 1</option>
+                                                                        <option value="12 RPL 2">12 RPL 2</option>
+                                                                        <option value="12 TKJ 1">12 TKJ 1</option>
+                                                                        <option value="12 TKJ 2">12 TKJ 2</option>
+                                                                    </select>
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <button type="submit"
+                                                                        class="form-control-submit-button">SUBMIT</button>
+                                                                </div>
+                                                                <div class="form-message">
+                                                                    <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                                    <div class="carousel-indicators">
+                                                        <button type="button" data-bs-target="#carouselExampleCaptions"
+                                                            data-bs-slide-to="0" class="active" aria-current="true"
+                                                            aria-label="Slide 1"></button>
+                                                        <button type="button" data-bs-target="#carouselExampleCaptions"
+                                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                        <button type="button" data-bs-target="#carouselExampleCaptions"
+                                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                    </div>
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('images/' . $item->foto1) }}"
+                                                                class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('images/' . $item->foto2) }}"
+                                                                class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('images/' . $item->foto3) }}"
+                                                                class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                                        </div>
+                                                    </div>
+                                                    <button class="carousel-control-prev" type="button"
+                                                        data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button"
+                                                        data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
 
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of students -->
 
-    {{-- FUTSAL --}}
-    <!-- Students -->
+   {{-- PMR ==4 --}}
+   @foreach ($pmr as $item)
+   <div class="basic-3">
+    <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+        <div class="container mt-5 ">
+            <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions"
+                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                    aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions"
+                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions"
+                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ asset('images/' . $item->foto1) }}"
+                                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ asset('images/' . $item->foto2) }}"
+                                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ asset('images/' . $item->foto3) }}"
+                                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 " >
+                        <div class="content">
+                            <h2 class="fw-bold">PMR</h2>
+                            <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                            <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                            <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                            <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                        </div>
+                         <!-- Button trigger modal -->
+                    <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
+                        data-bs-target="#example_Modal">DAFTAR</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="example_Modal" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white ">
+                                    <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
+                                    <button type="button" class="btn-close mr-1"
+                                        style="background-color: #ffc107" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" action="{{ route('daftar.store') }}">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="text" class="form-control-input" name="name"
+                                                id="name">
+                                            <label for="">Name</label>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control-input" name="no_hp"
+                                                id="no_hp" required>
+                                            <label class="label-control" for="no_hp">No Hp</label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <select class="form-select" id="kelas" name="kelas"
+                                                aria-label="Default select example">
+                                                <option selected>Pilih Kelas</option>
+                                                <option value="10 AKL 1">10 AKL 1</option>
+                                                <option value="10 AKL 2">10 AKL 2</option>
+                                                <option value="10 AKL 3">10 AKL 3</option>
+                                                <option value="10 AKL 4">10 AKL 4</option>
+                                                <option value="10 AKL 5">10 AKL 5</option>
+                                                <option value="10 BD 1">10 BD 1</option>
+                                                <option value="10 BD <">10 BD 2</option>
+                                                <option value="10 DKV 1">10 DKV 1</option>
+                                                <option value="10 DKV 2">10 DKV 2</option>
+                                                <option value="10 DKV 3">10 DKV 3</option>
+                                                <option value="10 MP 1">10 MP 1</option>
+                                                <option value="10 MP 2">10 MP 2</option>
+                                                <option value="10 MP 3<">10 MP 3</option>
+                                                <option value="10 MP 4">10 MP 4</option>
+                                                <option value="10 MP 5">10 MP 5</option>
+                                                <option value="10 PH 1">10 PH 1</option>
+                                                <option value="10 PH 2">10 PH 2</option>
+                                                <option value="10 PSPT 1">10 PSPT 1</option>
+                                                <option value="10 PSPT 2">10 PSPT 2</option>
+                                                <option value="10 PSPT 3">10 PSPT 3</option>
+                                                <option value="10 RPL 1">10 RPL 1</option>
+                                                <option value="10 RPL 2">10 RPL 2</option>
+                                                <option value="10 TKJ 1">10 TKJ 1</option>
+                                                <option value="10 TKJ 2">10 TKJ 2</option>
+                                                <option value="11 AKL 1">11 AKL 1</option>
+                                                <option value="11 AKL 2">11 AKL 2</option>
+                                                <option value="11 AKL 3">11 AKL 3</option>
+                                                <option value="11 AKL 4">11 AKL 4</option>
+                                                <option value="11 AKL 5">11 AKL 5</option>
+                                                <option value="11 BDP 1">11 BDP 1</option>
+                                                <option value="11 BDP 2">11 BDP 2</option>
+                                                <option value="11 DKV 1">11 DKV 1</option>
+                                                <option value="11 DKV 2">11 DKV 2</option>
+                                                <option value="11 MM 1<">11 MM 1</option>
+                                                <option value="11 MM 2<">11 MM 2</option>
+                                                <option value="11 OTKP 1">11 OTKP 1</option>
+                                                <option value="11 OTKP 2">11 OTKP 2</option>
+                                                <option value="11 OTKP 3">11 OTKP 3</option>
+                                                <option value="11 OTKP 4">11 OTKP 4</option>
+                                                <option value="11 OTKP 5">11 OTKP 5</option>
+                                                <option value="11 PH 1">11 PH 1</option>
+                                                <option value="11 PH 2">11 PH 2</option>
+                                                <option value="11 PSPT 1">11 PSPT 1</option>
+                                                <option value="11 PSPT 2">11 PSPT 2</option>
+                                                <option value="11 RPL 1">11 RPL 1</option>
+                                                <option value="11 RPL 2">11 RPL 2</option>
+                                                <option value="11 TKJ 1">11 TKJ 1</option>
+                                                <option value="11 TKJ 2">11 TKJ 2</option>
+                                                <option value="12 AKL 1">12 AKL 1</option>
+                                                <option value="12 AKL 2">12 AKL 2</option>
+                                                <option value="12 AKL 3">12 AKL 3</option>
+                                                <option value="12 AKL 4">12 AKL 4</option>
+                                                <option value="12 AKL 5">12 AKL 5</option>
+                                                <option value="12 BDP 1">12 BDP 1</option>
+                                                <option value="12 BDP 2">12 BDP 2</option>
+                                                <option value="12 DKV 1">12 DKV 1</option>
+                                                <option value="12 DKV 2">12 DKV 2</option>
+                                                <option value="12 MM 1">12 MM 1</option>
+                                                <option value="12 MM 2">12 MM 2</option>
+                                                <option value="12 OTKP 1">12 OTKP 1</option>
+                                                <option value="12 OTKP 2">12 OTKP 2</option>
+                                                <option value="12 OTKP 3">12 OTKP 3</option>
+                                                <option value="12 OTKP 4">12 OTKP 4</option>
+                                                <option value="12 OTKP 5">12 OTKP 5</option>
+                                                <option value="12 PH 1">12 PH 1</option>
+                                                <option value="12 PH 2">12 PH 2</option>
+                                                <option value="12 PSPT 1">12 PSPT 1</option>
+                                                <option value="12 PSPT 2">12 PSPT 2</option>
+                                                <option value="12 RPL 1">12 RPL 1</option>
+                                                <option value="12 RPL 2">12 RPL 2</option>
+                                                <option value="12 TKJ 1">12 TKJ 1</option>
+                                                <option value="12 TKJ 2">12 TKJ 2</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <button type="submit"
+                                                class="form-control-submit-button">SUBMIT</button>
+                                        </div>
+                                        <div class="form-message">
+                                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+@endforeach
+            </div>
+        </div>
+    </div>
+</div>
+   <!-- end of futsal -->
+
+    {{-- BASKET ==4 --}}
+    @foreach ($basket as $item)
     <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2 class="fw-bold">Futsal</h2>
-                        <p>Mengembangkan kepribadian, bakat, dan kemampuan di bidang olahraga Futsal </p>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn-solid-reg popup-with-move-anim" data-bs-toggle="modal"
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">BASKET</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
                             data-bs-target="#example_Modal">DAFTAR</button>
 
                         <!-- Modal -->
@@ -458,90 +791,109 @@
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/futsal1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="..." class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="..." class="d-block w-100" alt="...">
+
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/' . $item->foto1) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto2) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto3) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden "> Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of students -->
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of futsal -->
 
-    {{-- PMR --}}
-    <!-- Students -->
+
+    {{-- basket ==4 --}}
+    @foreach ($futsal as $item)
     <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="carouselExampleCaptions" class="carousel slide">
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
 
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/pmr1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/pmr2.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/' . $item->foto1) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto2) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto3) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/pmr1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-
-                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2 class="fw-bold">Palang Merah Indonesia</h2>
-                        <p>Melaksanakan kegiatan kemanusiaan di bidang kesehatan dan siaga bencana, mempromosikan
-                            prinsip-prinsip dasar Gerakan Palang merah Indonesia, dan mengembangkan kapasitas organisasi
-                            PMI. </p>
 
-                        <p> Jadwal Pelaksanaan <br>
-                            Hari : <br>
-                            Jam :
-                        </p>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn-solid-reg popup-with-move-anim" data-bs-toggle="modal"
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">FUTSAL</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
                             data-bs-target="#example_Modal">DAFTAR</button>
 
                         <!-- Modal -->
@@ -663,13 +1015,201 @@
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
 
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of students -->
+                        </div>
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of basket -->
+
+
+    {{-- FUTSAL ==4 --}}
+    {{-- @foreach ($futsal as $item)
+    <div class="basic-3">
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">FUTSAL</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
+                            data-bs-target="#example_Modal">DAFTAR</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="example_Modal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-dark text-white ">
+                                        <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
+                                        <button type="button" class="btn-close mr-1"
+                                            style="background-color: #ffc107" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{ route('daftar.store') }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <input type="text" class="form-control-input" name="name"
+                                                    id="name">
+                                                <label for="">Name</label>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control-input" name="no_hp"
+                                                    id="no_hp" required>
+                                                <label class="label-control" for="no_hp">No Hp</label>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <select class="form-select" id="kelas" name="kelas"
+                                                    aria-label="Default select example">
+                                                    <option selected>Pilih Kelas</option>
+                                                    <option value="10 AKL 1">10 AKL 1</option>
+                                                    <option value="10 AKL 2">10 AKL 2</option>
+                                                    <option value="10 AKL 3">10 AKL 3</option>
+                                                    <option value="10 AKL 4">10 AKL 4</option>
+                                                    <option value="10 AKL 5">10 AKL 5</option>
+                                                    <option value="10 BD 1">10 BD 1</option>
+                                                    <option value="10 BD <">10 BD 2</option>
+                                                    <option value="10 DKV 1">10 DKV 1</option>
+                                                    <option value="10 DKV 2">10 DKV 2</option>
+                                                    <option value="10 DKV 3">10 DKV 3</option>
+                                                    <option value="10 MP 1">10 MP 1</option>
+                                                    <option value="10 MP 2">10 MP 2</option>
+                                                    <option value="10 MP 3<">10 MP 3</option>
+                                                    <option value="10 MP 4">10 MP 4</option>
+                                                    <option value="10 MP 5">10 MP 5</option>
+                                                    <option value="10 PH 1">10 PH 1</option>
+                                                    <option value="10 PH 2">10 PH 2</option>
+                                                    <option value="10 PSPT 1">10 PSPT 1</option>
+                                                    <option value="10 PSPT 2">10 PSPT 2</option>
+                                                    <option value="10 PSPT 3">10 PSPT 3</option>
+                                                    <option value="10 RPL 1">10 RPL 1</option>
+                                                    <option value="10 RPL 2">10 RPL 2</option>
+                                                    <option value="10 TKJ 1">10 TKJ 1</option>
+                                                    <option value="10 TKJ 2">10 TKJ 2</option>
+                                                    <option value="11 AKL 1">11 AKL 1</option>
+                                                    <option value="11 AKL 2">11 AKL 2</option>
+                                                    <option value="11 AKL 3">11 AKL 3</option>
+                                                    <option value="11 AKL 4">11 AKL 4</option>
+                                                    <option value="11 AKL 5">11 AKL 5</option>
+                                                    <option value="11 BDP 1">11 BDP 1</option>
+                                                    <option value="11 BDP 2">11 BDP 2</option>
+                                                    <option value="11 DKV 1">11 DKV 1</option>
+                                                    <option value="11 DKV 2">11 DKV 2</option>
+                                                    <option value="11 MM 1<">11 MM 1</option>
+                                                    <option value="11 MM 2<">11 MM 2</option>
+                                                    <option value="11 OTKP 1">11 OTKP 1</option>
+                                                    <option value="11 OTKP 2">11 OTKP 2</option>
+                                                    <option value="11 OTKP 3">11 OTKP 3</option>
+                                                    <option value="11 OTKP 4">11 OTKP 4</option>
+                                                    <option value="11 OTKP 5">11 OTKP 5</option>
+                                                    <option value="11 PH 1">11 PH 1</option>
+                                                    <option value="11 PH 2">11 PH 2</option>
+                                                    <option value="11 PSPT 1">11 PSPT 1</option>
+                                                    <option value="11 PSPT 2">11 PSPT 2</option>
+                                                    <option value="11 RPL 1">11 RPL 1</option>
+                                                    <option value="11 RPL 2">11 RPL 2</option>
+                                                    <option value="11 TKJ 1">11 TKJ 1</option>
+                                                    <option value="11 TKJ 2">11 TKJ 2</option>
+                                                    <option value="12 AKL 1">12 AKL 1</option>
+                                                    <option value="12 AKL 2">12 AKL 2</option>
+                                                    <option value="12 AKL 3">12 AKL 3</option>
+                                                    <option value="12 AKL 4">12 AKL 4</option>
+                                                    <option value="12 AKL 5">12 AKL 5</option>
+                                                    <option value="12 BDP 1">12 BDP 1</option>
+                                                    <option value="12 BDP 2">12 BDP 2</option>
+                                                    <option value="12 DKV 1">12 DKV 1</option>
+                                                    <option value="12 DKV 2">12 DKV 2</option>
+                                                    <option value="12 MM 1">12 MM 1</option>
+                                                    <option value="12 MM 2">12 MM 2</option>
+                                                    <option value="12 OTKP 1">12 OTKP 1</option>
+                                                    <option value="12 OTKP 2">12 OTKP 2</option>
+                                                    <option value="12 OTKP 3">12 OTKP 3</option>
+                                                    <option value="12 OTKP 4">12 OTKP 4</option>
+                                                    <option value="12 OTKP 5">12 OTKP 5</option>
+                                                    <option value="12 PH 1">12 PH 1</option>
+                                                    <option value="12 PH 2">12 PH 2</option>
+                                                    <option value="12 PSPT 1">12 PSPT 1</option>
+                                                    <option value="12 PSPT 2">12 PSPT 2</option>
+                                                    <option value="12 RPL 1">12 RPL 1</option>
+                                                    <option value="12 RPL 2">12 RPL 2</option>
+                                                    <option value="12 TKJ 1">12 TKJ 1</option>
+                                                    <option value="12 TKJ 2">12 TKJ 2</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <button type="submit"
+                                                    class="form-control-submit-button">SUBMIT</button>
+                                            </div>
+                                            <div class="form-message">
+                                                <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/' . $item->foto1) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto2) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('images/' . $item->foto3) }}"
+                                            class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <!-- end of futsal -->
 
 
 

@@ -36,11 +36,11 @@ class DatabaseSeeder extends Seeder
             'role' => 'pmr'
         ]);
         user::create([
-            'name' => 'olip',
-            'email' => 'olip@gmail.com',
+            'name' => 'basket',
+            'email' => 'basket@gmail.com',
             'password' => bcrypt('12345678'),
-            'role' => 'siswa'
-        ]);  
+            'role' => 'basket'
+        ]);
 
         $users = [
             ['name' => 'IBRAHIM', 'email' => 'ibrahim@gmail.com', 'password' => bcrypt('siswa123'), 'role' => 'siswa'],
@@ -161,6 +161,7 @@ $createMultipleUsers1 = [
     ['nama_ekskul'=>'PMR'],
     ['nama_ekskul'=>'Basket'],
     ['nama_ekskul'=>'Futsal']
+
 ];
 ekstrakulikuler::insert($createMultipleUsers1); // Eloquent
     }

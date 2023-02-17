@@ -34,8 +34,12 @@ class adminController extends Controller
 
     public function preview()
     {
-        $update = update::all();
-        return view('welcomeadmin', compact('data_update'));
+        $data_update = update::all();
+        $futsal= update::where('ekskul_id', '4')->get();
+        $dance = update::where('ekskul_id', '1')->get();
+        $pmr = update::where('ekskul_id', '2')->get();
+        $basket = update::where('ekskul_id', '3')->get();
+        return view('welcomeadmin', compact('data_update','futsal','dance','pmr','basket'));
     }
 
     /**

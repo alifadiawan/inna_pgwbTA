@@ -22,7 +22,7 @@ class loginController extends Controller
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
- 
+
             if(Auth::User()->role == 'futsal'){
                 return redirect()->intended('futsal');
             }elseif(Auth::User()->role == 'dance'){
@@ -31,12 +31,14 @@ class loginController extends Controller
                 return redirect()->intended('pmr');
             }elseif(Auth::User()->role == 'siswa'){
                 return redirect()->intended('siswa');
+            }elseif(Auth::User()->role == 'basket'){
+                    return redirect()->intended('basket');
             }else{
                 return redirect()->intended('login');
             }
         }
-        
- 
+
+
         return back()->with('loginError','Login Anda Gagal');
     }
 
@@ -57,7 +59,7 @@ class loginController extends Controller
     // {
     //     $message = [
     //         'required' => ':attribute harus diisi gaess',
-    //         'min' => ':password minimal :min karakter', 
+    //         'min' => ':password minimal :min karakter',
     //     ];
 
     //     //validasi data
@@ -75,8 +77,8 @@ class loginController extends Controller
     //         'password' => bcrypt($request->password),
     //         'id_role' => $request->id_role,
     //     ]);
-        
-       
+
+
     //     Session::flash('registerSuccess', 'User Berhasil Ditambahkan, Silahkan Login');
     //     return redirect('login');
     // }
