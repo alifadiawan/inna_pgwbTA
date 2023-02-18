@@ -14,7 +14,7 @@
                             </ul>
                         </div>
                     @endif
-                    <h2 class="fw-bold text-white text-center">Tambah Data DANCE</h2>
+                    <h2 class="fw-bold text-white text-center">Tambah Data {{Auth::user()->role}}</h2>
                     <form action="{{route('dance.store')}}" enctype="multipart/form-data" method="POST">
                         @csrf
                         {{-- <input type="hidden" name="ekskul_id" value="{{Auth::user()->id}}"> --}}
@@ -24,8 +24,8 @@
                                 placeholder="Masukkan deskripsi ekstrakulikuler" required>
                         </div>
 
-                        <div class="row mb-4">
-                            <div class="col">
+
+                            <div class="form-group">
                                 <label for="hari" class="form-label  text-white">Hari :</label>
                                 {{-- <input type="text" class="form-control" id="hari" name="hari" placeholder="First name" aria-label="First name" value=""> --}}
                                 <select id="hari" name="hari" placeholder="hari" class="form-control" required>
@@ -39,12 +39,19 @@
                                     <option value="minggu">minggu</option>
                                 </select>
                             </div>
+                            <div class="row mb-4">
                             <div class="col">
-                                <label for="formGroupExampleInput2" class="form-label text-white">Jam:</label>
+                                <label for="formGroupExampleInput2" class="form-label text-white">Jam Mulai :</label>
                                 <input type="time" class="form-control" id="jam" name="jam"
                                     placeholder="First name" aria-label="First name" value="" required>
                             </div>
-                        </div>
+                            <div class="col">
+                                <label for="formGroupExampleInput2" class="form-label text-white">Jam Selesai :</label>
+                                <input type="time" class="form-control" id="jam2" name="jam2"
+                                    placeholder="First name" aria-label="First name" value="" required>
+                            </div>
+                            </div>
+
 
                         <div class="form-group">
                             <label for="foto" class="text-white">Pilih Foto</label><br>

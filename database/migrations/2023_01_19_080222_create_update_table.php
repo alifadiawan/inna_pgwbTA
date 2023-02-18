@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('hari');
             $table->string('jam');
+            $table->string('jam2');
             $table->char('foto1');
             $table->char('foto2');
             $table->char('foto3');

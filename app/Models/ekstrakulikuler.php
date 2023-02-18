@@ -22,6 +22,10 @@ class ekstrakulikuler extends Model
         return $this->hasMany('App\Models\update');
     }
 
+    public function tabelmaster(){
+        // return $this->hasManyThrough('App\Models\tabelmaster', 'kelas');
+        return $this->hasMany('App\Models\tabelmaster');
+    }
 
 
 }

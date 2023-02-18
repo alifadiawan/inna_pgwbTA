@@ -6,7 +6,7 @@
                 @if ($dance->isEmpty())
                     <div class="row">
                         <div class="col">
-                            <h4 class="fw-bold">Edit Hero DANCE</h4>
+                            <h4 class="fw-bold">Edit Hero </h4>
                         </div>
                         <div class="col text-end">
                             <a href="{{ route('dance.create') }}" class="btn btn-success">
@@ -17,13 +17,14 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="container m-5">
-                                <h5>Jek kosong ngab</h5>
+                                <h5>Konten kamu masih kosong nih</h5>
                             </div>
                         </div>
                     </div>
                 @else
-                    {{-- carousel futsal --}}
+                    {{-- carousel dance --}}
                     <div class="row">
+                        <h4 class="fw-bold">Edit Hero </h4>
                         <div class="col-6">
                             @foreach ($data as $item)
                                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -37,17 +38,17 @@
                                             data-bs-slide-to="2" aria-label="Slide 3"></button>
                                     </div>
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img src="{{ asset('images/' . $item->foto1) }}" class="d-block w-100 fixed-height"
-                                                alt="futsal">
+                                        <div class="carousel-item active " style="height: 400px;">
+                                            <img src="{{ asset('images/' . $item->foto1) }}" style="object-fit:fill;" class="d-block w-100"
+                                                alt="dance" >
                                         </div>
-                                        <div class="carousel-item">
-                                            <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100 fixed-height"
-                                                alt="futsal">
+                                        <div class="carousel-item" style="height: 400px">
+                                            <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
+                                                alt="dance">
                                         </div>
-                                        <div class="carousel-item">
-                                            <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100 fixed-height"
-                                                alt="futsal">
+                                        <div class="carousel-item" style="height: 400px">
+                                            <img src="{{ asset('images/' . $item->foto3) }}" class="d-block w-100"
+                                                alt="dance">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button"
@@ -62,56 +63,41 @@
                                     </button>
                                 </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 bg-dark rounded-2 p-4">
                             <div class="text-container">
                                 <div class="row">
                                     <div class="col">
-                                        <h3>Deskripsi ekskul :</h3>
+                                        <h2 class="fw-bold">Deskripsi Ektrakulikuler</h2>
                                     </div>
-                                    <div class="row">
-                                        <p class="text-white">{{ $item->deskripsi }}</p>
+                                    <div class="row" style="color: white;">
+                                    <div class="container">
+                                    <div class="content text-white">
+                                    @foreach ($data as $item)
+                                        <h4 class="fw-bold text-warning mt-3">DANCE</h4>
+                                            <span style="color:#c4c3d0">{{ $item->deskripsi }}</span>
+
+                                        <h6 class="fw-bold text-danger mt-2">Jadwal Ekstrakulikuler</h6>
+                                            <span class="fw-bold" style="color:#c4c3d0">Hari : {{ $item->hari }}</span><br>
+                                            <span  class="fw-bold" style="color:#c4c3d0">Jam : {{ $item->jam }} - {{ $item->jam2 }}</span>
+                                            @endforeach
+                                    </div>
+                                </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body text-center">
-                                        <p> Apakah anda yakin ingin menghapus data dari ekskul<strong>
-                                                DANCE ??</strong></p>
-                                        <a href="{{ route('dance.hapus', $item->id) }}" class="btn btn-warning">
-                                            Yes
-                                        </a>
-                                        <button type="button" class="btn text-secondary" data-bs-dismiss="modal">Tidak, ada
-                                            yang mau saya
-                                            ubah</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="row">
-                        <div class="col text-end">
-                            <a href="{{ route('dance.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                            <a href="{{ route('admin.preview') }}" class="btn text-light">Preview</a>
-                            {{-- <a href="{{ route('dance.hapus', $item->id) }}" class="btn text-danger">
-                                <i class="fas fa-trash"></i>c
-                            </a> --}}
-                            <button type="button" class="btn text-danger" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <i class="fas fa-trash"></i>
-                            </button>
                 @endforeach
             </div>
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <a href="{{ route('dance.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route ('admin.preview') }}" class="btn text-light">Preview</a>
+                    <a href="{{ route('dance.hapus', $item->id) }}" class="btn text-danger">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
     @endif
 
@@ -125,7 +111,7 @@
                     <h4 class="fw-bold">Jumlah Siswa</h4>
                 </div>
                 <div class="col">
-                    <h5>sek kosong</h5>
+                        <h5>{{ ($jmlh_dance) }}</h5>
                 </div>
             </div>
         </div>
@@ -161,21 +147,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Inna</td>
-                                <td>12 RPL 2</td>
-                                <td>
-                                    <a href="" class="btn text-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach ($daftar_siswa->where('ekstrakulikuler_id','1') as $item)
+                                {{-- @foreach ($kelas as $item) --}}
+
+
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->kelas->kelas }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-outline-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="" class="btn btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{-- @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

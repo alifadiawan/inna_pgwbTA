@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\MadminController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\daftarController;
 use App\Http\Controllers\siswaController;
@@ -12,6 +12,7 @@ use App\Http\Controllers\danceController;
 use App\Http\Controllers\pmrController;
 use App\Http\Controllers\basketController;
 use App\Http\Controllers\serviceController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ route::resource('/', welcomeController::class);
 
 
 route::middleware('auth')->group(function ()  {
-    route::resource('admin', adminController::class);
+    route::resource('admin', MadminController::class);
     route::resource('siswa', siswaController::class);
     route::resource('futsal', futsalController::class);
     route::resource('basket', basketController::class);

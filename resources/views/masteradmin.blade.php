@@ -27,7 +27,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body >
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -46,7 +46,7 @@
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md bg-dark">
+            <nav class="navbar top-navbar navbar-expand-md " style="box-shadow: 1px 1px 1px 1px rgb(97, 94, 94);">
                 <div class="navbar-header" data-logobg="skin5">
                     <!-- ============================================================== -->
                     <!-- Logo -->
@@ -116,28 +116,28 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
+        <aside class="left-sidebar " style="background-color: #282b30" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <nav class="sidebar-nav" >
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li>
                             <!-- User Profile-->
-                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                            <div class="user-profile d-flex no-block dropdown m-t-20 " style="background-color: #424549">
                                 <div class="user-pic"><img src="../../assets/images/users/1.jpg" alt="users"
                                         class="rounded-circle" width="40" /></div>
                                 <div class="user-content hide-menu m-l-10">
                                     <a href="#" class="" id="Userdd" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <h5 class="m-b-0 user-name font-medium">Inna <i
+                                        <h5 class="m-b-0 user-name fw-bold text-white">Inna <i
                                                 class="fa fa-angle-down"></i></h5>
-                                        <span class="op-5 user-email">Hallo, Master</span>
+                                        <span class="op-5 user-email text-white" style="font-size: 10px">Hallo, Master</span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                    <div class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="Userdd">
 
-                                        <a class="dropdown-item" href=""><i
+                                        <a class="dropdown-item" href="/login"><i
                                                 class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                     </div>
                                 </div>
@@ -145,12 +145,12 @@
                             <!-- End User Profile-->
                         </li>
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/masteradmin" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        <li class="sidebar-item" style="background-color: #424549"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{ route('admin.index') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard text-white"></i><span
+                                    class="hide-menu text-white">Dashboard</span></a></li>
+                        <li class="sidebar-item" style="background-color: #424549"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="" aria-expanded="false"><i
-                                    class="mdi mdi-account-network"></i><span class="hide-menu">Website Ekstra-</span></a></li>
+                                    class="mdi mdi-account-network text-white"></i><span class="hide-menu text-white">Website Ekstra</span></a></li>
                         {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                     class="hide-menu">Table</span></a></li>
@@ -175,19 +175,11 @@
             <!-- End Sidebar scroll-->
         </aside>
         <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+        <div class="page-wrapper" style="background-color:#1e2124">
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-5">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title fw-bold " style="font-size: 30px">Dashboard Master Admin</h4>
                         <div class="d-flex align-items-center">
 
                         </div>
@@ -196,22 +188,14 @@
                 </div>
             </div>
             <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Sales chart -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
-                                        <h4 class="card-title fw-bld">Jumlah Seluruh Siswa</h4>
+                                        <h4 class="card-title fw-bold">Jumlah Seluruh Siswa</h4>
                                         <h5 class="card-subtitle">ini adalah jumlah siswa yang telah terdaftar di ekstrakulikuler</h5>
                                     </div>
 
@@ -220,7 +204,7 @@
                                     <!-- column -->
                                     <div class="col-lg-12 mt-2">
                                         <div class="card">
-                                            <h1>157 siswa</h4>
+                                            <h1>{{ ($jumlah_siswa) }} siswa</h4>
                                         </div>
                                     </div>
                                     <!-- column -->
@@ -228,12 +212,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="padding-left: 20px">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
-                                        <h4 class="card-title fw-bld">Jumlah Ekstrakulikuler</h4>
+                                        <h4 class="card-title fw-bold" >Jumlah Ekstrakulikuler</h4>
                                         <h5 class="card-subtitle">ini adalah jumlah ekstrakulikuler yang ada di SMKN 1 SBY</h5>
                                     </div>
 
@@ -243,7 +227,7 @@
                                     <div class="col-lg-12 mt-2">
                                         <div class="card">
                                             <div class="body">
-                                                <h1>157 ekstrakulikuler</h4>
+                                                <h1>{{ ($jumlah_ekskul) }} Ekstrakulikuler</h4>
                                             </div>
 
                                         </div>
@@ -253,12 +237,6 @@
                             </div>
                         </div>
                     </div>
-
-                <!-- ============================================================== -->
-                <!-- Sales chart -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Table -->
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
@@ -268,18 +246,8 @@
                                 <!-- title -->
                                 <div class="d-md-flex">
                                     <div>
-                                        <h4 class="card-title">Daftar Seluruh Siswa</h4>
+                                        <h4 class="card-title fw-bold">Daftar Seluruh Siswa</h4>
                                         <h5 class="card-subtitle">Berikut adalah nama-nama siswa yang telah mendaftar ke ekstrakulikuler</h5>
-                                    </div>
-                                    <div class="ms-auto">
-                                        <div class="dl">
-                                            <select class="form-select shadow-none">
-                                                <option value="0" selected>Monthly</option>
-                                                <option value="1">Daily</option>
-                                                <option value="2">Weekly</option>
-                                                <option value="3">Yearly</option>
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                                 <!-- title -->
@@ -288,6 +256,8 @@
                                 <table class="table v-middle text-center">
                                     <thead>
                                         <tr class="bg-light">
+
+                                            <th class="border-top-0">No</th>
                                             <th class="border-top-0">Nama</th>
                                             <th class="border-top-0">Kelas</th>
                                             <th class="border-top-0">Email</th>
@@ -297,72 +267,24 @@
                                         </tr>
                                     </thead>
                                     <tbody class="text-center">
+                                        @foreach ($siswa as $item)
                                         <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Elite Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>46</td>
-                                            <td>356</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->kelas->kelas }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->no_hp }}</td>
+                                            <td>{{ $item->ekstrakulikuler->nama_ekskul}}</td>
+                                                @endforeach
                                         </tr>
 
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Monster Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>Venessa Fern</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Material Pro Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Ample Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- Table -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
+{{-- =========================================================================== --}}
                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-6">
@@ -371,18 +293,8 @@
                                 <!-- title -->
                                 <div class="d-md-flex">
                                     <div>
-                                        <h4 class="card-title">Daftar Ekstrakulikuler</h4>
+                                        <h4 class="card-title fw-bold">Daftar Ekstrakulikuler</h4>
                                         <h5 class="card-subtitle">Berikut adalah ekskul - ekskul yang terdafar di SMKN 1 SBY</h5>
-                                    </div>
-                                    <div class="ms-auto">
-                                        <div class="dl">
-                                            <select class="form-select shadow-none">
-                                                <option value="0" selected>Monthly</option>
-                                                <option value="1">Daily</option>
-                                                <option value="2">Weekly</option>
-                                                <option value="3">Yearly</option>
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                                 <!-- title -->
@@ -391,80 +303,38 @@
                                 <table class="table v-middle text-center">
                                     <thead>
                                         <tr class="bg-light">
-                                            <th class="border-top-0">Nama</th>
-                                            <th class="border-top-0">Kelas</th>
-                                            <th class="border-top-0">Email</th>
-                                            <th class="border-top-0">Nomor Handphone</th>
-                                            <th class="border-top-0">Ekstrakulikuler</th>
+                                            <th class="border-top-0">No</th>
+                                            <th class="border-top-0">Nama Ekstrakulikuler</th>
+                                            {{-- <th class="border-top-0">Action</th> --}}
 
                                         </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Elite Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
 
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Monster Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>Venessa Fern</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
+                                        <tbody class="text-center">
 
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Material Pro Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Ample Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                        </tr>
-                                    </tbody>
+                                            @foreach ($ekskul as $item)
+                                            <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nama_ekskul }}</td>
+                                        {{-- <td class="text-center">
+                                            <a class="btn-sm btn-info" onclick= "show ({{ $item->id}})"><i class="fas fa-folder-open"></i></a>
+                                            <a href="" class="btn-sm btn-success"><i class="fas fa-plus"></i></a>
+                                        </td>--}}
+                                            @endforeach
+                                            </tr>
+                                        </tbody>
+
                                 </table>
+
                             </div>
                         </div>
                     </div>
                     <!-- column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="padding-left: 20px">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Temp Guide</h4>
-                                <div class="d-flex align-items-center flex-row m-t-30">
+                                <h4 class="card-title">Dikasi apa yaa</h4>
+                                {{-- <div class="d-flex align-items-center flex-row m-t-30">
                                     <div class="display-5 text-info"><i class="wi wi-day-showers"></i>
                                         <span>73<sup>°</sup></span></div>
                                     <div class="m-l-10">
@@ -512,7 +382,7 @@
                                         <span class="d-block text-muted">15:30</span>
                                         <h3 class="m-t-5">76<sup>°</sup></h3>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>
@@ -521,6 +391,8 @@
                 <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
             </div>
+
+
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -528,8 +400,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Xtreme Admin. Designed and Developed by <a
-                    href="https://www.wrappixel.com">WrapPixel</a>.
+               Selamat Datang Master Admin
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -560,6 +431,7 @@
     <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+
 </body>
 
 </html>

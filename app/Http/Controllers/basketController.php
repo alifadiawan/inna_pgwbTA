@@ -23,11 +23,12 @@ class basketController extends Controller
      */
     public function index()
     {
+        $jmlh_basket=tabelmaster::where('ekstrakulikuler_id','3')->count();
         $daftar_siswa = tabelmaster::with('kelas')->get();
         $basket = DB::table('update')
             ->where('ekskul_id', '3')->get();
         $data = update::where('ekskul_id', '3')->get();
-        return view('ekstra.basket.dashboard', compact('basket', 'data','daftar_siswa'));
+        return view('ekstra.basket.dashboard', compact('basket', 'data','daftar_siswa','jmlh_basket'));
     }
 
     /**
@@ -87,6 +88,7 @@ class basketController extends Controller
         'deskripsi'=> $request-> deskripsi,
         'hari'=> $request-> hari,
         'jam'=> $request-> jam,
+        'jam2'=> $request-> jam2,
         'foto1'=> $nama_file1,
         'foto2'=> $nama_file2,
         'foto3'=> $nama_file3,

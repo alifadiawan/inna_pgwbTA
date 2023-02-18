@@ -18,14 +18,18 @@ class MadminController extends Controller
      */
     public function index()
     {
-
+        $data = tabelmaster::paginate(5);
+        $siswa =tabelmaster::with('ekstrakulikuler')->get();
+        $ekskul =ekstrakulikuler::all();
+        $jumlah_ekskul = ekstrakulikuler::count();
+        $jumlah_siswa = tabelmaster::count();
         $futsal= update::where('ekskul_id', '4')->get();
         $dance = update::where('ekskul_id', '1')->get();
         $pmr = update::where('ekskul_id', '2')->get();
         $basket = update::where('ekskul_id', '3')->get();
-        $jml_siswa = tabelmaster::all();
-        return view('masteradmin', compact('futsal','dance','pmr','basket','jml_siswa'));
-
+        $daftar_ekskul = ekstrakulikuler::all();
+        $daftar_kelas= kelas::all();
+        return view('masteradmin' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket','jumlah_siswa','jumlah_ekskul','siswa','ekskul','data'));
     }
 
     /**
@@ -57,7 +61,8 @@ class MadminController extends Controller
      */
     public function show($id)
     {
-        //
+        $masteradmin = tabelmaster::find($id)->tabelmaster()->get();
+        return view( 'ShowProject', compact('masteradmin'));
     }
 
     /**
@@ -91,6 +96,6 @@ class MadminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect($id);
     }
 }

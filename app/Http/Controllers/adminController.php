@@ -19,10 +19,11 @@ class adminController extends Controller
 
     public function index()
     {
+
         $daftar_siswa = tabelmaster::with('kelas')->get();
         // $pmr = tabelmaster::where('ekstrakulikuler_id',1)->get();
         $daftar_kelas = kelas::all();
-        $data = tabelmaster::all();
+        $data = tabelmaster::with('nama_ekskul')->get();
     //     $daftar_kelas = kelas::with('daftar')->get();
     //    return $pmr;
         $daftar_ekskul = ekstrakulikuler::all();

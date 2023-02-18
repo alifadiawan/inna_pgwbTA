@@ -6,6 +6,7 @@ use App\Models\tabelmaster;
 // use Illuminate\Http\Request;
 use App\Models\ekstrakulikuler;
 use App\Models\kelas;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class tabelmasterController extends Controller
@@ -62,11 +63,12 @@ class tabelmasterController extends Controller
 
         $siswa = tabelmaster::create([
             'nama' => $request-> nama,
+            'email' => $request-> email,
             'no_hp' => $request-> no_hp,
             'kelas_id' => $request-> kelas_id,
             'ekstrakulikuler_id' => $request -> ekstrakulikuler_id
         ]);
-
+        Session::flash('daftar','Kamu sudah berhasil mendaftar yaa');
         return redirect('siswa');
     }
 
@@ -112,6 +114,6 @@ class tabelmasterController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

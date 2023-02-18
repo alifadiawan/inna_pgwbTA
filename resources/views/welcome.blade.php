@@ -493,7 +493,7 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="#your-link">
-                            <i class="fa fa-whatsapp"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#your-link">
                             <i class="fab fa-instagram"></i>

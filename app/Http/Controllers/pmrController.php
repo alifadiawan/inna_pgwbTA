@@ -23,11 +23,13 @@ class pmrController extends Controller
      */
     public function index()
     {
+
+        $jmlh_pmr=tabelmaster::where('ekstrakulikuler_id','2')->count();
         $daftar_siswa = tabelmaster::with('kelas')->get();
         $pmr = DB::table('update')
             ->where('ekskul_id', '2')->get();
         $data = update::where('ekskul_id', '2')->get();
-        return view('ekstra.pmr.dashboard', compact('pmr', 'data','daftar_siswa'));
+        return view('ekstra.pmr.dashboard', compact('pmr', 'data','daftar_siswa','jmlh_pmr'));
     }
 
     /**
@@ -87,6 +89,7 @@ class pmrController extends Controller
         'deskripsi'=> $request-> deskripsi,
         'hari'=> $request-> hari,
         'jam'=> $request-> jam,
+        'jam2'=> $request-> jam2,
         'foto1'=> $nama_file1,
         'foto2'=> $nama_file2,
         'foto3'=> $nama_file3,

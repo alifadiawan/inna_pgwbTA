@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tabelmaster', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('email');
             $table->string('no_hp');
             $table->BigInteger('ekstrakulikuler_id')->unsigned()->nullable();
             $table->foreign('ekstrakulikuler_id')->references('id')->on('ekstrakulikuler')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\update;
+use App\Models\tabelmaster;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,10 +17,13 @@ class danceController extends Controller
      */
     public function index()
     {
+        $daftar_siswa = tabelmaster::with('kelas')->get();
+        $jmlh_dance=tabelmaster::where('ekstrakulikuler_id','1')->count();
+        $anggota=tabelmaster::where('ekstrakulikuler_id','1')->get();
         $dance = DB::table('update')
             ->where('ekskul_id', '1')->get();
         $data = update::where('ekskul_id', '1')->get();
-        return view('ekstra.dance.dashboard' , compact('dance', 'data'));
+        return view('ekstra.dance.dashboard' , compact('dance', 'data','jmlh_dance','anggota','daftar_siswa'));
     }
 
     /**
@@ -44,18 +48,18 @@ class danceController extends Controller
         $file1 = $request->file('foto1');
         $file2 = $request->file('foto2');
         $file3 = $request->file('foto3');
-        
+
         //rename
         $nama_file1 = time() . '_' . $file1->getClientOriginalName();
         $nama_file2 = time() . '_' . $file2->getClientOriginalName();
         $nama_file3 = time() . '_' . $file3->getClientOriginalName();
-        
+
         //proses upload
         $tujuan_upload = './images';
         $file1->move($tujuan_upload, $nama_file1);
         $file2->move($tujuan_upload, $nama_file2);
         $file3->move($tujuan_upload, $nama_file3);
-        
+
         // $ekskul = ekstrakulikuler::
 
         update::create([
@@ -63,11 +67,12 @@ class danceController extends Controller
         'deskripsi'=> $request-> deskripsi,
         'hari'=> $request-> hari,
         'jam'=> $request-> jam,
+        'jam2'=> $request-> jam,
         'foto1'=> $nama_file1,
         'foto2'=> $nama_file2,
         'foto3'=> $nama_file3,
 
-    ]); 
+    ]);
 
         Session::flash('success', 'data berhasil disimpan !!!');
         return redirect('/dance');
@@ -116,13 +121,13 @@ class danceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dance = update::find($id);
+        $dance->delete();
+        return redirect('/dance');
     }
 
     public function hapus($id)
     {
-        $dance = update::find($id);
-        $dance->delete();
-        return redirect('/dance');
+
     }
 }

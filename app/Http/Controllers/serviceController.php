@@ -27,7 +27,7 @@ class serviceController extends Controller
     {
         //
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -37,24 +37,24 @@ class serviceController extends Controller
     public function store(Request $request)
     {
 
-        $message = [
-            'required' => ':attribute Harus diisi ya rek',
-            'required' => ':attribute Loh, keluhannya apa ya?',
-        ];
+        // $message = [
+        //     'required' => ' Harus diisi ya rek',
+        //     'required' => 'Loh, keluhannya apa ya?',
+        // ];
 
-        $this->validate ($request,[
-            'email' => 'required',
-            'pesan' => 'required',
-        ], $message);
+        // $this->validate ($request,[
+        //     'email' => 'required',
+        //     'pesan' => 'required',
+        // ], $message);
 
-        service::create([
-            'email'  => $request->email,
-            'pesan'  => $request->pesan,
-        ]);
+        // service::create([
+        //     'email'  => $request->email,
+        //     'pesan'  => $request->pesan,
+        // ]);
 
         Session::flash('success','Pesan berhasil terkirim ya, rek');
-        $servis=service::all();
-        return redirect('/customer_service',compact('servis'));
+        // $servis=service::all();
+        return redirect('/customer_service');
 
     }
 

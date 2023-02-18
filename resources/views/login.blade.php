@@ -28,7 +28,7 @@
                                 name="password">
                         </div>
                         <div class="form-group m-0">
-                            <input type="submit" class="btn btn-warning w-25 mb-3" value="LOGIN">
+                            <input type="submit" class="btn btn-warning w-25 mb-3 fw-bold" value="LOGIN">
                             <p class="m-0 text-light">
                                 Ndak punya akun ? <a href="{{ url('/register') }}">Buat Sekarang</a>
                             </p>
@@ -173,7 +173,7 @@
                                                     <option value="{{($item->id)}}">{{($item->nama_ekskul)}}</option>
                                                 @endforeach
                                         </select>
-                                        
+
                                     </div> --}}
 {{-- <input type="submit" class="btn btn-primary btn-block" value="login">
 

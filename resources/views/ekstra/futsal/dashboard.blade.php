@@ -6,7 +6,7 @@
                 @if ($futsal->isEmpty())
                     <div class="row">
                         <div class="col">
-                            <h4 class="fw-bold">Edit Hero {{ Auth::user()->role }}</h4>
+                            <h4 class="fw-bold">Edit Hero </h4>
                         </div>
                         <div class="col text-end">
                             <a href="{{ route('futsal.create') }}" class="btn btn-success">
@@ -17,13 +17,14 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="container m-5">
-                                <h5>Jek kosong ngab</h5>
+                                <h5>Konten kamu masih kosong nih</h5>
                             </div>
                         </div>
                     </div>
                 @else
                     {{-- carousel futsal --}}
                     <div class="row">
+                        <h4 class="fw-bold">Edit Hero </h4>
                         <div class="col-6">
                             @foreach ($data as $item)
                                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -62,25 +63,22 @@
                                     </button>
                                 </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 bg-dark rounded-2 p-4">
                             <div class="text-container">
                                 <div class="row">
                                     <div class="col">
-                                        <h3>Deskripsi ekskul :</h3>
+                                        <h2 class="fw-bold">Deskripsi Ektrakulikuler</h2>
                                     </div>
                                     <div class="row" style="color: white;">
                                     <div class="container">
                                     <div class="content text-white">
                                     @foreach ($data as $item)
-                                        <h6 class="fw-bold">Judul Ekskul</h6>
-                                        <p >{{ $item->ekstrakulikuler_id }}</p>
+                                        <h4 class="fw-bold text-warning mt-3">FUTSAL</h4>
+                                            <span style="color:#c4c3d0">{{ $item->deskripsi }}</span>
 
-                                        <h6 class="fw-bold">Deskripsi Ekskul</h6>
-                                            <p style="color:#c4c3d0">{{ $item->deskripsi }}</p>
-
-                                        <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                                            <span style="color:#c4c3d0">Hari : {{ $item->hari }}</span><br>
-                                            <span style="color:#c4c3d0">Jam : {{ $item->jam }}</span>
+                                        <h6 class="fw-bold text-danger mt-2">Jadwal Ekstrakulikuler</h6>
+                                            <span class="fw-bold" style="color:#c4c3d0">Hari : {{ $item->hari }}</span><br>
+                                            <span  class="fw-bold" style="color:#c4c3d0">Jam : {{ $item->jam }} - {{ $item->jam2 }}</span>
                                             @endforeach
                                     </div>
                                 </div>
@@ -90,10 +88,10 @@
                         </div>
                 @endforeach
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col text-end">
                     <a href="{{ route('futsal.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                    <a href="{{ route('admin.preview') }}" class="btn text-light">Preview</a>
+                    <a href="{{ route ('admin.preview') }}" class="btn text-light">Preview</a>
                     <a href="{{ route('futsal.hapus', $item->id) }}" class="btn text-danger">
                         <i class="fas fa-trash"></i>
                     </a>
@@ -113,7 +111,7 @@
                     <h4 class="fw-bold">Jumlah Siswa</h4>
                 </div>
                 <div class="col">
-                    <h5>sek kosong</h5>
+                        <h5>{{ ($jmlh_futsal) }}</h5>
                 </div>
             </div>
         </div>
@@ -149,7 +147,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($daftar_siswa as $item)
+                            @foreach ($daftar_siswa->where('ekstrakulikuler_id','4') as $item)
                                 {{-- @foreach ($kelas as $item) --}}
 
 

@@ -23,11 +23,12 @@ class futsalController extends Controller
      */
     public function index()
     {
+        $jmlh_futsal=tabelmaster::where('ekstrakulikuler_id','4')->count();
         $daftar_siswa = tabelmaster::with('kelas')->get();
         $futsal = DB::table('update')
             ->where('ekskul_id', '4')->get();
         $data = update::where('ekskul_id', '4')->get();
-        return view('ekstra.futsal.dashboard', compact('futsal', 'data','daftar_siswa'));
+        return view('ekstra.futsal.dashboard', compact('futsal', 'data','daftar_siswa','jmlh_futsal'));
     }
 
     /**
@@ -87,6 +88,7 @@ class futsalController extends Controller
         'deskripsi'=> $request-> deskripsi,
         'hari'=> $request-> hari,
         'jam'=> $request-> jam,
+        'jam2'=> $request-> jam2,
         'foto1'=> $nama_file1,
         'foto2'=> $nama_file2,
         'foto3'=> $nama_file3,
@@ -119,7 +121,7 @@ class futsalController extends Controller
         $edit = update::find($id);
         return view('ekstra.futsal.edit' , compact('edit'));
     }
- 
+
     /**
      * Update the specified resource in storage.
      *

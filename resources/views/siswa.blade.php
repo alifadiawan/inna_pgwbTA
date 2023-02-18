@@ -23,6 +23,7 @@
     <title>Ekstrakulikuler SMKN 1 Surabaya</title>
 
     <!-- Styles -->
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700,700i&display=swap" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="{{ asset('css/fontawesome-all.css')}}" rel="stylesheet">
@@ -279,322 +280,16 @@
                                 </div>
                             </div>
                         </div> --}}
-
-
-                        @foreach ($dance as $item)
-                        <div class="basic-3">
-                            <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
-
-                                <div class="container mt-5 ">
-                                    <div class="row align-items-center">
-
-                                            <div class="col-lg-6 " >
-                                                <div class="content">
-                                                    <h2 class="fw-bold">DANCE</h2>
-                                                    <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
-                                                    <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
-                                                    <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
-                                                    <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
-                                                </div>
-                                                 <!-- Button trigger modal -->
-                                            <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
-                                                data-bs-target="#example_Modal">DAFTAR</button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="example_Modal" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header bg-dark text-white ">
-                                                            <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
-                                                            <button type="button" class="btn-close mr-1"
-                                                                style="background-color: #ffc107" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form method="post" action="{{ route('tabelmaster.store') }}">
-                                                                @csrf
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control-input" name="nama"
-                                                                        id="nama">
-                                                                    <label for="">Name</label>
-
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control-input" name="no_hp"
-                                                                        id="no_hp" required>
-                                                                    <label class="label-control" for="no_hp">No Hp</label>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <select class="form-select" id="kelas" name="kelas"
-                                                                        aria-label="Default select example">
-                                                                        <option selected>Pilih Kelas</option>
-                                                                        <option value="10 AKL 1">10 AKL 1</option>
-                                                                        <option value="10 AKL 2">10 AKL 2</option>
-                                                                        <option value="10 AKL 3">10 AKL 3</option>
-                                                                        <option value="10 AKL 4">10 AKL 4</option>
-                                                                        <option value="10 AKL 5">10 AKL 5</option>
-                                                                        <option value="10 BD 1">10 BD 1</option>
-                                                                        <option value="10 BD <">10 BD 2</option>
-                                                                        <option value="10 DKV 1">10 DKV 1</option>
-                                                                        <option value="10 DKV 2">10 DKV 2</option>
-                                                                        <option value="10 DKV 3">10 DKV 3</option>
-                                                                        <option value="10 MP 1">10 MP 1</option>
-                                                                        <option value="10 MP 2">10 MP 2</option>
-                                                                        <option value="10 MP 3<">10 MP 3</option>
-                                                                        <option value="10 MP 4">10 MP 4</option>
-                                                                        <option value="10 MP 5">10 MP 5</option>
-                                                                        <option value="10 PH 1">10 PH 1</option>
-                                                                        <option value="10 PH 2">10 PH 2</option>
-                                                                        <option value="10 PSPT 1">10 PSPT 1</option>
-                                                                        <option value="10 PSPT 2">10 PSPT 2</option>
-                                                                        <option value="10 PSPT 3">10 PSPT 3</option>
-                                                                        <option value="10 RPL 1">10 RPL 1</option>
-                                                                        <option value="10 RPL 2">10 RPL 2</option>
-                                                                        <option value="10 TKJ 1">10 TKJ 1</option>
-                                                                        <option value="10 TKJ 2">10 TKJ 2</option>
-                                                                        <option value="11 AKL 1">11 AKL 1</option>
-                                                                        <option value="11 AKL 2">11 AKL 2</option>
-                                                                        <option value="11 AKL 3">11 AKL 3</option>
-                                                                        <option value="11 AKL 4">11 AKL 4</option>
-                                                                        <option value="11 AKL 5">11 AKL 5</option>
-                                                                        <option value="11 BDP 1">11 BDP 1</option>
-                                                                        <option value="11 BDP 2">11 BDP 2</option>
-                                                                        <option value="11 DKV 1">11 DKV 1</option>
-                                                                        <option value="11 DKV 2">11 DKV 2</option>
-                                                                        <option value="11 MM 1<">11 MM 1</option>
-                                                                        <option value="11 MM 2<">11 MM 2</option>
-                                                                        <option value="11 OTKP 1">11 OTKP 1</option>
-                                                                        <option value="11 OTKP 2">11 OTKP 2</option>
-                                                                        <option value="11 OTKP 3">11 OTKP 3</option>
-                                                                        <option value="11 OTKP 4">11 OTKP 4</option>
-                                                                        <option value="11 OTKP 5">11 OTKP 5</option>
-                                                                        <option value="11 PH 1">11 PH 1</option>
-                                                                        <option value="11 PH 2">11 PH 2</option>
-                                                                        <option value="11 PSPT 1">11 PSPT 1</option>
-                                                                        <option value="11 PSPT 2">11 PSPT 2</option>
-                                                                        <option value="11 RPL 1">11 RPL 1</option>
-                                                                        <option value="11 RPL 2">11 RPL 2</option>
-                                                                        <option value="11 TKJ 1">11 TKJ 1</option>
-                                                                        <option value="11 TKJ 2">11 TKJ 2</option>
-                                                                        <option value="12 AKL 1">12 AKL 1</option>
-                                                                        <option value="12 AKL 2">12 AKL 2</option>
-                                                                        <option value="12 AKL 3">12 AKL 3</option>
-                                                                        <option value="12 AKL 4">12 AKL 4</option>
-                                                                        <option value="12 AKL 5">12 AKL 5</option>
-                                                                        <option value="12 BDP 1">12 BDP 1</option>
-                                                                        <option value="12 BDP 2">12 BDP 2</option>
-                                                                        <option value="12 DKV 1">12 DKV 1</option>
-                                                                        <option value="12 DKV 2">12 DKV 2</option>
-                                                                        <option value="12 MM 1">12 MM 1</option>
-                                                                        <option value="12 MM 2">12 MM 2</option>
-                                                                        <option value="12 OTKP 1">12 OTKP 1</option>
-                                                                        <option value="12 OTKP 2">12 OTKP 2</option>
-                                                                        <option value="12 OTKP 3">12 OTKP 3</option>
-                                                                        <option value="12 OTKP 4">12 OTKP 4</option>
-                                                                        <option value="12 OTKP 5">12 OTKP 5</option>
-                                                                        <option value="12 PH 1">12 PH 1</option>
-                                                                        <option value="12 PH 2">12 PH 2</option>
-                                                                        <option value="12 PSPT 1">12 PSPT 1</option>
-                                                                        <option value="12 PSPT 2">12 PSPT 2</option>
-                                                                        <option value="12 RPL 1">12 RPL 1</option>
-                                                                        <option value="12 RPL 2">12 RPL 2</option>
-                                                                        <option value="12 TKJ 1">12 TKJ 1</option>
-                                                                        <option value="12 TKJ 2">12 TKJ 2</option>
-                                                                    </select>
-                                                                </div>
-
-
-                                                                <div class="form-group">
-                                                                    <button type="submit"
-                                                                        class="form-control-submit-button">SUBMIT</button>
-                                                                </div>
-                                                                <div class="form-message">
-                                                                    <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                                                    <div class="carousel-indicators">
-                                                        <button type="button" data-bs-target="#carouselExampleCaptions"
-                                                            data-bs-slide-to="0" class="active" aria-current="true"
-                                                            aria-label="Slide 1"></button>
-                                                        <button type="button" data-bs-target="#carouselExampleCaptions"
-                                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                                        <button type="button" data-bs-target="#carouselExampleCaptions"
-                                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                                    </div>
-                                                    <div class="carousel-inner">
-                                                        <div class="carousel-item active">
-                                                            <img src="{{ asset('images/' . $item->foto1) }}"
-                                                                class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
-                                                        </div>
-                                                        <div class="carousel-item">
-                                                            <img src="{{ asset('images/' . $item->foto2) }}"
-                                                                class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
-                                                        </div>
-                                                        <div class="carousel-item">
-                                                            <img src="{{ asset('images/' . $item->foto3) }}"
-                                                                class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
-                                                        </div>
-                                                    </div>
-                                                    <button class="carousel-control-prev" type="button"
-                                                        data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                        <span class="visually-hidden">Previous</span>
-                                                    </button>
-                                                    <button class="carousel-control-next" type="button"
-                                                        data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                        <span class="visually-hidden">Next</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
+                <div class="container">
+                    @if (session('daftar'))
+                        <div class="alert alert-warning" role="alert">
+                            {{ session('daftar') }}
                         </div>
+                    @endif
+                </div>
 
-
-   {{-- PMR ==4 --}}
-   @foreach ($pmr as $item)
-   <div class="basic-3">
-    <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
-
-        <div class="container mt-5 ">
-            <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions"
-                                    data-bs-slide-to="0" class="active" aria-current="true"
-                                    aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions"
-                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions"
-                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('images/' . $item->foto1) }}"
-                                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto2) }}"
-                                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/' . $item->foto3) }}"
-                                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 " >
-                        <div class="content">
-                            <h2 class="fw-bold">PMR</h2>
-                            <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
-                            <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
-                            <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
-                            <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
-                        </div>
-                         <!-- Button trigger modal -->
-                    <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
-                        data-bs-target="#example_Modal">DAFTAR</button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="example_Modal" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-dark text-white ">
-                                    <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
-                                    <button type="button" class="btn-close mr-1"
-                                        style="background-color: #ffc107" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="post" action="{{ route('tabelmaster.store') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="">Name</label>
-                                            <input type="text" class="form-control-input" name="nama"
-                                                id="nama">
-
-
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control-input" name="no_hp"
-                                                id="no_hp" required>
-                                            <label class="label-control" for="no_hp">No Hp</label>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="kelas">Pilih Kelas</label>
-                                            <select class="form-control" id="kelas_id" name="kelas_id">
-                                                @foreach ($daftar_kelas as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->kelas }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ekstrakulikuler">Pilih Ekstrakulikuler</label>
-                                            <select class="form-control" id="ekstrakulikuler_id"
-                                                name="ekstrakulikuler_id">
-                                                @foreach ($daftar_ekskul as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->nama_ekskul }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button type="submit"
-                                                class="form-control-submit-button">SUBMIT</button>
-                                        </div>
-                                        <div class="form-message">
-                                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    </div>
-@endforeach
-            </div>
-        </div>
-    </div>
-</div>
-   <!-- end of futsal -->
-
-    {{-- BASKET ==4 --}}
-    @foreach ($basket as $item)
+    {{-- DANCE ==1 --}}
+    @foreach ($dance as $item)
     <div class="basic-3">
         <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
 
@@ -603,7 +298,7 @@
 
                         <div class="col-lg-6 " >
                             <div class="content">
-                                <h2 class="fw-bold">BASKET</h2>
+                                <h2 class="fw-bold">DANCE</h2>
                                 <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
                                 <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
                                 <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
@@ -628,97 +323,39 @@
                                         <form method="post" action="{{ route('tabelmaster.store') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" class="form-control-input" name="nama"
-                                                    id="nama">
-                                                <label for="">Name</label>
-
+                                                <label class="fw-bold" for="">Nama</label>
+                                                <input type="text" class="form-control" name="nama"
+                                                    id="nama" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control-input" name="no_hp"
+                                                <label class="fw-bold" for="">Email</label>
+                                                <input type="text" class="form-control" name="email"
+                                                    id="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">No Handphone</label>
+                                                <input type="text" class="form-control" name="no_hp"
                                                     id="no_hp" required>
-                                                <label class="label-control" for="no_hp">No Hp</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-
                                             <div class="form-group">
-                                                <select class="form-select" id="kelas" name="kelas"
-                                                    aria-label="Default select example">
+                                                <select class="form-control" id="kelas_id" name="kelas_id" >
                                                     <option selected>Pilih Kelas</option>
-                                                    <option value="10 AKL 1">10 AKL 1</option>
-                                                    <option value="10 AKL 2">10 AKL 2</option>
-                                                    <option value="10 AKL 3">10 AKL 3</option>
-                                                    <option value="10 AKL 4">10 AKL 4</option>
-                                                    <option value="10 AKL 5">10 AKL 5</option>
-                                                    <option value="10 BD 1">10 BD 1</option>
-                                                    <option value="10 BD <">10 BD 2</option>
-                                                    <option value="10 DKV 1">10 DKV 1</option>
-                                                    <option value="10 DKV 2">10 DKV 2</option>
-                                                    <option value="10 DKV 3">10 DKV 3</option>
-                                                    <option value="10 MP 1">10 MP 1</option>
-                                                    <option value="10 MP 2">10 MP 2</option>
-                                                    <option value="10 MP 3<">10 MP 3</option>
-                                                    <option value="10 MP 4">10 MP 4</option>
-                                                    <option value="10 MP 5">10 MP 5</option>
-                                                    <option value="10 PH 1">10 PH 1</option>
-                                                    <option value="10 PH 2">10 PH 2</option>
-                                                    <option value="10 PSPT 1">10 PSPT 1</option>
-                                                    <option value="10 PSPT 2">10 PSPT 2</option>
-                                                    <option value="10 PSPT 3">10 PSPT 3</option>
-                                                    <option value="10 RPL 1">10 RPL 1</option>
-                                                    <option value="10 RPL 2">10 RPL 2</option>
-                                                    <option value="10 TKJ 1">10 TKJ 1</option>
-                                                    <option value="10 TKJ 2">10 TKJ 2</option>
-                                                    <option value="11 AKL 1">11 AKL 1</option>
-                                                    <option value="11 AKL 2">11 AKL 2</option>
-                                                    <option value="11 AKL 3">11 AKL 3</option>
-                                                    <option value="11 AKL 4">11 AKL 4</option>
-                                                    <option value="11 AKL 5">11 AKL 5</option>
-                                                    <option value="11 BDP 1">11 BDP 1</option>
-                                                    <option value="11 BDP 2">11 BDP 2</option>
-                                                    <option value="11 DKV 1">11 DKV 1</option>
-                                                    <option value="11 DKV 2">11 DKV 2</option>
-                                                    <option value="11 MM 1<">11 MM 1</option>
-                                                    <option value="11 MM 2<">11 MM 2</option>
-                                                    <option value="11 OTKP 1">11 OTKP 1</option>
-                                                    <option value="11 OTKP 2">11 OTKP 2</option>
-                                                    <option value="11 OTKP 3">11 OTKP 3</option>
-                                                    <option value="11 OTKP 4">11 OTKP 4</option>
-                                                    <option value="11 OTKP 5">11 OTKP 5</option>
-                                                    <option value="11 PH 1">11 PH 1</option>
-                                                    <option value="11 PH 2">11 PH 2</option>
-                                                    <option value="11 PSPT 1">11 PSPT 1</option>
-                                                    <option value="11 PSPT 2">11 PSPT 2</option>
-                                                    <option value="11 RPL 1">11 RPL 1</option>
-                                                    <option value="11 RPL 2">11 RPL 2</option>
-                                                    <option value="11 TKJ 1">11 TKJ 1</option>
-                                                    <option value="11 TKJ 2">11 TKJ 2</option>
-                                                    <option value="12 AKL 1">12 AKL 1</option>
-                                                    <option value="12 AKL 2">12 AKL 2</option>
-                                                    <option value="12 AKL 3">12 AKL 3</option>
-                                                    <option value="12 AKL 4">12 AKL 4</option>
-                                                    <option value="12 AKL 5">12 AKL 5</option>
-                                                    <option value="12 BDP 1">12 BDP 1</option>
-                                                    <option value="12 BDP 2">12 BDP 2</option>
-                                                    <option value="12 DKV 1">12 DKV 1</option>
-                                                    <option value="12 DKV 2">12 DKV 2</option>
-                                                    <option value="12 MM 1">12 MM 1</option>
-                                                    <option value="12 MM 2">12 MM 2</option>
-                                                    <option value="12 OTKP 1">12 OTKP 1</option>
-                                                    <option value="12 OTKP 2">12 OTKP 2</option>
-                                                    <option value="12 OTKP 3">12 OTKP 3</option>
-                                                    <option value="12 OTKP 4">12 OTKP 4</option>
-                                                    <option value="12 OTKP 5">12 OTKP 5</option>
-                                                    <option value="12 PH 1">12 PH 1</option>
-                                                    <option value="12 PH 2">12 PH 2</option>
-                                                    <option value="12 PSPT 1">12 PSPT 1</option>
-                                                    <option value="12 PSPT 2">12 PSPT 2</option>
-                                                    <option value="12 RPL 1">12 RPL 1</option>
-                                                    <option value="12 RPL 2">12 RPL 2</option>
-                                                    <option value="12 TKJ 1">12 TKJ 1</option>
-                                                    <option value="12 TKJ 2">12 TKJ 2</option>
+                                                    @foreach ($daftar_kelas as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->kelas }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
-
+                                            <div class="form-group">
+                                                <select class="form-control" id="ekstrakulikuler_id" name="ekstrakulikuler_id" required >
+                                                    <option selected>Pilih Ektrakulikuler</option>
+                                                    @foreach ($daftar_ekskul as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama_ekskul }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
                                             <div class="form-group">
                                                 <button type="submit"
@@ -727,6 +364,8 @@
                                             <div class="form-message">
                                                 <div id="cmsgSubmit" class="h3 text-center hidden"></div>
                                             </div>
+                                            {{-- @endif
+                                            @endforeach --}}
                                         </form>
                                     </div>
                                 </div>
@@ -734,7 +373,60 @@
                         </div>
 
                         </div>
+    @endforeach
+    @foreach ($dance as $item)
+    <div class="col-lg-6">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('images/' . $item->foto1) }}"
+                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/' . $item->foto2) }}"
+                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/' . $item->foto3) }}"
+                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button"
+                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button"
+                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of DANCE -->
 
+
+   {{-- PMR ==2--}}
+   @foreach ($pmr as $item)
+    <div class="basic-3">
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
@@ -772,15 +464,232 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">PMR</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
+                            data-bs-target="#example_Modal">DAFTAR</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="example_Modal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-dark text-white ">
+                                        <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
+                                        <button type="button" class="btn-close mr-1"
+                                            style="background-color: #ffc107" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{-- @foreach ($cek as $item)
+
+
+                                        @if ($item==1)
+                                            <h1>Username sudah dipakai</h1>
+                                        @else --}}
+
+
+                                        <form method="post" action="{{ route('tabelmaster.store') }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">Nama</label>
+                                                <input type="text" class="form-control" name="nama"
+                                                    id="nama" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">Email</label>
+                                                <input type="text" class="form-control" name="email"
+                                                    id="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">No Handphone</label>
+                                                <input type="text" class="form-control" name="no_hp"
+                                                    id="no_hp" required>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="kelas_id" name="kelas_id" >
+                                                    <option selected>Pilih Kelas</option>
+                                                    @foreach ($daftar_kelas as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->kelas }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="ekstrakulikuler_id" name="ekstrakulikuler_id" required >
+                                                    <option selected>Pilih Ektrakulikuler</option>
+                                                    @foreach ($daftar_ekskul as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama_ekskul }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="submit"
+                                                    class="form-control-submit-button">SUBMIT</button>
+                                            </div>
+                                            <div class="form-message">
+                                                <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                                            </div>
+                                            {{-- @endif
+                                            @endforeach --}}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
     @endforeach
                 </div>
             </div>
         </div>
     </div>
-    <!-- end of futsal -->
+   <!-- end of PMR -->
+
+    {{-- BASKET ==3 --}}
+    @foreach ($basket as $item)
+    <div class="basic-3">
+        <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
+
+            <div class="container mt-5 ">
+                <div class="row align-items-center">
+
+                        <div class="col-lg-6 " >
+                            <div class="content">
+                                <h2 class="fw-bold">BASKET</h2>
+                                <p class="text-dark fw-bold">{{ $item->deskripsi }}</p>
+                                <h5 class="text-danger fw-bold">Jadwal Ekstrakulikuler</h6>
+                                <span class="text-dark fw-bold">Hari : {{ $item->hari }}</span><br>
+                                <span class="text-dark fw-bold">Jam  : {{ $item->jam }}</span>
+                            </div>
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn-solid-reg popup-with-move-anim mt-5" data-bs-toggle="modal"
+                            data-bs-target="#example_Modal">DAFTAR</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="example_Modal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-dark text-white ">
+                                        <h5 class="modal-title" id="exampleModalLabel">DAFTAR ESKTRAKULIKULER</h5>
+                                        <button type="button" class="btn-close mr-1"
+                                            style="background-color: #ffc107" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{ route('tabelmaster.store') }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">Nama</label>
+                                                <input type="text" class="form-control" name="nama"
+                                                    id="nama" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">Email</label>
+                                                <input type="text" class="form-control" name="email"
+                                                    id="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">No Handphone</label>
+                                                <input type="text" class="form-control" name="no_hp"
+                                                    id="no_hp" required>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="kelas_id" name="kelas_id" >
+                                                    <option selected>Pilih Kelas</option>
+                                                    @foreach ($daftar_kelas as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->kelas }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="ekstrakulikuler_id" name="ekstrakulikuler_id" required >
+                                                    <option selected>Pilih Ektrakulikuler</option>
+                                                    @foreach ($daftar_ekskul as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama_ekskul }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="submit"
+                                                    class="form-control-submit-button">SUBMIT</button>
+                                            </div>
+                                            <div class="form-message">
+                                                <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                                            </div>
+                                            {{-- @endif
+                                            @endforeach --}}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+    @endforeach
+    @foreach ($basket as $item)
+    <div class="col-lg-6">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('images/' . $item->foto1) }}"
+                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/' . $item->foto2) }}"
+                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/' . $item->foto3) }}"
+                        class="d-block w-100 fixed-height" style="object-fit: cover" alt="futsal">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button"
+                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button"
+                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of basket -->
 
 
-    {{-- basket ==4 --}}
+    {{-- futsal ==4 --}}
     @foreach ($futsal as $item)
     <div class="basic-3">
         <div style="background-image: url('images/circle.png'); background-repeat: no-repeat; background-position: left 0px; background-size: contain;">
@@ -852,97 +761,39 @@
                                         <form method="post" action="{{ route('tabelmaster.store') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" class="form-control-input" name="nama"
-                                                    id="nama">
-                                                <label for="">Name</label>
-
+                                                <label class="fw-bold" for="">Nama</label>
+                                                <input type="text" class="form-control" name="nama"
+                                                    id="nama" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control-input" name="no_hp"
+                                                <label class="fw-bold" for="">Email</label>
+                                                <input type="text" class="form-control" name="email"
+                                                    id="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="fw-bold" for="">No Handphone</label>
+                                                <input type="text" class="form-control" name="no_hp"
                                                     id="no_hp" required>
-                                                <label class="label-control" for="no_hp">No Hp</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-
                                             <div class="form-group">
-                                                <select class="form-select" id="kelas" name="kelas"
-                                                    aria-label="Default select example">
+                                                <select class="form-control" id="kelas_id" name="kelas_id" >
                                                     <option selected>Pilih Kelas</option>
-                                                    <option value="10 AKL 1">10 AKL 1</option>
-                                                    <option value="10 AKL 2">10 AKL 2</option>
-                                                    <option value="10 AKL 3">10 AKL 3</option>
-                                                    <option value="10 AKL 4">10 AKL 4</option>
-                                                    <option value="10 AKL 5">10 AKL 5</option>
-                                                    <option value="10 BD 1">10 BD 1</option>
-                                                    <option value="10 BD <">10 BD 2</option>
-                                                    <option value="10 DKV 1">10 DKV 1</option>
-                                                    <option value="10 DKV 2">10 DKV 2</option>
-                                                    <option value="10 DKV 3">10 DKV 3</option>
-                                                    <option value="10 MP 1">10 MP 1</option>
-                                                    <option value="10 MP 2">10 MP 2</option>
-                                                    <option value="10 MP 3<">10 MP 3</option>
-                                                    <option value="10 MP 4">10 MP 4</option>
-                                                    <option value="10 MP 5">10 MP 5</option>
-                                                    <option value="10 PH 1">10 PH 1</option>
-                                                    <option value="10 PH 2">10 PH 2</option>
-                                                    <option value="10 PSPT 1">10 PSPT 1</option>
-                                                    <option value="10 PSPT 2">10 PSPT 2</option>
-                                                    <option value="10 PSPT 3">10 PSPT 3</option>
-                                                    <option value="10 RPL 1">10 RPL 1</option>
-                                                    <option value="10 RPL 2">10 RPL 2</option>
-                                                    <option value="10 TKJ 1">10 TKJ 1</option>
-                                                    <option value="10 TKJ 2">10 TKJ 2</option>
-                                                    <option value="11 AKL 1">11 AKL 1</option>
-                                                    <option value="11 AKL 2">11 AKL 2</option>
-                                                    <option value="11 AKL 3">11 AKL 3</option>
-                                                    <option value="11 AKL 4">11 AKL 4</option>
-                                                    <option value="11 AKL 5">11 AKL 5</option>
-                                                    <option value="11 BDP 1">11 BDP 1</option>
-                                                    <option value="11 BDP 2">11 BDP 2</option>
-                                                    <option value="11 DKV 1">11 DKV 1</option>
-                                                    <option value="11 DKV 2">11 DKV 2</option>
-                                                    <option value="11 MM 1<">11 MM 1</option>
-                                                    <option value="11 MM 2<">11 MM 2</option>
-                                                    <option value="11 OTKP 1">11 OTKP 1</option>
-                                                    <option value="11 OTKP 2">11 OTKP 2</option>
-                                                    <option value="11 OTKP 3">11 OTKP 3</option>
-                                                    <option value="11 OTKP 4">11 OTKP 4</option>
-                                                    <option value="11 OTKP 5">11 OTKP 5</option>
-                                                    <option value="11 PH 1">11 PH 1</option>
-                                                    <option value="11 PH 2">11 PH 2</option>
-                                                    <option value="11 PSPT 1">11 PSPT 1</option>
-                                                    <option value="11 PSPT 2">11 PSPT 2</option>
-                                                    <option value="11 RPL 1">11 RPL 1</option>
-                                                    <option value="11 RPL 2">11 RPL 2</option>
-                                                    <option value="11 TKJ 1">11 TKJ 1</option>
-                                                    <option value="11 TKJ 2">11 TKJ 2</option>
-                                                    <option value="12 AKL 1">12 AKL 1</option>
-                                                    <option value="12 AKL 2">12 AKL 2</option>
-                                                    <option value="12 AKL 3">12 AKL 3</option>
-                                                    <option value="12 AKL 4">12 AKL 4</option>
-                                                    <option value="12 AKL 5">12 AKL 5</option>
-                                                    <option value="12 BDP 1">12 BDP 1</option>
-                                                    <option value="12 BDP 2">12 BDP 2</option>
-                                                    <option value="12 DKV 1">12 DKV 1</option>
-                                                    <option value="12 DKV 2">12 DKV 2</option>
-                                                    <option value="12 MM 1">12 MM 1</option>
-                                                    <option value="12 MM 2">12 MM 2</option>
-                                                    <option value="12 OTKP 1">12 OTKP 1</option>
-                                                    <option value="12 OTKP 2">12 OTKP 2</option>
-                                                    <option value="12 OTKP 3">12 OTKP 3</option>
-                                                    <option value="12 OTKP 4">12 OTKP 4</option>
-                                                    <option value="12 OTKP 5">12 OTKP 5</option>
-                                                    <option value="12 PH 1">12 PH 1</option>
-                                                    <option value="12 PH 2">12 PH 2</option>
-                                                    <option value="12 PSPT 1">12 PSPT 1</option>
-                                                    <option value="12 PSPT 2">12 PSPT 2</option>
-                                                    <option value="12 RPL 1">12 RPL 1</option>
-                                                    <option value="12 RPL 2">12 RPL 2</option>
-                                                    <option value="12 TKJ 1">12 TKJ 1</option>
-                                                    <option value="12 TKJ 2">12 TKJ 2</option>
+                                                    @foreach ($daftar_kelas as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->kelas }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
-
+                                            <div class="form-group">
+                                                <select class="form-control" id="ekstrakulikuler_id" name="ekstrakulikuler_id" required >
+                                                    <option selected>Pilih Ektrakulikuler</option>
+                                                    @foreach ($daftar_ekskul as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama_ekskul }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
                                             <div class="form-group">
                                                 <button type="submit"
@@ -951,6 +802,8 @@
                                             <div class="form-message">
                                                 <div id="cmsgSubmit" class="h3 text-center hidden"></div>
                                             </div>
+                                            {{-- @endif
+                                            @endforeach --}}
                                         </form>
                                     </div>
                                 </div>
@@ -963,7 +816,7 @@
             </div>
         </div>
     </div>
-    <!-- end of basket -->
+    <!-- end of FUTSAL -->
 
 
     {{-- FUTSAL ==4 --}}
@@ -1191,16 +1044,10 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="#your-link">
-                            <i class="fab fa-pinterest-p"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#your-link">
                             <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#your-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#your-link">
-                            <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div> <!-- end of col -->
