@@ -34,7 +34,6 @@ Route::post('logout', [loginController::class, 'logout']);
 
 route::resource('/', welcomeController::class);
 
-
 route::middleware('auth')->group(function ()  {
     route::resource('siswa', siswaController::class);
     route::resource('futsal', futsalController::class);
@@ -44,7 +43,7 @@ route::middleware('auth')->group(function ()  {
     route::resource('tabelmaster', tabelmasterController::class);
     Route::resource('Masteradmin', MadminController::class);
     
-    Route::get('inbox', [MadminController::class, 'inbox'])->name('Masteradmin.inbox');
+    Route::get('/inbox', [MadminController::class, 'inbox'])->name('Masteradmin.inbox');
     Route::get('/Masteradmin/{id}/pesan', [MadminController::class, 'pesan'])->name('Masteradmin.pesan');
     Route::get('preview', [adminController::class, 'preview'])->name('admin.preview');
     Route::get('/admin/{id}/detail', [adminController::class, 'tambah_deskripsi'])->name('admin.tambahdeskripsi');

@@ -68,7 +68,8 @@ class MadminController extends Controller
      */
     public function show($id)
     {
-        
+        $inbox = service::find($id);
+        return view('ShowPesan', compact('inbox'));
     }
 
     public function pesan($id)

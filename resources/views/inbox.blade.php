@@ -213,8 +213,9 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->email }}</td>
                                                     <td>
-                                                        <a onclick="show({{ $item->id }})"
-                                                            class="btn btn-warning">Lihat Pesan</a>
+                                                        {{-- <a href="{{route('Masteradmin.show', $item->id)}}"
+                                                            class="btn btn-warning">Lihat Pesan</a> --}}
+                                                            <a onclick="show({{$item->id}})" class="btn btn-warning">Lihat Pesan</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -238,7 +239,7 @@
 
                 <script>
                     function show(id) {
-                        $.get('inbox/' + id, function(inbox) {
+                        $.get('Masteradmin/' + id, function(inbox) {
                             $('#wek').html(inbox);
                         })
                     }
