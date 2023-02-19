@@ -19,6 +19,7 @@
     <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,66 +57,37 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="images/logosmk 1.png" width="120px" alt="homepage"  />
+                            <img src="images/logosmk 1.png" width="100px" alt="homepage"  />
                             <!-- Light Logo icon -->
 
                         </b>
-                        <!--End Logo icon -->
-
                     </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                             class="ti-menu ti-close"></i></a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
                     <ul class="navbar-nav float-start me-auto">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
+                        {{-- lahan kosong --}}
 
                     </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
                     <ul class="navbar-nav float-end">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
+                            {{-- <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
                                     My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
                                     My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
                                     Inbox</a>
-                            </ul>
+                            </ul> --}}
                         </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
                     </ul>
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar " style="background-color: #282b30" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -151,23 +123,9 @@
                         <li class="sidebar-item" style="background-color: #424549"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="" aria-expanded="false"><i
                                     class="mdi mdi-account-network text-white"></i><span class="hide-menu text-white">Website Ekstra</span></a></li>
-                        {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                                    class="hide-menu">Table</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
-                                    class="hide-menu">Icon</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="starter-kit.html" aria-expanded="false"><i class="mdi mdi-file"></i><span
-                                    class="hide-menu">Blank</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
-                                    class="hide-menu">404</span></a></li>
-                        <li class="text-center p-40 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/xtremeadmin/"
-                                class="btn d-block w-100 btn-danger text-white" target="_blank">Upgrade to Pro</a>
-                        </li> --}}
-                    </ul>
+                        <li class="sidebar-item" style="background-color: #424549"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{ url('inbox') }}" aria-expanded="false"><i
+                                    class="mdi mdi-account-network text-white"></i><span class="hide-menu text-white">Inbox</span></a></li>
 
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -179,7 +137,7 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-5">
-                        <h4 class="page-title fw-bold " style="font-size: 30px">Dashboard Master Admin</h4>
+                        <h4 class="page-title fw-bold text-danger" style="font-size: 30px">Dashboard Master Admin</h4>
                         <div class="d-flex align-items-center">
 
                         </div>
@@ -191,12 +149,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="card">
+                        <div class="card" style="border-radius: 10px">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                         <h4 class="card-title fw-bold">Jumlah Seluruh Siswa</h4>
-                                        <h5 class="card-subtitle">ini adalah jumlah siswa yang telah terdaftar di ekstrakulikuler</h5>
+                                        <h5 class="card-subtitle text-warning">ini adalah jumlah siswa yang telah terdaftar di ekstrakulikuler</h5>
                                     </div>
 
                                 </div>
@@ -213,12 +171,12 @@
                         </div>
                     </div>
                     <div class="col-md-6" style="padding-left: 20px">
-                        <div class="card">
+                        <div class="card"  style="border-radius: 10px">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                         <h4 class="card-title fw-bold" >Jumlah Ekstrakulikuler</h4>
-                                        <h5 class="card-subtitle">ini adalah jumlah ekstrakulikuler yang ada di SMKN 1 SBY</h5>
+                                        <h5 class="card-subtitle text-warning">ini adalah jumlah ekstrakulikuler yang ada di SMKN 1 SBY</h5>
                                     </div>
 
                                 </div>
@@ -241,18 +199,18 @@
                 <div class="row">
                     <!-- column -->
                     <div class="col-12">
-                        <div class="card">
+                        <div class="card" style="border-radius: 5px">
                             <div class="card-body">
                                 <!-- title -->
                                 <div class="d-md-flex">
                                     <div>
                                         <h4 class="card-title fw-bold">Daftar Seluruh Siswa</h4>
-                                        <h5 class="card-subtitle">Berikut adalah nama-nama siswa yang telah mendaftar ke ekstrakulikuler</h5>
+                                        <h5 class="card-subtitle text-warning">Berikut adalah nama-nama siswa yang telah mendaftar ke ekstrakulikuler</h5>
                                     </div>
                                 </div>
                                 <!-- title -->
                             </div>
-                            <div class="table-responsive">
+                            <div class="table-responsive table-bordered " style="padding-left: 15px;padding-right: 15px;" >
                                 <table class="table v-middle text-center">
                                     <thead>
                                         <tr class="bg-light">
@@ -288,24 +246,24 @@
                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-6">
-                        <div class="card">
+                        <div class="card" style="border-radius: 5px">
                             <div class="card-body">
                                 <!-- title -->
                                 <div class="d-md-flex">
                                     <div>
                                         <h4 class="card-title fw-bold">Daftar Ekstrakulikuler</h4>
-                                        <h5 class="card-subtitle">Berikut adalah ekskul - ekskul yang terdafar di SMKN 1 SBY</h5>
+                                        <h5 class="card-subtitle text-warning">Berikut adalah ekskul - ekskul yang terdafar di SMKN 1 SBY</h5>
                                     </div>
                                 </div>
                                 <!-- title -->
                             </div>
-                            <div class="table-responsive">
+                            <div class="table-responsive table-bordered" style="padding-left: 15px;padding-right: 15px;">
                                 <table class="table v-middle text-center">
                                     <thead>
                                         <tr class="bg-light">
                                             <th class="border-top-0">No</th>
                                             <th class="border-top-0">Nama Ekstrakulikuler</th>
-                                            {{-- <th class="border-top-0">Action</th> --}}
+                                            <th class="border-top-0">Action</th>
 
                                         </tr>
                                     </thead>
@@ -316,10 +274,9 @@
                                             <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama_ekskul }}</td>
-                                        {{-- <td class="text-center">
+                                        <td class="text-center">
                                             <a class="btn-sm btn-info" onclick= "show ({{ $item->id}})"><i class="fas fa-folder-open"></i></a>
-                                            <a href="" class="btn-sm btn-success"><i class="fas fa-plus"></i></a>
-                                        </td>--}}
+                                        </td>
                                             @endforeach
                                             </tr>
                                         </tbody>
@@ -331,9 +288,13 @@
                     </div>
                     <!-- column -->
                     <div class="col-lg-6" style="padding-left: 20px">
-                        <div class="card">
+                        <div class="card" style="border-radius: 5PX">
+                             <div class="card-header">
+                                <strong> Daftar siswa</strong>
+                             </div>
                             <div class="card-body">
-                                <h4 class="card-title">Dikasi apa yaa</h4>
+                                {{-- iki isie tabel daftar siswa per ekskul --}}
+
                                 {{-- <div class="d-flex align-items-center flex-row m-t-30">
                                     <div class="display-5 text-info"><i class="wi wi-day-showers"></i>
                                         <span>73<sup>°</sup></span></div>
@@ -387,35 +348,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
             </div>
 
-
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer text-center">
                Selamat Datang Master Admin
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+    <script>
+        function show(id){
+            $.get('admin/'+id, function (ini){
+                $('#siswa').html(ini);
+            })
+        }
+    </script>
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

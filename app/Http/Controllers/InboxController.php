@@ -3,14 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\kelas;
-use App\Models\tabelmaster;
-use App\Models\ekstrakulikuler;
-use App\Models\update;
 use App\Models\service;
-use Illuminate\Support\Facades\Session;
-class MadminController extends Controller
+class InboxController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,20 +13,9 @@ class MadminController extends Controller
      */
     public function index()
     {
-        $data = tabelmaster::paginate(5);
-        $siswa =tabelmaster::with('ekstrakulikuler')->get();
-        $ekskul =ekstrakulikuler::all();
-        $jumlah_ekskul = ekstrakulikuler::count();
-        $jumlah_siswa = tabelmaster::count();
-        $futsal= update::where('ekskul_id', '4')->get();
-        $dance = update::where('ekskul_id', '1')->get();
-        $pmr = update::where('ekskul_id', '2')->get();
-        $basket = update::where('ekskul_id', '3')->get();
-        $daftar_ekskul = ekstrakulikuler::all();
-        $daftar_kelas= kelas::all();
-        return view('masteradmin' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket','jumlah_siswa','jumlah_ekskul','siswa','ekskul','data'));
+        $inbox=service::all();
+        return view('inbox',compact('inbox'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -63,8 +46,7 @@ class MadminController extends Controller
      */
     public function show($id)
     {
-        $ini = tabelmaster::find($id);
-        return view( 'admin.show', compact('ini'));
+        //
     }
 
     /**
@@ -98,6 +80,6 @@ class MadminController extends Controller
      */
     public function destroy($id)
     {
-        return redirect($id);
+        //
     }
 }

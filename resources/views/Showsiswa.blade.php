@@ -1,12 +1,12 @@
 
-@if($masteradmin->isEmpty())
+{{-- @if($masteradmin->isEmpty())
 <h6>Siswa Belum Memiliki Project</h6>
 
-@else
-@foreach($masteradmin as $item)
+@else --}}
+{{-- @foreach($masteradmin as $item) --}}
     <div class="card ">
         <div class="card header">
-            <strong></strong>
+            <strong>{{ $ini->apa yaa }}</strong>
         </div>
         <div class="card-body">
             <strong>Tanggal Project :</strong>
@@ -20,5 +20,5 @@
             <a href="" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
         </div>
     </div>
-    @endforeach
-@endif
+    {{-- @endforeach
+@endif --}}

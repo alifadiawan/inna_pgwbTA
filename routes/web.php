@@ -13,6 +13,7 @@ use App\Http\Controllers\pmrController;
 use App\Http\Controllers\basketController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\InboxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ route::middleware('auth')->group(function ()  {
     route::resource('pmr', pmrController::class);
     route::resource('dance', danceController::class);
     route::resource('tabelmaster', tabelmasterController::class);
+    route::resource('inbox', InboxController::class);
     Route::get('preview', [adminController::class, 'preview'])->name('admin.preview');
     Route::get('/admin/{id}/detail', [adminController::class, 'tambah_deskripsi'])->name('admin.tambahdeskripsi');
 
@@ -61,5 +63,9 @@ Route::get('/customer_service', function(){
 });
 Route::get('/masteradmin', function(){
     return view('masteradmin');
+
+});
+Route::get('/inbox', function(){
+    return view('inbox');
 
 });
