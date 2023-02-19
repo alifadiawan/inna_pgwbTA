@@ -69,7 +69,10 @@ class adminController extends Controller
 
     public function show($id)
     {
-
+        $dance  = update::where('ekskul_id', '1');
+        $pmr  = update::where('ekskul_id', '2');
+        // $dance  = update::where('ekskul_id', '1');
+        return view('Showsiswa', compact('dance', 'pmr'));
     }
 
     /**

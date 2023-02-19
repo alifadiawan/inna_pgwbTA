@@ -34,7 +34,7 @@ class loginController extends Controller
             }elseif(Auth::User()->role == 'basket'){
                     return redirect()->intended('basket');
             }elseif(Auth::User()->role == 'admin'){
-                    return redirect()->intended('admin');
+                    return redirect()->intended('Masteradmin');
             }else{
                 return redirect()->intended('login');
             }

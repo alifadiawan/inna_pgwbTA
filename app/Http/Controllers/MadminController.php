@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\kelas;
 use App\Models\tabelmaster;
 use App\Models\ekstrakulikuler;
+use App\Models\kelas;
 use App\Models\update;
 use App\Models\service;
-use Illuminate\Support\Facades\Session;
+
 class MadminController extends Controller
 {
     /**
@@ -31,8 +30,14 @@ class MadminController extends Controller
         $daftar_ekskul = ekstrakulikuler::all();
         $daftar_kelas= kelas::all();
         return view('masteradmin' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket','jumlah_siswa','jumlah_ekskul','siswa','ekskul','data'));
+
     }
 
+    public function inbox()
+    {
+        $inbox = service::all();
+        return view('inbox', compact('inbox'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -63,8 +68,13 @@ class MadminController extends Controller
      */
     public function show($id)
     {
-        $ini = tabelmaster::find($id);
-        return view( 'admin.show', compact('ini'));
+        
+    }
+
+    public function pesan($id)
+    {
+        $inbox = service::find($id);
+        return view('ShowPesan', compact('inbox'));
     }
 
     /**
@@ -98,6 +108,6 @@ class MadminController extends Controller
      */
     public function destroy($id)
     {
-        return redirect($id);
+        //
     }
 }

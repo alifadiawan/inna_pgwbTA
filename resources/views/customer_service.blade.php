@@ -43,167 +43,185 @@
 
 
     <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top p-2">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top p-2">
 
-    <!-- Text Logo - Use this if you don't have a graphic logo -->
-    <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Corso</a> -->
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Corso</a> -->
 
-    <!-- Image Logo -->
-    <a class="navbar-brand logo-image " href="http://www.smkn1-sby.sch.id/"><img src="images/logosmk 1.png"
-            alt="alternative"></a>
+        <!-- Image Logo -->
+        <a class="navbar-brand logo-image " href="http://www.smkn1-sby.sch.id/"><img src="images/logosmk 1.png"
+                alt="alternative"></a>
 
-    <!-- Mobile Menu Toggle Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-awesome fas fa-bars"></span>
-        <span class="navbar-toggler-awesome fas fa-times"></span>
-    </button>
-    <!-- end of mobile menu toggle button -->
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+        <!-- end of mobile menu toggle button -->
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link page-scroll" href="/">BERANDA <span class="sr-only">(current)</span></a>
-            </li>
-
-
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="/">BERANDA <span class="sr-only">(current)</span></a>
+                </li>
 
 
-        </ul>
-        <span class="nav-item social-icons">
-            <span class="fa-stack">
-                <a href="#your-link">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-instagram fw-bold fa-stack-1x"></i>
-                </a>
+
+
+            </ul>
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="#your-link">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fw-bold fa-stack-1x"></i>
+                    </a>
+                </span>
+                <span class="fa-stack">
+                    <a href="#your-link">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-whatsapp fa-stack-1x"></i>
+                    </a>
+                </span>
             </span>
-            <span class="fa-stack">
-                <a href="#your-link">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-whatsapp fa-stack-1x"></i>
-                </a>
-            </span>
-        </span>
-    </div>
-</nav> <!-- end of navbar -->
-<!-- end of navigation -->
-{{-- <div class="container-fluid mb-5">
+        </div>
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+    {{-- <div class="container-fluid mb-5">
     <img  class="mb-5"src="images/cs.jpg" width="100%" alt="">
 </div> --}}
-<div id="contentainer marketing justify-content-center" style="padding-top: 0">
-    <div class="row ">
-        <img src="images/cs.jpg" alt="" height="500px" style="object-fit:cover">
-    </div>
-<div class="container mt-5">
-    <div class="row mb-5 justify-content-center">
-        <div class="col-11">
-            <img src="images/headercs.png" width="100%" alt="">
+    <div id="contentainer marketing justify-content-center" style="padding-top: 0">
+        <div class="row ">
+            <img src="images/cs.jpg" alt="" height="500px" style="object-fit:cover">
         </div>
-    </div>
-    @if (session('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
+        <div class="container mt-5">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-11">
+                    <img src="images/headercs.png" width="100%" alt="">
+                </div>
+            </div>
+
+            <div class="row justify-content-center" style="padding-top: 20px">
+                <div class="col-md-10">
+                    
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $item)
+                                    <li>{{ $item }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="mb-3">
+                        <form action="{{ route('customer_service.store') }}" class="bg-dark rounded-3"
+                            enctype="multipart/form-data" method="POST">
+                            @csrf
+
+                            <div class="form-group" style="padding-right: 50px;padding-left: 50px;padding-top: 50px;">
+                                <label for="exampleFormControlInput1" class="form-label text-secondary fw-bold">Email
+                                    address</label><br>
+                                <label for="exampleFormControlInput1" style="color:#d3ad16 " class="form-label">
+                                    Masukkan email yang telah diberikan dari sekolah!</label>
+                                <input type="email" class="form-control " style="background-color: lightgrey"
+                                    name="email" id="email" placeholder="name@gmail.com">
+                            </div>
+                            <div class="form-group "
+                                style="padding-right: 50px;padding-left: 50px;padding-top: 50px;">
+                                <label for="exampleFormControlTextarea1"
+                                    class="form-label text-secondary fw-bold">Kolom pesan</label><br>
+                                <label for="exampleFormControlInput1" style="color:#d3ad16 "
+                                    class="form-label">Beritahu kami keluhan anda.</label>
+                                <textarea class="form-control" style="background-color: lightgrey" id="pesan" name="pesan" rows="4"></textarea>
+                            </div>
+                            <div class=" text-end p-5">
+                                <input type="submit" class="btn btn-warning fw-bold" value="Upload">
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    @endif
-    <div class="row justify-content-center" style="padding-top: 20px">
-        <div class="col-md-10">
-            <div class="mb-3">
-
-                <form action="{{route('customer_service.store')}}" class="bg-dark rounded-3" enctype="multipart/form-data" method="POST">
-                    @csrf
-
-                <div class="form-group" style="padding-right: 50px;padding-left: 50px;padding-top: 50px;">
-                    <label for="exampleFormControlInput1" class="form-label text-secondary fw-bold">Email address</label><br>
-                    <label for="exampleFormControlInput1" style="color:#d3ad16 " class="form-label"> Masukkan email yang telah diberikan dari sekolah!</label>
-                    <input type="email" class="form-control " style="background-color: lightgrey" name="email" id="email" placeholder="name@gmail.com" required>
-                </div>
-                <div class="form-group " style="padding-right: 50px;padding-left: 50px;padding-top: 50px;">
-                    <label for="exampleFormControlTextarea1" class="form-label text-secondary fw-bold">Kolom pesan</label><br>
-                    <label for="exampleFormControlInput1" style="color:#d3ad16 " class="form-label">Beritahu kami keluhan anda.</label>
-                    <textarea class="form-control" style="background-color: lightgrey" id="pesan" name="pesan" rows="4" required></textarea>
-                </div>
-                <div class=" text-end p-5">
-                    <input type="submit" class="btn btn-warning fw-bold" value="Upload">
-
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
 
 
 
 
- <!-- Footer -->
- <div class="footer mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="footer-col first">
-                    <h5>Tentang Web Ekskul</h5>
-                    <p class="p-small">Kami memudahkan para siswa dan siswi yang ingin mendaftarkan diri ke
-                        ekskul
-                        sekolah secara online. Kami juga memberikan sedikit gambaran dan informasi tentang
-                        ekstrakulikuler yang diinginkan.</p>
-                </div>
-            </div> <!-- end of col -->
-            <div class="col-md-4">
+        <!-- Footer -->
+        <div class="footer mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="footer-col first">
+                            <h5>Tentang Web Ekskul</h5>
+                            <p class="p-small">Kami memudahkan para siswa dan siswi yang ingin mendaftarkan diri ke
+                                ekskul
+                                sekolah secara online. Kami juga memberikan sedikit gambaran dan informasi tentang
+                                ekstrakulikuler yang diinginkan.</p>
+                        </div>
+                    </div> <!-- end of col -->
+                    <div class="col-md-4">
 
-            </div> <!-- end of col -->
-            <div class=" col-md-3 ">
-                <div class="footer-col fourth">
-                    <h5>Social Media</h5>
-                    <p class="p-small">For news & updates follow us</p>
-                    <a href="#your-link">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#your-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#your-link">
-                        <i class="fa fa-whatsapp"></i>
-                    </a>
-                    <a href="#your-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                    </div> <!-- end of col -->
+                    <div class=" col-md-3 ">
+                        <div class="footer-col fourth">
+                            <h5>Social Media</h5>
+                            <p class="p-small">For news & updates follow us</p>
+                            <a href="#your-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#your-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#your-link">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                            <a href="#your-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
 
-                </div>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of container -->
-</div> <!-- end of footer -->
-<!-- end of footer -->
-
-
-<!-- Copyright -->
-<div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="p-small">Copyright © 2023 <a href="http://www.smkn1-sby.sch.id/">Web Sekolah</a> -
-                    All
-                    rights reserved</p>
-                <p class="p-small">Distributed By: <a href="https://www.instagram.com/xprilinxx/"
-                        target="_blank">Inna </a> &<a href="https://www.instagram.com/venusvardani/"
-                        target="_blank"> varda</a></p>
-            </div> <!-- end of col -->
-        </div> <!-- enf of row -->
-    </div> <!-- end of container -->
-</div> <!-- end of copyright -->
-<!-- end of copyright -->
+                        </div>
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of footer -->
+        <!-- end of footer -->
 
 
-<!-- Scripts -->
-<script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-<script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-<script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-<script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-<script src="js/jquery.countdown.min.js"></script> <!-- The Final Countdown plugin for jQuery -->
-<script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-<script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-<script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-<script src="js/scripts.js"></script> <!-- Custom scripts -->
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="p-small">Copyright © 2023 <a href="http://www.smkn1-sby.sch.id/">Web Sekolah</a> -
+                            All
+                            rights reserved</p>
+                        <p class="p-small">Distributed By: <a href="https://www.instagram.com/xprilinxx/"
+                                target="_blank">Inna </a> &<a href="https://www.instagram.com/venusvardani/"
+                                target="_blank"> varda</a></p>
+                    </div> <!-- end of col -->
+                </div> <!-- enf of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of copyright -->
+        <!-- end of copyright -->
+
+
+        <!-- Scripts -->
+        <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+        <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+        <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+        <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+        <script src="js/jquery.countdown.min.js"></script> <!-- The Final Countdown plugin for jQuery -->
+        <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+        <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+        <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+        <script src="js/scripts.js"></script> <!-- Custom scripts -->
 </body>
 
 </html>

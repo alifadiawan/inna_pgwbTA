@@ -37,20 +37,20 @@ class serviceController extends Controller
     public function store(Request $request)
     {
 
-        // $message = [
-        //     'required' => ' Harus diisi ya rek',
-        //     'required' => 'Loh, keluhannya apa ya?',
-        // ];
+        $message = [
+            'required' => ' :attribute Harus diisi ya rek',
+            'min' => ' Loh, keluhannya apa ya?',
+        ];
 
-        // $this->validate ($request,[
-        //     'email' => 'required',
-        //     'pesan' => 'required',
-        // ], $message);
+        $this->validate ($request,[
+            'email' => 'required',
+            'pesan' => 'required',
+        ], $message);
 
-        // service::create([
-        //     'email'  => $request->email,
-        //     'pesan'  => $request->pesan,
-        // ]);
+        service::create([
+            'email'  => $request->email,
+            'pesan'  => $request->pesan,
+        ]);
 
         Session::flash('success','Pesan berhasil terkirim ya, rek');
         // $servis=service::all();

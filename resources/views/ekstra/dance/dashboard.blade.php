@@ -39,8 +39,8 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="carousel-item active " style="height: 400px;">
-                                            <img src="{{ asset('images/' . $item->foto1) }}" style="object-fit:fill;" class="d-block w-100"
-                                                alt="dance" >
+                                            <img src="{{ asset('images/' . $item->foto1) }}" style="object-fit:fill;"
+                                                class="d-block w-100" alt="dance">
                                         </div>
                                         <div class="carousel-item" style="height: 400px">
                                             <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
@@ -70,18 +70,20 @@
                                         <h2 class="fw-bold">Deskripsi Ektrakulikuler</h2>
                                     </div>
                                     <div class="row" style="color: white;">
-                                    <div class="container">
-                                    <div class="content text-white">
-                                    @foreach ($data as $item)
-                                        <h4 class="fw-bold text-warning mt-3">DANCE</h4>
-                                            <span style="color:#c4c3d0">{{ $item->deskripsi }}</span>
+                                        <div class="container">
+                                            <div class="content text-white">
+                                                @foreach ($data as $item)
+                                                    <h4 class="fw-bold text-warning mt-3">DANCE</h4>
+                                                    <span style="color:#c4c3d0">{{ $item->deskripsi }}</span>
 
-                                        <h6 class="fw-bold text-danger mt-2">Jadwal Ekstrakulikuler</h6>
-                                            <span class="fw-bold" style="color:#c4c3d0">Hari : {{ $item->hari }}</span><br>
-                                            <span  class="fw-bold" style="color:#c4c3d0">Jam : {{ $item->jam }} - {{ $item->jam2 }}</span>
-                                            @endforeach
-                                    </div>
-                                </div>
+                                                    <h6 class="fw-bold text-danger mt-2">Jadwal Ekstrakulikuler</h6>
+                                                    <span class="fw-bold" style="color:#c4c3d0">Hari :
+                                                        {{ $item->hari }}</span><br>
+                                                    <span class="fw-bold" style="color:#c4c3d0">Jam : {{ $item->jam }} -
+                                                        {{ $item->jam2 }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +93,7 @@
             <div class="row mt-4">
                 <div class="col text-end">
                     <a href="{{ route('dance.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                    <a href="{{ route ('admin.preview') }}" class="btn text-light">Preview</a>
+                    <a href="{{ route('admin.preview') }}" class="btn text-light">Preview</a>
                     <a href="{{ route('dance.hapus', $item->id) }}" class="btn text-danger">
                         <i class="fas fa-trash"></i>
                     </a>
@@ -111,7 +113,7 @@
                     <h4 class="fw-bold">Jumlah Siswa</h4>
                 </div>
                 <div class="col">
-                        <h5>{{ ($jmlh_dance) }}</h5>
+                    <h5>{{ $jmlh_dance }}</h5>
                 </div>
             </div>
         </div>
@@ -147,7 +149,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($daftar_siswa->where('ekstrakulikuler_id','1') as $item)
+                            @foreach ($daftar_siswa->where('ekstrakulikuler_id', '1') as $item)
                                 {{-- @foreach ($kelas as $item) --}}
 
 

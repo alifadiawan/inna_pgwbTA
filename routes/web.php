@@ -13,7 +13,6 @@ use App\Http\Controllers\pmrController;
 use App\Http\Controllers\basketController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\InboxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +26,8 @@ use App\Http\Controllers\InboxController;
 */
 route::resource('daftar', daftarController::class);
 route::resource('customer_service', serviceController::class);
+
+
 Route::get('/login', [loginController::class, 'index'])->name('login');
 Route::post('/login', [loginController::class, 'authenticate']);
 Route::post('logout', [loginController::class, 'logout']);
@@ -35,14 +36,16 @@ route::resource('/', welcomeController::class);
 
 
 route::middleware('auth')->group(function ()  {
-    route::resource('admin', MadminController::class);
     route::resource('siswa', siswaController::class);
     route::resource('futsal', futsalController::class);
     route::resource('basket', basketController::class);
     route::resource('pmr', pmrController::class);
     route::resource('dance', danceController::class);
     route::resource('tabelmaster', tabelmasterController::class);
-    route::resource('inbox', InboxController::class);
+    Route::resource('Masteradmin', MadminController::class);
+    
+    Route::get('inbox', [MadminController::class, 'inbox'])->name('Masteradmin.inbox');
+    Route::get('/Masteradmin/{id}/pesan', [MadminController::class, 'pesan'])->name('Masteradmin.pesan');
     Route::get('preview', [adminController::class, 'preview'])->name('admin.preview');
     Route::get('/admin/{id}/detail', [adminController::class, 'tambah_deskripsi'])->name('admin.tambahdeskripsi');
 
@@ -65,7 +68,4 @@ Route::get('/masteradmin', function(){
     return view('masteradmin');
 
 });
-Route::get('/inbox', function(){
-    return view('inbox');
 
-});
