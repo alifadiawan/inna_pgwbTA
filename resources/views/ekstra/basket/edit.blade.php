@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="row text-center">
+                            <div class="row text-center mb-3">
                                 <div class="col">
                                     <label for="foto" class="text-white">Pilih Foto 1</label><br>
                                     <img src="{{ asset('images/'. $edit->foto1) }}" style="width: 300px;">

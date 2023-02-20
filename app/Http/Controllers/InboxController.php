@@ -13,8 +13,10 @@ class InboxController extends Controller
      */
     public function index()
     {
+        $pesan = service::count();
         $inbox=service::all();
-        return view('inbox',compact('inbox'));
+
+        return view('inbox',compact('inbox','pesan'));
     }
 
     /**
@@ -80,6 +82,8 @@ class InboxController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inbox = service::find($id);
+        $inbox->delete();
+        return redirect('/inbox');
     }
 }

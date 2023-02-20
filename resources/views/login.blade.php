@@ -29,9 +29,7 @@
                         </div>
                         <div class="form-group m-0">
                             <input type="submit" class="btn btn-warning w-25 mb-3 fw-bold" value="LOGIN">
-                            <p class="m-0 text-light">
-                                Ndak punya akun ? <a href="{{ url('/register') }}">Buat Sekarang</a>
-                            </p>
+
                         </div>
                     </form>
                 </div>

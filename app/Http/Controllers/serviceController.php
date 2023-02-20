@@ -100,6 +100,8 @@ class serviceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inbox = service::find($id);
+        $inbox->delete();
+        return redirect('/inbox');
     }
 }

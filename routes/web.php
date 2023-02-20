@@ -42,8 +42,10 @@ route::middleware('auth')->group(function ()  {
     route::resource('dance', danceController::class);
     route::resource('tabelmaster', tabelmasterController::class);
     Route::resource('Masteradmin', MadminController::class);
-    
+
     Route::get('/inbox', [MadminController::class, 'inbox'])->name('Masteradmin.inbox');
+    Route::get('/ShowSiswa/{id}/', [MadminController::class, 'show2'])->name('Masteradmin.siswa');
+    Route::get('/basket', [basketController::class, 'store2'])->name('basket.store2');
     Route::get('/Masteradmin/{id}/pesan', [MadminController::class, 'pesan'])->name('Masteradmin.pesan');
     Route::get('preview', [adminController::class, 'preview'])->name('admin.preview');
     Route::get('/admin/{id}/detail', [adminController::class, 'tambah_deskripsi'])->name('admin.tambahdeskripsi');
@@ -52,6 +54,7 @@ route::middleware('auth')->group(function ()  {
     Route::get('/basket/{id}/hapus', [basketController::class, 'hapus'])->name('basket.hapus');
     Route::get('/dance/{id}/hapus', [danceController::class, 'hapus'])->name('dance.hapus');
     Route::get('/pmr/{id}/hapus', [pmrController::class, 'hapus'])->name('pmr.hapus');
+    Route::get('/inbox/{id}/hapus', [MadminController::class, 'hapus'])->name('Masteradmin.hapus');
 });
 
 Route::get('/editview', function(){

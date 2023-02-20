@@ -40,6 +40,15 @@ class basketController extends Controller
     {
         return view('ekstra.basket.tambah');
     }
+    // public function store2(Request $request)
+    // {
+    //     $pembina = ekstrakulikuler::create([
+
+    //         'nama_pembina' => $request-> nama_pembina,
+    //     ]);
+    //     Session::flash('daftar','Kamu sudah berhasil mendaftar yaa');
+    //     return view('ekstra.basket',compact('pembina'));
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -116,6 +125,22 @@ class basketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+
+    public function edit2($id)
+    {
+        $pembina = ekstrakulikuler::find($id);
+        Session::flash('daftar','Kamu sudah berhasil mendaftar yaa');
+        return view('ekstra.basket',compact('pembina'));
+    }
+
+    // public function update2(Request $request, $id)
+    // {
+    //     $pembina = ekstrakulikuler::find($id);
+    //     'nama_pembina' => $request-> nama_pembina,
+    // }
+
     public function edit($id)
     {
         $edit = update::find($id);

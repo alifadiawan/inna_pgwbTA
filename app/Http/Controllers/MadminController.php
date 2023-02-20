@@ -8,6 +8,8 @@ use App\Models\ekstrakulikuler;
 use App\Models\kelas;
 use App\Models\update;
 use App\Models\service;
+use mysqli;
+use Symfony\Component\Console\Input\Input;
 
 class MadminController extends Controller
 {
@@ -29,14 +31,16 @@ class MadminController extends Controller
         $basket = update::where('ekskul_id', '3')->get();
         $daftar_ekskul = ekstrakulikuler::all();
         $daftar_kelas= kelas::all();
-        return view('masteradmin' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket','jumlah_siswa','jumlah_ekskul','siswa','ekskul','data'));
+        return view('masteradmin' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket','jumlah_siswa',
+        'jumlah_ekskul','siswa','ekskul','data'));
 
     }
 
     public function inbox()
     {
+        $jumlah_pesan = service::count();
         $inbox = service::all();
-        return view('inbox', compact('inbox'));
+        return view('inbox', compact('inbox','jumlah_pesan'));
     }
 
     /**
@@ -70,6 +74,11 @@ class MadminController extends Controller
     {
         $inbox = service::find($id);
         return view('ShowPesan', compact('inbox'));
+    }
+    public function show2($id)
+    {   
+        $siswa = tabelmaster::find($id);
+        return view('ShowSiswa', compact('siswa'));
     }
 
     public function pesan($id)
@@ -109,6 +118,15 @@ class MadminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inbox = service::find($id);
+        $inbox->delete();
+        return redirect('/inbox');
+    }
+
+    public function hapus($id)
+    {
+        $inbox = service::find($id);
+        $inbox->delete();
+        return redirect('/inbox');
     }
 }

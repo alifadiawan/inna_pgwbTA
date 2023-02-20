@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('ekstrakulikuler', function (Blueprint $table) {
             $table->id();
             $table ->string('nama_ekskul');
+            $table ->string('nama_pembina')->nullable();
             $table->timestamps();
         });
     }

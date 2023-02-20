@@ -19,6 +19,11 @@
     <link href="{{ asset('../../assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('../../dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -123,17 +128,17 @@
                         </li>
                         <!-- User Profile-->
                         <li class="sidebar-item" style="background-color: #424549"> <a
-                                class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="" aria-expanded="false"><i
-                                    class="mdi mdi-view-dashboard text-white"></i><span
+                                class="sidebar-link waves-effect waves-dark sidebar-link" href=""
+                                aria-expanded="false"><i class="mdi mdi-view-dashboard text-white"></i><span
                                     class="hide-menu text-white">Dashboard</span></a></li>
                         <li class="sidebar-item" style="background-color: #424549"> <a
                                 class="sidebar-link waves-effect waves-dark sidebar-link" href=""
                                 aria-expanded="false"><i class="mdi mdi-account-network text-white"></i><span
                                     class="hide-menu text-white">Website Ekstra</span></a></li>
                         <li class="sidebar-item" style="background-color: #424549"> <a
-                                class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('Masteradmin.inbox')}}"
-                                aria-expanded="false"><i class="mdi mdi-account-network text-white"></i><span
+                                class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{ route('Masteradmin.inbox') }}" aria-expanded="false"><i
+                                    class="mdi mdi-account-network text-white"></i><span
                                     class="hide-menu text-white">Inbox</span></a></li>
 
                 </nav>
@@ -157,21 +162,20 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                         <h4 class="card-title fw-bold">Jumlah Seluruh Siswa</h4>
-                                        <h5 class="card-subtitle text-warning">ini adalah jumlah siswa yang telah
-                                            terdaftar di ekstrakulikuler</h5>
+                                        <h5 style="font-size: 17px" class="card-subtitle text-danger fw-bold">Ini
+                                            adalah jumlah seluruh siswa yang telah mendaftar</h5>
                                     </div>
-
                                 </div>
                                 <div class="row">
                                     <!-- column -->
                                     <div class="col-lg-12 mt-2">
-                                        <div class="card">
+                                        <div class="card border-0">
                                             <h1>{{ $jumlah_siswa }} siswa</h4>
                                         </div>
                                     </div>
@@ -180,172 +184,167 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6" style="padding-left: 20px">
+                    <div class="col">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
                                         <h4 class="card-title fw-bold">Jumlah Ekstrakulikuler</h4>
-                                        <h5 class="card-subtitle text-warning">ini adalah jumlah ekstrakulikuler yang
-                                            ada di SMKN 1 SBY</h5>
+                                        <h5 style="font-size: 17px" class="card-subtitle text-danger fw-bold">Ini
+                                            adalah jumlah ekstrakulikuler di SMKN 1 Surabaya</h5>
                                     </div>
-
                                 </div>
                                 <div class="row">
                                     <!-- column -->
                                     <div class="col-lg-12 mt-2">
-                                        <div class="card">
-                                            <div class="body">
-                                                <h1>{{ $jumlah_ekskul }} Ekstrakulikuler</h4>
-                                            </div>
-
+                                        <div class="card border-0">
+                                            <h1>{{ $jumlah_ekskul }} Ekstrakulikuler</h4>
                                         </div>
                                     </div>
                                     <!-- column -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <div class="row">
-                        <!-- column -->
-                        <div class="col-12">
-                            <div class="card" style="border-radius: 5px">
-                                <div class="card-body">
-                                    <!-- title -->
-                                    <div class="d-md-flex">
-                                        <div>
-                                            <h4 class="card-title fw-bold">Daftar Seluruh Siswa</h4>
-                                            <h5 class="card-subtitle text-warning">Berikut adalah nama-nama siswa yang
-                                                telah mendaftar ke ekstrakulikuler</h5>
-                                        </div>
-                                    </div>
-                                    <!-- title -->
-                                </div>
-                                <div class="table-responsive table-bordered "
-                                    style="padding-left: 15px;padding-right: 15px;">
-                                    <table class="table v-middle text-center">
-                                        <thead>
-                                            <tr class="bg-light">
-
-                                                <th class="border-top-0">No</th>
-                                                <th class="border-top-0">Nama</th>
-                                                <th class="border-top-0">Kelas</th>
-                                                <th class="border-top-0">Email</th>
-                                                <th class="border-top-0">Nomor Handphone</th>
-                                                <th class="border-top-0">Ekstrakulikuler</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-center">
-                                            @foreach ($siswa as $item)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->nama }}</td>
-                                                    <td>{{ $item->kelas->kelas }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->no_hp }}</td>
-                                                    <td>{{ $item->ekstrakulikuler->nama_ekskul }}</td>
-                                            @endforeach
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- =========================================================================== --}}
-                    <div class="row">
-                        <!-- column -->
-                        <div class="col-lg-6">
-                            <div class="card" style="border-radius: 5px">
-                                <div class="card-body">
-                                    <!-- title -->
-                                    <div class="d-md-flex">
-                                        <div>
-                                            <h4 class="card-title fw-bold">Daftar Ekstrakulikuler</h4>
-                                            <h5 class="card-subtitle text-warning">Berikut adalah ekskul - ekskul yang
-                                                terdafar di SMKN 1 SBY</h5>
-                                        </div>
-                                    </div>
-                                    <!-- title -->
-                                </div>
-                                <div class="table-responsive table-bordered"
-                                    style="padding-left: 15px;padding-right: 15px;">
-                                    <table class="table v-middle text-center">
-                                        <thead>
-                                            <tr class="bg-light">
-                                                <th class="border-top-0">No</th>
-                                                <th class="border-top-0">Nama Ekstrakulikuler</th>
-                                                <th class="border-top-0">Action</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-center">
-                                            @foreach ($ekskul as $item)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->nama_ekskul }}</td>
-                                                    <td class="text-center">
-                                                        <a
-                                                            class="btn-sm btn-info"onclick="show({{ $item->id }})">
-                                                            <i class="fas fa-folder-open"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- column -->
-                        <div class="col-lg-6" style="padding-left: 20px">
-                            <div class="card" style="border-radius: 5PX" id="siswa">
-                                <div class="card-header">
-                                    <strong> Daftar siswa</strong>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center flex-row m-t-30" id="siswa">
-                                        <h5>Silahkan Pilih ekskul terlebih dahulu</h5>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <footer class="footer text-center">
-                    Selamat Datang Master Admin
-                </footer>
+                <!-- column -->
+
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card" style="border-radius: 5px">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex">
+                                    <div>
+                                        <h4 class="card-title fw-bold">Daftar Seluruh Siswa</h4>
+                                        <h5 style="font-size: 17px" class="card-subtitle text-danger fw-bold">
+                                            Berikut adalah nama siswa yang
+                                            telah mendaftar ke ekstrakulikuler</h5>
+                                    </div>
+                                </div>
+                                <!-- title -->
+                            </div>
+
+                            <div class="table-responsive table-bordered "
+                                style="padding-left: 20px;padding-right: 20px;">
+                                <input class="p-2 form-control" style="border-radius: 5px;width: 40%;background-color: #d7d7d8"
+                                    type="text" id="myInput" name="myInput" placeholder="Search ">
+                                <table class="table v-middle text-center mt-3">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">No</th>
+                                            <th class="border-top-0">Nama</th>
+                                            <th class="border-top-0">Kelas</th>
+                                            <th class="border-top-0">Email</th>
+                                            <th class="border-top-0">Nomor Handphone</th>
+                                            <th class="border-top-0">Ekstrakulikuler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableData" class="text-center">
+                                        @foreach ($siswa as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->nama }}</td>
+                                                <td>{{ $item->kelas->kelas }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->no_hp }}</td>
+                                                <td>{{ $item->ekstrakulikuler->nama_ekskul }}</td>
+                                        @endforeach
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- =========================================================================== --}}
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card" style="border-radius: 5px">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex">
+                                    <div>
+                                        <h4 class="card-title fw-bold">Daftar Ekstrakulikuler</h4>
+                                        <h5 style="font-size: 17px" class="card-subtitle text-danger fw-bold">
+                                            Berikut adalah nama ekskul yang
+                                            ada di SMKN 1 SBY</h5>
+                                    </div>
+                                </div>
+                                <!-- title -->
+                            </div>
+                            <div class="table-responsive table-bordered"
+                                style="padding-left: 15px;padding-right: 15px;">
+                                <table class="table v-middle text-center">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">No</th>
+                                            <th class="border-top-0">Nama Ekstrakulikuler</th>
+                                            <th class="border-top-0">Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                        @foreach ($ekskul as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->nama_ekskul }}</td>
+                                                <td class="text-center">
+                                                    {{-- <a
+                                                            class="btn-sm btn-info"onclick="show({{ $item->id }})">
+                                                            <i class="fas fa-folder-open"></i>
+                                                        </a> --}}
+                                                    {{-- <a onclick="show2({{ $item->id }})"
+                                                            class="btn btn-info rounded-2"><i
+                                                                class="fas fa-info"></i></a> --}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <footer class="footer text-center">
+                        Selamat Datang Master Admin
+                    </footer>
+                </div>
             </div>
-        </div>
-        <script>
-            function show(id) {
-                $.get('admin/' + id, function(ini) {
-                    $('#siswa').html(ini);
-                })
-            }
-        </script>
 
 
+            <script>
+                $(document).ready(function() {
+                    $("#myInput").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#tableData tr").filter(function() {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+            </script>
 
-        <script src="{{ asset('../../assets/libs/jquery/dist/jquery.min.js') }}"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="{{ asset('../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('../../dist/js/app-style-switcher.js') }}"></script>
-        <!--Wave Effects -->
-        <script src="{{ asset('../../dist/js/waves.js') }}"></script>
-        <!--Menu sidebar -->
-        <script src="{{ asset('../../dist/js/sidebarmenu.js') }}"></script>
-        <!--Custom JavaScript -->
-        <script src="{{ asset('../../dist/js/custom.js') }}"></script>
-        <!--This page JavaScript -->
-        <!--chartis chart-->
-        <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
-        <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-        <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+
+            <script src="{{ asset('../../assets/libs/jquery/dist/jquery.min.js') }}"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="{{ asset('../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('../../dist/js/app-style-switcher.js') }}"></script>
+            <!--Wave Effects -->
+            <script src="{{ asset('../../dist/js/waves.js') }}"></script>
+            <!--Menu sidebar -->
+            <script src="{{ asset('../../dist/js/sidebarmenu.js') }}"></script>
+            <!--Custom JavaScript -->
+            <script src="{{ asset('../../dist/js/custom.js') }}"></script>
+            <!--This page JavaScript -->
+            <!--chartis chart-->
+            <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
+            <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+            <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
 
 </body>
 

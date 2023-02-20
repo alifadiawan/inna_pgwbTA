@@ -6,7 +6,10 @@ use App\Models\tabelmaster;
 use App\Models\ekstrakulikuler;
 use App\Models\kelas;
 use App\Models\update;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\support\Facades\Session;
 
 class siswaController extends Controller
 {

@@ -16,10 +16,10 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="{{asset('../../assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('../../assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{asset('../../dist/css/style.min.css')}}" rel="stylesheet">
-    <script src='{{asset('https://kit.fontawesome.com/a076d05399.js')}}' crossorigin='anonymous'></script>
+    <link href="{{ asset('../../dist/css/style.min.css') }}" rel="stylesheet">
+    <script src='{{ asset('https://kit.fontawesome.com/a076d05399.js') }}' crossorigin='anonymous'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -144,7 +144,7 @@
         <div class="page-wrapper" style="background-color:#1e2124">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-7 ">
+                    <div class="col-md-8 ">
                         <div class="card " style="border-radius: 10px;background-color:#1e2124">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
@@ -166,24 +166,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5" style="padding-left: 20px">
+                    <div class="col-md-4" style="padding-left: 20px">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
-                                    <div>
-                                        <h4 class="card-title fw-bold text-warning" style="font-size: 25px">Jumlah
-                                            Pesan Yang Masuk</h4>
-                                    </div>
-
+                                    <h4 class="card-title fw-bold text-danger" style="font-size: 20px">Jumlah
+                                        Pesan Yang Masuk</h4>
                                 </div>
                                 <div class="row">
                                     <!-- column -->
                                     <div class="col-lg-12 mt-2">
                                         <div class="card">
                                             <div class="body">
-                                                <h1>Ekstrakulikuler</h4>
+                                                <h1>{{ $jumlah_pesan }}</h4>
                                             </div>
-
                                         </div>
                                     </div>
                                     <!-- column -->
@@ -197,40 +193,42 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card" style="border-radius: 4px">
-                                <div class="card-body">
-
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($inbox as $item)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>
-                                                        {{-- <a href="{{route('Masteradmin.show', $item->id)}}"
+                                <table class="table table-striped text-center ">
+                                    <thead>
+                                        <tr class="bg-dark text-warning">
+                                            <th scope="col">No</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($inbox as $item)
+                                            <tr class="fw-bold" style="font-size: 15px">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>
+                                                    {{-- <a href="{{route('Masteradmin.show', $item->id)}}"
                                                             class="btn btn-warning">Lihat Pesan</a> --}}
-                                                            <a onclick="show({{$item->id}})" class="btn btn-warning">Lihat Pesan</a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                    <a onclick="show({{ $item->id }})"
+                                                        class="btn btn-info rounded-2"><i class="fas fa-info"></i></a>
+                                                    <a href="{{ route('Masteradmin.hapus', $item->id) }}"
+                                                        class="btn btn-danger rounded-2"><i
+                                                            class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+
                         <div class="col-md-6" style="padding-left: 20px">
                             <div class="card" id="wek" style="border-radius: 4px">
-                                <div class="card-header">
-                                    <h5>Pesan dan Kesan</h5>
+                                <div class="card-header bg-dark border-bottom border-info" style="height: 55px;">
+                                    <h5 class="text-warning ">Pesan dan Kesan</h5>
                                 </div>
                                 <div class="card-body">
-                                    <h3>Silahkan Pilih email</h3>
+                                    <h3 style="font-family:monospace;font-size: 20px">Silahkan pilih email</h3>
                                 </div>
                             </div>
                         </div>
@@ -250,19 +248,19 @@
                 Selamat Datang Master Admin
             </footer>
         </div>
-        <script src="{{asset('../../assets/libs/jquery/dist/jquery.min.js')}}"></script>
+        <script src="{{ asset('../../assets/libs/jquery/dist/jquery.min.js') }}"></script>
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="{{asset('../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('../../dist/js/app-style-switcher.js')}}"></script>
+        <script src="{{ asset('../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('../../dist/js/app-style-switcher.js') }}"></script>
         <!--Wave Effects -->
-        <script src="{{asset('../../dist/js/waves.js')}}"></script>
+        <script src="{{ asset('../../dist/js/waves.js') }}"></script>
         <!--Menu sidebar -->
-        <script src="{{asset('../../dist/js/sidebarmenu.js')}}"></script>
+        <script src="{{ asset('../../dist/js/sidebarmenu.js') }}"></script>
         <!--Custom JavaScript -->
-        <script src="{{asset('../../dist/js/custom.js')}}"></script>
+        <script src="{{ asset('../../dist/js/custom.js') }}"></script>
         <!--This page JavaScript -->
         <!--chartis chart-->
-            {{-- <script src="{{asset('../../assets/libs/chartist/dist/chartist.min.js')}}"></script>
+        {{-- <script src="{{asset('../../assets/libs/chartist/dist/chartist.min.js')}}"></script>
             <script src="{{asset('../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
             <script src="{{asset('../../dist/js/pages/dashboards/dashboard1.js')}}"></script> --}}
 

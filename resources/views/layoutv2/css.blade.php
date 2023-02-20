@@ -1,4 +1,5 @@
-    <!-- Website Title -->
+
+    
     <title>Ekstrakulikuler SMKN 1 Surabaya</title>
 
     <!-- Styles -->
@@ -14,4 +15,3 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/e4a753eb05.js" crossorigin="anonymous"></script>
- 

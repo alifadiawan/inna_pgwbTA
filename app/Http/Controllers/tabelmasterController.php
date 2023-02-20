@@ -6,8 +6,10 @@ use App\Models\tabelmaster;
 // use Illuminate\Http\Request;
 use App\Models\ekstrakulikuler;
 use App\Models\kelas;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class tabelmasterController extends Controller
 {
@@ -60,16 +62,24 @@ class tabelmasterController extends Controller
         // Session::flash('success','Pesan berhasil terkirim ya, rek');
 
         // return redirect('/customer_service');
+        // $user=tabelmaster::where('email','=', daftar::get('email'))->first();
+        if (tabelmaster::where('email','=', $request->email)->exists()){
+            Session::flash('tolak','Waduh, kamu sudah pernah daftar loh. Dasar pikun!');
+            return redirect()->back();
+        }else{
 
-        $siswa = tabelmaster::create([
-            'nama' => $request-> nama,
-            'email' => $request-> email,
-            'no_hp' => $request-> no_hp,
-            'kelas_id' => $request-> kelas_id,
-            'ekstrakulikuler_id' => $request -> ekstrakulikuler_id
-        ]);
-        Session::flash('daftar','Kamu sudah berhasil mendaftar yaa');
-        return redirect('siswa');
+            $siswa = tabelmaster::create([
+                'nama' => $request-> nama,
+                'email' => $request-> email,
+                'no_hp' => $request-> no_hp,
+                'kelas_id' => $request-> kelas_id,
+                'ekstrakulikuler_id' => $request -> ekstrakulikuler_id
+            ]);
+            Session::flash('daftar','Kamu sudah berhasil mendaftar yaa');
+            return redirect('siswa');
+        }
+
+
     }
 
     /**

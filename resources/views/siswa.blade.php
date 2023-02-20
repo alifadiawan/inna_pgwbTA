@@ -112,6 +112,31 @@
 
     <!-- Header -->
     <header id="header" class="header">
+        <div class="container ">
+            @if (session()->has('daftar'))
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    {!! session()->get('daftar') !!}
+                </strong>
+            </div>
+        @endif
+        </div>
+        <div class="container ">
+            @if (session()->has('tolak'))
+    <div class="alert alert-dismissable alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>
+            {!! session()->get('tolak') !!}
+        </strong>
+    </div>
+@endif
+        </div>
+
         <div class="container mb-3">
             <div class="row">
                 <div class="col-lg-12">
@@ -280,13 +305,7 @@
                                 </div>
                             </div>
                         </div> --}}
-                <div class="container">
-                    @if (session('daftar'))
-                        <div class="alert alert-warning" role="alert">
-                            {{ session('daftar') }}
-                        </div>
-                    @endif
-                </div>
+
 
     {{-- DANCE ==1 --}}
     @foreach ($dance as $item)
@@ -591,15 +610,20 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{ route('tabelmaster.store') }}">
                                             @csrf
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <label class="fw-bold" for="">Nama</label>
                                                 <input type="text" class="form-control" name="nama"
                                                     id="nama" required>
+                                            </div> --}}
+                                            <div class="form-group">
+
+                                                <input type="hidden" class="form-control" name="email"
+                                                    id="email" value="{{ Auth::user()->email }}" required>
                                             </div>
                                             <div class="form-group">
-                                                <label class="fw-bold" for="">Email</label>
-                                                <input type="text" class="form-control" name="email"
-                                                    id="email" required>
+
+                                                <input type="hidden" class="form-control" name="nama"
+                                                    id="nama" value="{{ Auth::user()->name }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="fw-bold" for="">No Handphone</label>

@@ -24,7 +24,7 @@
                 @else
                     {{-- carousel basket --}}
                     <div class="row">
-                        <h4 class="fw-bold">Edit Hero </h4>
+                        <h4 class="fw-bold">Edit Konten </h4>
                         <div class="col-6">
                             @foreach ($data as $item)
                                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -110,19 +110,74 @@
                 <div class="col">
                     <h4 class="fw-bold">Jumlah Siswa</h4>
                 </div>
-                <div class="col">
+                <div class="col mt-2">
                         <h5>{{ ($jmlh_basket) }}</h5>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card p-3 mb-5 rounded-3 text-light"style="background-color: #2f3037">
-                <div class="col">
+                <div class="row">
+                     <div class="col-lg-8">
                     <h4 class="fw-bold">Nama Pembimbing</h4>
                 </div>
-                <div class="col">
+                  <div class="col-lg-4 text-end">
+                    {{-- <a href="{{ route('basket.create') }}" class="btn btn-success">
+                        <i class="fas fa-plus"></i>
+                    </a> --}}
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn-solid-reg1 popup-with-move-anim " data-bs-toggle="modal"
+                          data-bs-target="#example_Modal"><i class="fas fa-plus"></i></button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="example_Modal" tabindex="-1"
+                          aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                  <div class="modal-header bg-dark text-white ">
+                                      <h5 class="modal-title" id="exampleModalLabel">Tambah Nama Pembina</h5>
+                                      <button type="button" class="btn-close mr-1"
+                                          style="background-color: #ffc107" data-bs-dismiss="modal"
+                                          aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <form method="post" action="{{ route('basket.store2') }}">
+                                          @csrf
+                                          {{-- <div class="form-group">
+                                              <label class="fw-bold" for="">Nama</label>
+                                              <input type="text" class="form-control" name="nama"
+                                                  id="nama" required>
+                                          </div> --}}
+                                          <div class="form-controll text-dark text-start">
+                                              <label class="fw-bold" for="">Nama</label>
+                                              <input type="text" class="form-control" style="background-color: #a0a1a3" name="nama_pembimbing"
+                                                  id="nama_pembimbing" required>
+                                              <div class="help-block with-errors"></div>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <button type="submit"
+                                                class="form-control-submit-button1">SUBMIT</button>
+                                        </div>
+                                        <div class="form-message">
+                                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                                        </div>
+                                          {{-- @endif
+                                          @endforeach --}}
+                                      </form>
+                                  </div>
+                </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col">
                     <h5>{{ Auth::user()->name }}</h5>
                 </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
             </div>
         </div>
     </div>
