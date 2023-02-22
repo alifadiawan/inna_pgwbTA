@@ -117,7 +117,7 @@
                                         <span class="op-5 user-email text-white" style="font-size: 10px">Hallo,
                                             Master</span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="Userdd">
+                                    <div class="dropdown-menu dropdown-menu-end bg-light" aria-labelledby="Userdd">
 
                                         <a class="dropdown-item" href="/login"><i
                                                 class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
@@ -184,6 +184,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-body">
@@ -230,8 +231,9 @@
 
                             <div class="table-responsive table-bordered "
                                 style="padding-left: 20px;padding-right: 20px;">
-                                <input class="p-2 form-control" style="border-radius: 5px;width: 40%;background-color: #d7d7d8"
-                                    type="text" id="myInput" name="myInput" placeholder="Search ">
+                                <input class="p-2 form-control"
+                                    style="border-radius: 5px;width: 40%;background-color: #d7d7d8" type="text"
+                                    id="myInput" name="myInput" placeholder="Search ">
                                 <table class="table v-middle text-center mt-3">
                                     <thead>
                                         <tr class="bg-light">
@@ -294,13 +296,9 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->nama_ekskul }}</td>
                                                 <td class="text-center">
-                                                    {{-- <a
-                                                            class="btn-sm btn-info"onclick="show({{ $item->id }})">
-                                                            <i class="fas fa-folder-open"></i>
-                                                        </a> --}}
-                                                    {{-- <a onclick="show2({{ $item->id }})"
-                                                            class="btn btn-info rounded-2"><i
-                                                                class="fas fa-info"></i></a> --}}
+                                                    <a href="" class="btn btn-sm btn-info">
+                                                        <i class="fa fa-folder-open"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -316,7 +314,6 @@
                     </footer>
                 </div>
             </div>
-
 
             <script>
                 $(document).ready(function() {

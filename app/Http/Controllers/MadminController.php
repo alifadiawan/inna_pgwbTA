@@ -20,8 +20,10 @@ class MadminController extends Controller
      */
     public function index()
     {
+        // $nama_pembina = ekstrakulikuler::find($id);
+        $ekskul = ekstrakulikuler::all();
         $data = tabelmaster::paginate(5);
-        $siswa =tabelmaster::with('ekstrakulikuler')->get();
+        $siswa =tabelmaster::with('ekstrakulikuler_id');
         $ekskul =ekstrakulikuler::all();
         $jumlah_ekskul = ekstrakulikuler::count();
         $jumlah_siswa = tabelmaster::count();
@@ -31,8 +33,9 @@ class MadminController extends Controller
         $basket = update::where('ekskul_id', '3')->get();
         $daftar_ekskul = ekstrakulikuler::all();
         $daftar_kelas= kelas::all();
+
         return view('masteradmin' , compact('daftar_ekskul', 'daftar_kelas','futsal','dance','pmr','basket','jumlah_siswa',
-        'jumlah_ekskul','siswa','ekskul','data'));
+        'jumlah_ekskul','siswa','ekskul','data', 'ekskul'));
 
     }
 
@@ -108,6 +111,11 @@ class MadminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $nama_pembina = ekstrakulikuler::find($id);
+        
+        $nama_pembina->nama_pembina = $request->nama_pembina;
+        return redirect()->back();
+        
     }
 
     /**

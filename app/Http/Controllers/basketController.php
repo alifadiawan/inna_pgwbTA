@@ -28,6 +28,7 @@ class basketController extends Controller
         $basket = DB::table('update')
             ->where('ekskul_id', '3')->get();
         $data = update::where('ekskul_id', '3')->get();
+        // $pembina = ekstrakulikuler::where('nama_ekskul','basket')->get();
         return view('ekstra.basket.dashboard', compact('basket', 'data','daftar_siswa','jmlh_basket'));
     }
 
@@ -40,15 +41,6 @@ class basketController extends Controller
     {
         return view('ekstra.basket.tambah');
     }
-    // public function store2(Request $request)
-    // {
-    //     $pembina = ekstrakulikuler::create([
-
-    //         'nama_pembina' => $request-> nama_pembina,
-    //     ]);
-    //     Session::flash('daftar','Kamu sudah berhasil mendaftar yaa');
-    //     return view('ekstra.basket',compact('pembina'));
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -94,6 +86,7 @@ class basketController extends Controller
 
         update::create([
         'ekskul_id' => '3',
+        'nama_pembina'=> $request->nama_pembina,
         'deskripsi'=> $request-> deskripsi,
         'hari'=> $request-> hari,
         'jam'=> $request-> jam,
@@ -125,7 +118,6 @@ class basketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
 
 
     public function edit2($id)
@@ -203,6 +195,15 @@ class basketController extends Controller
             $edit->save();
             return redirect('/basket');
         }
+    }
+
+    public function pembina(Request $request , $id)
+    {
+        $pembina = ekstrakulikuler::find($id);
+
+        $pembina->nama_pembina = $request->nama_pembina;
+
+        return redirect()->back();
     }
 
     /**

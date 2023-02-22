@@ -44,6 +44,7 @@ class danceController extends Controller
      */
     public function store(Request $request)
     {
+
         //ambil parameter
         $file1 = $request->file('foto1');
         $file2 = $request->file('foto2');
@@ -71,6 +72,7 @@ class danceController extends Controller
         'foto1'=> $nama_file1,
         'foto2'=> $nama_file2,
         'foto3'=> $nama_file3,
+
 
     ]);
 

@@ -5,6 +5,17 @@
             <div class="card border-0 shadow-lg p-3 mb-5 rounded-3 text-light" style="background-color: #2f3037">
                 <div class="card-body mb-0">
                     <div class="row">
+
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <div class="col-4">
                             <a href="/" class="btn text-light">
                                 <i class="fa-solid fa-angle-left"></i>
@@ -19,8 +30,8 @@
                         @csrf
                         <div class="form-group">
                             <label class="font-size-2" for="ekstrakulikuler"> Masukkan Email </label>
-                            <input type="email" class="form-control bg-light" id="email" placeholder="Enter Email Address..."
-                                name="email">
+                            <input type="email" class="form-control bg-light" id="email"
+                                placeholder="Enter Email Address..." name="email">
                         </div>
                         <div class="form-group">
                             <label for="ekstrakulikuler"> Password</label>

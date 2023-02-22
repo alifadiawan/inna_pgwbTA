@@ -14,32 +14,36 @@
                             </ul>
                         </div>
                     @endif
-                    <h2 class="fw-bold text-white text-center">Tambah Data {{Auth::user()->role}}</h2>
-                    <form action="{{route('basket.store')}}" enctype="multipart/form-data" method="POST">
+                    <h2 class="fw-bold text-white text-center">Tambah Data {{ Auth::user()->role }}</h2>
+                    <form action="{{ route('basket.store') }}" enctype="multipart/form-data" method="POST">
                         @csrf
                         {{-- <input type="hidden" name="ekskul_id" value="{{Auth::user()->id}}"> --}}
+                        <div class="form-group">
+                            <label for="foto" class="text-white">Nama Pembina</label><br>
+                            <input type="text" class="form-control" id="nama_pembina" name="nama_pembina" required>
+                        </div>
+
                         <div class="mb-4">
                             <label for="deskripsi" class="form-label  text-white">Deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name="deskripsi"
                                 placeholder="Masukkan deskripsi ekstrakulikuler" required>
                         </div>
 
-
-                            <div class="form-group">
-                                <label for="hari" class="form-label  text-white">Hari :</label>
-                                {{-- <input type="text" class="form-control" id="hari" name="hari" placeholder="First name" aria-label="First name" value=""> --}}
-                                <select id="hari" name="hari" placeholder="hari" class="form-control" required>
-                                    <option value="">Pilih Hari</option>
-                                    <option value="senin">senin</option>
-                                    <option value="selasa">selasa</option>
-                                    <option value="rabu">rabu</option>
-                                    <option value="kamis">kamis</option>
-                                    <option value="jumat">jumat</option>
-                                    <option value="sabtu">sabtu</option>
-                                    <option value="minggu">minggu</option>
-                                </select>
-                            </div>
-                            <div class="row mb-4">
+                        <div class="form-group">
+                            <label for="hari" class="form-label  text-white">Hari :</label>
+                            {{-- <input type="text" class="form-control" id="hari" name="hari" placeholder="First name" aria-label="First name" value=""> --}}
+                            <select id="hari" name="hari" placeholder="hari" class="form-control" required>
+                                <option value="">Pilih Hari</option>
+                                <option value="senin">senin</option>
+                                <option value="selasa">selasa</option>
+                                <option value="rabu">rabu</option>
+                                <option value="kamis">kamis</option>
+                                <option value="jumat">jumat</option>
+                                <option value="sabtu">sabtu</option>
+                                <option value="minggu">minggu</option>
+                            </select>
+                        </div>
+                        <div class="row mb-4">
                             <div class="col">
                                 <label for="formGroupExampleInput2" class="form-label text-white">Jam Mulai :</label>
                                 <input type="time" class="form-control" id="jam" name="jam"
@@ -50,8 +54,7 @@
                                 <input type="time" class="form-control" id="jam2" name="jam2"
                                     placeholder="First name" aria-label="First name" value="" required>
                             </div>
-                            </div>
-
+                        </div>
 
                         <div class="form-group">
                             <label for="foto" class="text-white">Pilih Foto</label><br>

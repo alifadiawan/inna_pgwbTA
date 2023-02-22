@@ -202,21 +202,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($inbox as $item)
-                                            <tr class="fw-bold" style="font-size: 15px">
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->email }}</td>
-                                                <td>
-                                                    {{-- <a href="{{route('Masteradmin.show', $item->id)}}"
-                                                            class="btn btn-warning">Lihat Pesan</a> --}}
-                                                    <a onclick="show({{ $item->id }})"
-                                                        class="btn btn-info rounded-2"><i class="fas fa-info"></i></a>
-                                                    <a href="{{ route('Masteradmin.hapus', $item->id) }}"
-                                                        class="btn btn-danger rounded-2"><i
-                                                            class="fas fa-trash"></i></a>
+                                        @if ($inbox->isEmpty())
+                                            <tr>
+                                                <td colspan="3">
+                                                    <H4 class="fw-bold">Pesan Masih Kosong</H4>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @else
+                                            @foreach ($inbox as $item)
+                                                <tr class="fw-bold" style="font-size: 15px">
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->email }}</td>
+                                                    <td>
+                                                        <a onclick="show({{ $item->id }})"
+                                                            class="btn btn-info rounded-2"><i
+                                                                class="fas fa-info"></i></a>
+                                                        <a href="{{ route('Masteradmin.hapus', $item->id) }}"
+                                                            class="btn btn-danger rounded-2"><i
+                                                                class="fas fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -228,7 +235,11 @@
                                     <h5 class="text-warning ">Pesan dan Kesan</h5>
                                 </div>
                                 <div class="card-body">
-                                    <h3 style="font-family:monospace;font-size: 20px">Silahkan pilih email</h3>
+                                    @if ($inbox->isEmpty())
+                                        <h4 style="font-family:monospace;font-size: 20px">Pesan Masih Kosong</h4>
+                                    @else
+                                        <h3 style="font-family:monospace;font-size: 20px">Silahkan pilih email</h3>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -248,6 +259,8 @@
                 Selamat Datang Master Admin
             </footer>
         </div>
+
+        
         <script src="{{ asset('../../assets/libs/jquery/dist/jquery.min.js') }}"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="{{ asset('../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

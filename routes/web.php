@@ -44,8 +44,7 @@ route::middleware('auth')->group(function ()  {
     Route::resource('Masteradmin', MadminController::class);
 
     Route::get('/inbox', [MadminController::class, 'inbox'])->name('Masteradmin.inbox');
-    Route::get('/ShowSiswa/{id}/', [MadminController::class, 'show2'])->name('Masteradmin.siswa');
-    Route::get('/basket', [basketController::class, 'store2'])->name('basket.store2');
+    Route::get('/pembina', [basketController::class, 'pembina'])->name('basket.pembina');
     Route::get('/Masteradmin/{id}/pesan', [MadminController::class, 'pesan'])->name('Masteradmin.pesan');
     Route::get('preview', [adminController::class, 'preview'])->name('admin.preview');
     Route::get('/admin/{id}/detail', [adminController::class, 'tambah_deskripsi'])->name('admin.tambahdeskripsi');

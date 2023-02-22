@@ -39,8 +39,8 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="carousel-item active " style="height: 400px;">
-                                            <img src="{{ asset('images/' . $item->foto1) }}" style="object-fit:fill;" class="d-block w-100"
-                                                alt="basket" >
+                                            <img src="{{ asset('images/' . $item->foto1) }}" style="object-fit:fill;"
+                                                class="d-block w-100" alt="basket">
                                         </div>
                                         <div class="carousel-item" style="height: 400px">
                                             <img src="{{ asset('images/' . $item->foto2) }}" class="d-block w-100"
@@ -70,18 +70,20 @@
                                         <h2 class="fw-bold">Deskripsi Ektrakulikuler</h2>
                                     </div>
                                     <div class="row" style="color: white;">
-                                    <div class="container">
-                                    <div class="content text-white">
-                                    @foreach ($data as $item)
-                                        <h4 class="fw-bold text-warning mt-3">BASKET</h4>
-                                            <span style="color:#c4c3d0">{{ $item->deskripsi }}</span>
+                                        <div class="container">
+                                            <div class="content text-white">
+                                                @foreach ($data as $item)
+                                                    <h4 class="fw-bold text-warning mt-3">BASKET</h4>
+                                                    <span style="color:#c4c3d0">{{ $item->deskripsi }}</span>
 
-                                        <h6 class="fw-bold text-danger mt-2">Jadwal Ekstrakulikuler</h6>
-                                            <span class="fw-bold" style="color:#c4c3d0">Hari : {{ $item->hari }}</span><br>
-                                            <span  class="fw-bold" style="color:#c4c3d0">Jam : {{ $item->jam }} - {{ $item->jam2 }}</span>
-                                            @endforeach
-                                    </div>
-                                </div>
+                                                    <h6 class="fw-bold text-danger mt-2">Jadwal Ekstrakulikuler</h6>
+                                                    <span class="fw-bold" style="color:#c4c3d0">Hari :
+                                                        {{ $item->hari }}</span><br>
+                                                    <span class="fw-bold" style="color:#c4c3d0">Jam : {{ $item->jam }} -
+                                                        {{ $item->jam2 }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +93,7 @@
             <div class="row mt-4">
                 <div class="col text-end">
                     <a href="{{ route('basket.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                    <a href="{{ route ('admin.preview') }}" class="btn text-light">Preview</a>
+                    <a href="{{ route('admin.preview') }}" class="btn text-light">Preview</a>
                     <a href="{{ route('basket.hapus', $item->id) }}" class="btn text-danger">
                         <i class="fas fa-trash"></i>
                     </a>
@@ -111,75 +113,30 @@
                     <h4 class="fw-bold">Jumlah Siswa</h4>
                 </div>
                 <div class="col mt-2">
-                        <h5>{{ ($jmlh_basket) }}</h5>
+                    <h5>{{ $jmlh_basket }}</h5>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card p-3 mb-5 rounded-3 text-light"style="background-color: #2f3037">
                 <div class="row">
-                     <div class="col-lg-8">
-                    <h4 class="fw-bold">Nama Pembimbing</h4>
+                    <div class="col-lg-8">
+                        <h4 class="fw-bold">Nama Pembimbing</h4>
+                    </div>
+                    <div class="col-lg-4 text-end">
+                        <button type="button" class="btn-solid-reg1 popup-with-move-anim " data-bs-toggle="modal"
+                            data-bs-target="#example_Modal"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="col mt-2">
+                        @foreach ($basket as $item)
+                            <h5>{{$item->nama_pembina}}</h5>
+                        @endforeach
+                        <h5></h5>
+                    </div>
                 </div>
-                  <div class="col-lg-4 text-end">
-                    {{-- <a href="{{ route('basket.create') }}" class="btn btn-success">
-                        <i class="fas fa-plus"></i>
-                    </a> --}}
-                          <!-- Button trigger modal -->
-                          <button type="button" class="btn-solid-reg1 popup-with-move-anim " data-bs-toggle="modal"
-                          data-bs-target="#example_Modal"><i class="fas fa-plus"></i></button>
-
-                      <!-- Modal -->
-                      <div class="modal fade" id="example_Modal" tabindex="-1"
-                          aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                  <div class="modal-header bg-dark text-white ">
-                                      <h5 class="modal-title" id="exampleModalLabel">Tambah Nama Pembina</h5>
-                                      <button type="button" class="btn-close mr-1"
-                                          style="background-color: #ffc107" data-bs-dismiss="modal"
-                                          aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                      <form method="post" action="{{ route('basket.store2') }}">
-                                          @csrf
-                                          {{-- <div class="form-group">
-                                              <label class="fw-bold" for="">Nama</label>
-                                              <input type="text" class="form-control" name="nama"
-                                                  id="nama" required>
-                                          </div> --}}
-                                          <div class="form-controll text-dark text-start">
-                                              <label class="fw-bold" for="">Nama</label>
-                                              <input type="text" class="form-control" style="background-color: #a0a1a3" name="nama_pembimbing"
-                                                  id="nama_pembimbing" required>
-                                              <div class="help-block with-errors"></div>
-                                          </div>
-
-                                          <div class="form-group">
-                                            <button type="submit"
-                                                class="form-control-submit-button1">SUBMIT</button>
-                                        </div>
-                                        <div class="form-message">
-                                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                                        </div>
-                                          {{-- @endif
-                                          @endforeach --}}
-                                      </form>
-                                  </div>
-                </div>
-                </div>
-
-                <div class="row mt-2">
-                    <div class="col">
-                    <h5>{{ Auth::user()->name }}</h5>
-                </div>
-                </div>
-
             </div>
         </div>
     </div>
-            </div>
-        </div>
     </div>
 
     {{-- daftar siswa --}}
@@ -202,7 +159,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($daftar_siswa->where('ekstrakulikuler_id','3') as $item)
+                            @foreach ($daftar_siswa->where('ekstrakulikuler_id', '3') as $item)
                                 {{-- @foreach ($kelas as $item) --}}
 
 
@@ -227,4 +184,38 @@
             </div>
         </div>
     </div>
-@endsection
+
+    <!-- Modal Pembina -->
+    <div class="modal fade" id="example_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white ">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Nama Pembina</h5>
+                    <button type="button" class="btn-close mr-1" style="background-color: #ffc107"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{-- @foreach ($pembina as $item) --}}
+                    <form method="post" action="{{ route('basket.pembina') }}" method="POST">
+                        @method('PATCH')
+                        @csrf
+                        <div class="form-controll text-dark text-start">
+                            <label class="fw-bold">Nama</label>
+                            <input type="text" class="form-control" style="background-color: #a0a1a3"
+                                name="nama_pembimbing" id="nama_pembimbing" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button1">SUBMIT</button>
+                        </div>
+                        <div class="form-message">
+                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>
+                    {{-- @endforeach --}}
+                </div>
+            </div>
+        </div>
+
+    @endsection

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->char('foto1');
             $table->char('foto2');
             $table->char('foto3');
+            $table->string('nama_pembina');
             $table->timestamps();
         });
     }
