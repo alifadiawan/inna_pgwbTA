@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ekstrakulikuler', function (Blueprint $table) {
-            $table->id();
+            $table->id();   
             $table->string('nama_ekskul');
             $table->timestamps();
         });

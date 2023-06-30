@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('update', function (Blueprint $table) {
             $table->id();
-            $table->BigInteger('ekskul_id')->unsigned();
-            $table->foreign('ekskul_id')->references('id')->on('ekstrakulikuler')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->BigInteger('ekskul_id')->unsigned();
+            // $table->foreign('ekskul_id')->references('id')->on('ekstrakulikuler')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
             $table->string('deskripsi');
             $table->string('hari');
             $table->string('jam');

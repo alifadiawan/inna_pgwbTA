@@ -8,24 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ekstrakulikuler extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        
-        'nama_pembina',
-    ];
-
+    protected $guarded = [];
     protected $table = 'ekstrakulikuler';
 
-    public function daftar(){
-        return $this->hasManyThrough('App\Models\tabelmaster', 'nama_ekskul');
-    }
-
-    public function up(){
-        return $this->hasMany('App\Models\update');
-    }
-
-    public function tabelmaster(){
-        // return $this->hasManyThrough('App\Models\tabelmaster', 'kelas');
-        return $this->hasMany('App\Models\tabelmaster');
+    public function siswa(){
+        return $this->belongsToMany(siswa::class,'ekstrakulikuler_anggota','anggota_id','ekstrakulikuler_id');
     }
 
 

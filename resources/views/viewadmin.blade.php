@@ -84,7 +84,7 @@
                         aria-haspopup="true" aria-expanded="false">CONTACT</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="article-details.html"><span class="item-text"><i
-                                    class='fa fa-whatsapp'></i> Custumer Service</span></a>
+                                    class='fa fa-whatsapp'></i> Customer Service</span></a>
 
                     </div>
                 </li>
@@ -224,57 +224,57 @@
 
     <!-- Students -->
     <div class="container">
-    <div class="basic-3">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="carouselExampleIndicators" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
-                               
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/dance2.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div> <!-- end of col -->
-                
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        @foreach ($data_update as $item)
-                            <div class="card border-0">
-                                <div class="card-body ">
-                                    <h2 class="fw-bold">{{$item->judul}}</h2>
-                                    <p class="card-text">{{$item->deskripsi}}</p>
-                                    <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                                    <p class="card-text">Hari : {{$item->hari}}</p>
-                                    <p class="card-text">Jam : {{$item->jam}}</p>
+        <div class="basic-3">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/dance2.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/fotodance1.jpg" class="d-block w-100" alt="...">
                                 </div>
                             </div>
-                        @endforeach
-                        
-                        {{-- {{asset('/template/img/'.$siswa->foto)}} --}}
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div> <!-- end of col -->
 
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            @foreach ($data_update as $item)
+                                <div class="card border-0">
+                                    <div class="card-body ">
+                                        <h2 class="fw-bold">{{ $item->judul }}</h2>
+                                        <p class="card-text">{{ $item->deskripsi }}</p>
+                                        <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
+                                        <p class="card-text">Hari : {{ $item->hari }}</p>
+                                        <p class="card-text">Jam : {{ $item->jam }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            {{-- {{asset('/template/img/'.$siswa->foto)}} --}}
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of basic-3 -->
     </div>
     <!-- end of students -->
 
@@ -361,17 +361,17 @@
                 <div class="col-lg-6">
                     <div class="text-container">
                         @foreach ($data_update as $item)
-                        <div class="card border-0">
-                            <div class="card-body ">
-                                <h2 class="fw-bold">{{$item->judul}}</h2>
-                                <p class="card-text">{{$item->deskripsi}}</p>
-                                <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
-                                <p class="card-text">Hari : {{$item->hari}}</p>
-                                <p class="card-text">Jam : {{$item->jam}}</p>
+                            <div class="card border-0">
+                                <div class="card-body ">
+                                    <h2 class="fw-bold">{{ $item->judul }}</h2>
+                                    <p class="card-text">{{ $item->deskripsi }}</p>
+                                    <h6 class="fw-bold">Jadwal Ekstrakulikuler</h6>
+                                    <p class="card-text">Hari : {{ $item->hari }}</p>
+                                    <p class="card-text">Jam : {{ $item->jam }}</p>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                       
+                        @endforeach
+
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
 
@@ -379,20 +379,6 @@
         </div> <!-- end of container -->
     </div> <!-- end of basic-3 -->
     <!-- end of students -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Footer -->
     <div class="footer">
         <div class="container">
